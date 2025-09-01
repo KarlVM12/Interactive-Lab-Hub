@@ -86,7 +86,7 @@ Goals:
 Storyboards are a tool for visually exploring a users interaction with a device. They are a fast and cheap method to understand user flow, and iterate on a design before attempting to build on it. Take some time to read through this explanation of [storyboarding in UX design](https://www.smashingmagazine.com/2017/10/storyboarding-ux-design/). Sketch seven storyboards of the interactions you are planning. **It does not need to be perfect**, but must get across the behavior of the interactive device and the other characters in the scene. 
 
 \*\***
-Storyboards:
+[Storyboards:](Lab%201/storyboards/Storyboard.pdf)
 <br><img height="200" alt="storyboard_1_idle" src="https://github.com/user-attachments/assets/c2d63dda-24bc-4502-83a1-2639562cc7eb" />
 <br><img height="200" alt="storyboard_2_approach" src="https://github.com/user-attachments/assets/e5bd1698-db6c-4ea7-808d-47351786cb60" />
 <br><img height="200" alt="storyboard_3_knock" src="https://github.com/user-attachments/assets/60d05245-8ca2-4f34-8a71-242bb7dd1ba4" />
