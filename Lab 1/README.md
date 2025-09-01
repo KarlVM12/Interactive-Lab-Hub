@@ -2,7 +2,7 @@
 
 # Staging Interaction
 
-**Karl Muller**
+\*\***Karl Muller**\*\*
 
 In the original stage production of Peter Pan, Tinker Bell was represented by a darting light created by a small handheld mirror off-stage, reflecting a little circle of light from a powerful lamp. Tinkerbell communicates her presence through this light to the other characters. See more info [here](https://en.wikipedia.org/wiki/Tinker_Bell). 
 
@@ -72,11 +72,30 @@ _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening th
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
 
-\*\***Describe your setting, players, activity and goals here.**\*\*
+\*\***
+Device: _DoorHalo_: a doorknob which reacts to a person's presense with light that informs them whether they are welcome to enter, remain quiet, or do not disturb
+Setting: Apartment Hallway or Room door to office
+Players: Person inside apartment/office (e.g. Karl), roomate/visitor/coworker attempting to enter, other individuals or pets who might be near the door
+Activity: _DoorHalo_ uses patterns of responses via light to indicate whether one can enter or exit room/apartment without speech
+Goals: 
+  - Person inside apartment/office: signal their availability of do not disturb, welcome, or come in quietly
+  - Roomate/visitor: knows when to knock, wait, or come back later
+  - Device: communicate via light patterns
+**\*\*
 
 Storyboards are a tool for visually exploring a users interaction with a device. They are a fast and cheap method to understand user flow, and iterate on a design before attempting to build on it. Take some time to read through this explanation of [storyboarding in UX design](https://www.smashingmagazine.com/2017/10/storyboarding-ux-design/). Sketch seven storyboards of the interactions you are planning. **It does not need to be perfect**, but must get across the behavior of the interactive device and the other characters in the scene. 
 
-\*\***Include pictures of your storyboards here**\*\*
+\*\***
+Storyboards:
+<br><img height="200" alt="storyboard_1_idle" src="https://github.com/user-attachments/assets/c2d63dda-24bc-4502-83a1-2639562cc7eb" />
+<br><img height="200" alt="storyboard_2_approach" src="https://github.com/user-attachments/assets/e5bd1698-db6c-4ea7-808d-47351786cb60" />
+<br><img height="200" alt="storyboard_3_knock" src="https://github.com/user-attachments/assets/60d05245-8ca2-4f34-8a71-242bb7dd1ba4" />
+<br><img height="400" alt="storyboard_4_do_not_disturb" src="https://github.com/user-attachments/assets/09ddd8d6-3bd3-4959-921e-349fbd203d9d" />
+<br><img height="400" alt="storyboard_5_meeting" src="https://github.com/user-attachments/assets/327f0605-e890-422e-b215-bf534e40c030" />
+<br><img height="400" alt="storyboard_6_welcome" src="https://github.com/user-attachments/assets/6c1800ac-c3ca-40fb-a0f0-bcb84736f15d" />
+<br><img height="400" alt="storyboard_7_quiet" src="https://github.com/user-attachments/assets/e9830f9b-e817-4f52-8ddc-f6cc427ab1ff" />
+
+**\*\*
 
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
