@@ -189,7 +189,7 @@ Think about the setting of the device: is the environment a place where the devi
 <br>
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
-<br> I guess I was inspired by the Ring a little here although it was in my mind initially.
+<br> I guess I was inspired by the Ring Door Camera a little here although it wasn't in my mind initially.
 <br> Jade Chang helped me grasp the Tinkerbelle light interactive initially !
 <br> Cole Donat helped with feedback !
 
