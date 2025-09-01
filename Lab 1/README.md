@@ -72,7 +72,7 @@ _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening th
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
 
-\*\***Describe your setting, players, activity and goals here.**
+\*\***Describe your setting, players, activity and goals here.**\*\*
 <br>Device: _DoorHalo_: a doorknob which reacts to a person's presense with light that informs them whether they are welcome to enter, remain quiet, or do not disturb
 <br>Setting: Apartment Hallway or Room door to office
 <br>Players: Person inside apartment/office (e.g. Karl), roomate/visitor/coworker attempting to enter, other individuals or pets who might be near the door
@@ -104,10 +104,9 @@ Storyboards are a tool for visually exploring a users interaction with a device.
 
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
-\*\***Summarize feedback you got here.**
+\*\***Summarize feedback you got here.**\*\*
 <br>Received one initial feedback:
 <Br> Cole Donat: Cool ! Its like Ring!
-**\*\*
 
 
 ## Part B. Act out the Interaction
