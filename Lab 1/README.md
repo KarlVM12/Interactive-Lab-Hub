@@ -135,7 +135,7 @@ We invented this tool for this lab!
 If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
 
 \*\***Give us feedback on Tinkerbelle.**
-I really like the tool ! A great addition could be a timer that on timeout would switch to a designated color. This would make testing it out and working on certain light pattern ever easier so that in some cases you wouldn't have to depend on another user to manually change the color.
+<br>I really like the tool ! A great addition could be a timer that on timeout would switch to a designated color. This would make testing it out and working on certain light pattern ever easier so that in some cases you wouldn't have to depend on another user to manually change the color.
 \*\*
 
 
@@ -155,17 +155,29 @@ Only now should you start worrying about what the device should look like. Devel
 
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
-\*\***Include sketches of what your devices might look like here.**\*\*
+\*\***[Device Sketches:](sketches/)**
+<br> [Prototype Sketch 1](sketches/sketch_1.png)
+<br> [Prototype Sketch 2](sketches/sketch_2.png)
+<br> [Prototype Sketch 3](sketches/sketch_3.png)
+\*\*
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
 
 ## Part F. Record
 
-\*\***Take a video of your prototyped interaction.**\*\*
+\*\***[Interaction videos:](videos/)**
+<br>[Video 1](videos/interaction_1.mov)
+<br>[Video 2](videos/interaction_2.mov)
+<br>[Video 3](videos/interaction_3.mov)
+\*\*
 
-\*\***Please indicate who you collaborated with on this Lab.**\*\*
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+\*\***Please indicate who you collaborated with on this Lab.**
+<br> I guess I was inspired by the Ring a little here although it was in my mind initially.
+<br> Jade Chang helped me grasp the Tinkerbelle light interactive initially !
+<br> Cole Donat helped with feedback !
+\*\*
+
 
 
 
