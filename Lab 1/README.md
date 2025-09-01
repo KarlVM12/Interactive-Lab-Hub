@@ -81,12 +81,11 @@ The interactive device can be anything *except* a computer, a tablet computer or
   - Person inside apartment/office: signal their availability of do not disturb, welcome, or come in quietly
   - Roomate/visitor: knows when to knock, wait, or come back later
   - Device: communicate via light patterns
-**\*\*
 
 Storyboards are a tool for visually exploring a users interaction with a device. They are a fast and cheap method to understand user flow, and iterate on a design before attempting to build on it. Take some time to read through this explanation of [storyboarding in UX design](https://www.smashingmagazine.com/2017/10/storyboarding-ux-design/). Sketch seven storyboards of the interactions you are planning. **It does not need to be perfect**, but must get across the behavior of the interactive device and the other characters in the scene. 
 
-\*\***Include pictures of your storyboards here**
-[Storyboards:](storyboards/Storyboards.pdf)
+\*\***Include pictures of your storyboards here**\*\*
+<br>[Storyboards:](storyboards/Storyboards.pdf)
 <br><img height="200" alt="storyboard_1_idle" src="https://github.com/user-attachments/assets/c2d63dda-24bc-4502-83a1-2639562cc7eb" />
 <br>_Idle_: Nobody approached; DoorHalo remained idle (dim warm light) <br>
 <br><img height="200" alt="storyboard_2_approach" src="https://github.com/user-attachments/assets/e5bd1698-db6c-4ea7-808d-47351786cb60" />
@@ -102,7 +101,6 @@ Storyboards are a tool for visually exploring a users interaction with a device.
 <br><img height="400" alt="storyboard_7_quiet" src="https://github.com/user-attachments/assets/e9830f9b-e817-4f52-8ddc-f6cc427ab1ff" />
 <br>_Quiet Hours_: Karl is trying to relax so the halo is set to a dim light purple. A cat zips by. The knob acknowledges the noise and enforces the quiet time indication by flashing a deep purple. (The cat does not care !) <br>
 
-**\*\*
 
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
