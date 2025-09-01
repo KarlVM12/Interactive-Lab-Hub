@@ -113,13 +113,13 @@ Present your ideas to the other people in your breakout room (or in small groups
 
 Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
 
-\*\***Are there things that seemed better on paper than acted out?**
+\*\***Are there things that seemed better on paper than acted out?**\*\*
 <br>Acting it out, its pretty much as I expected for it to be in the storyboards especially since it would pretty much just involve approaching the device
-\*\*
 
-\*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**
+
+\*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
 <br>There are a couple, like other light patterns to react to a user approaching. For example, after the amber pulses for a knock, the color of the halo can change depending on what status the person in the room wants to display. If it turns green after, that means enter, else if its red they know not to.
-\*\*
+
 
 
 ## Part C. Prototype the device
@@ -132,15 +132,15 @@ We invented this tool for this lab!
 
 If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
 
-\*\***Give us feedback on Tinkerbelle.**
+\*\***Give us feedback on Tinkerbelle.**\*\*
 <br>I really like the tool ! A great addition could be a timer that on timeout would switch to a designated color. This would make testing it out and working on certain light pattern ever easier so that in some cases you wouldn't have to depend on another user to manually change the color.
-\*\*
 
 
 ## Part D. Wizard the device
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
 
 \*\***Include your first attempts at recording the set-up video here.**\*\*
+
 
 Now, change the goal within the same setting, and update the interaction with the paper prototype. 
 
@@ -153,29 +153,26 @@ Only now should you start worrying about what the device should look like. Devel
 
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
-\*\***[Device Sketches:](sketches/)**
+\*\***[Device Sketches:](sketches/)**\*\*
 <br> [Prototype Sketch 1](sketches/sketch_1.png)
 <br> [Prototype Sketch 2](sketches/sketch_2.png)
 <br> [Prototype Sketch 3](sketches/sketch_3.png)
-\*\*
+
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 
 
 ## Part F. Record
 
-\*\***[Interaction videos:](videos/)**
+\*\***[Interaction videos:](videos/)**\*\*
 <br>[Video 1](videos/interaction_1.mov)
 <br>[Video 2](videos/interaction_2.mov)
 <br>[Video 3](videos/interaction_3.mov)
-\*\*
 
-\*\***Please indicate who you collaborated with on this Lab.**
+\*\***Please indicate who you collaborated with on this Lab.**\*\*
 <br> I guess I was inspired by the Ring a little here although it was in my mind initially.
 <br> Jade Chang helped me grasp the Tinkerbelle light interactive initially !
 <br> Cole Donat helped with feedback !
-\*\*
-
 
 
 
