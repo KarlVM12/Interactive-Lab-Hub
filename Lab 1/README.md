@@ -174,15 +174,15 @@ Think about the setting of the device: is the environment a place where the devi
 ## Part F. Record
 
 \*\***[Interaction videos:](videos/)**\*\*
-<br>**_Prototype Sketch 1:_**
+<br>**_[Prototype Sketch 1](sketches/sketch_1.png):_**
 <br>- [Interaction Protoype Sketch 1: Knock -> Welcome/Enter](videos/sketch_1_interaction_knock.mp4)
 <br>- [Interaction Protoype Sketch 1: Knock -> Do Not Disturb -> Leave](videos/sketch_1_interaction_donotdisturb.mp4)
 <br>- [Interaction Protoype Sketch 1: Meeting (Waiting)](videos/sketch_1_interaction_meeting.mp4)
-<br>**_Prototype Sketch 2:_**
+<br>**_[Prototype Sketch 2](sketches/sketch_2.png):_**
 <br>- [Interaction Protoype Sketch 2: Knock -> Welcome/Enter](videos/sketch_2_interaction_knock.mp4)
 <br>- [Interaction Protoype Sketch 2: Knock -> Do Not Disturb -> Leave](videos/sketch_2_interaction_donotdisturb.mp4)
 <br>- [Interaction Protoype Sketch 2: Meeting -> Welcome/Enter](videos/sketch_2_interaction_meeting.mp4)
-<br>**_Prototype Sketch 3:_**
+<br>**_[Prototype Sketch 3](sketches/sketch_3.png):_**
 <br>- [Interaction Protoype Sketch 3: Knock -> Welcome/Enter](videos/sketch_3_interaction_knock.mp4)
 <br>- [Interaction Protoype Sketch 3: Immediate Do Not Disturb -> Leave](videos/sketch_3_interaction_donotdisturb.mp4)
 <br>- [Interaction Protoype Sketch 3: Meeting -> Welcome/Enter](videos/sketch_3_interaction_meeting.mp4)
