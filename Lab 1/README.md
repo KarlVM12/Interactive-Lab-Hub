@@ -73,11 +73,11 @@ _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening th
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
 
 \*\***
-Device: _DoorHalo_: a doorknob which reacts to a person's presense with light that informs them whether they are welcome to enter, remain quiet, or do not disturb
-Setting: Apartment Hallway or Room door to office
-Players: Person inside apartment/office (e.g. Karl), roomate/visitor/coworker attempting to enter, other individuals or pets who might be near the door
-Activity: _DoorHalo_ uses patterns of responses via light to indicate whether one can enter or exit room/apartment without speech
-Goals: 
+<br>Device: _DoorHalo_: a doorknob which reacts to a person's presense with light that informs them whether they are welcome to enter, remain quiet, or do not disturb
+<br>Setting: Apartment Hallway or Room door to office
+<br>Players: Person inside apartment/office (e.g. Karl), roomate/visitor/coworker attempting to enter, other individuals or pets who might be near the door
+<br>Activity: _DoorHalo_ uses patterns of responses via light to indicate whether one can enter or exit room/apartment without speech
+<br> Goals: 
   - Person inside apartment/office: signal their availability of do not disturb, welcome, or come in quietly
   - Roomate/visitor: knows when to knock, wait, or come back later
   - Device: communicate via light patterns
