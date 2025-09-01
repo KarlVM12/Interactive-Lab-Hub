@@ -157,9 +157,11 @@ Think about the setting of the device: is the environment a place where the devi
 \*\***[Device Sketches:](sketches/)**\*\*
 <br> [Prototype Sketch 1](sketches/sketch_1.png)
 - [Paper Prototype 1a](paper_prototype/paper_prototype_1a.png)
-- [Paper Prototype 1b](paper_prototype/paper_prototype_1b.png)
+- [Paper Prototype 1b](paper_prototype/paper_prototype_1b.png)<br>
+
 <br> [Prototype Sketch 2](sketches/sketch_2.png)
-- [Paper Prototype 2](paper_prototype/paper_prototype_2.png)
+- [Paper Prototype 2](paper_prototype/paper_prototype_2.png)<br>
+
 <br> [Prototype Sketch 3](sketches/sketch_3.png)
 
 
