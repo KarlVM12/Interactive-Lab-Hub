@@ -163,17 +163,20 @@ Think about the setting of the device: is the environment a place where the devi
 - [Paper Prototype 2](paper_prototype/paper_prototype_2.png)<br>
 
 <br> [Prototype Sketch 3](sketches/sketch_3.png)
-
+- [Paper Prototype 3](paper_prototype/paper_prototype_3.png)<br><br>
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
-
+<br> The main goal of this device is for ease of communicating the availability of someone. This necessitates the devices being around somewhere someone would commonly look if about to approach someone's apartment/room/office. 
+<br> That is why Sketch 1 and 2 focused heavily around the doorknob because you can't miss a bright light around your only means of opening a door, so that should allow a message to come across clearly.
+<br> Sketch 3 takes more of a passive and not so much in your face approach to conveying this by casting it from above. In some cases, some might take this design as more formal or less obstructive than a knob surrounded in deep red (do not disturb). An over the door light can come off more subtle and ambient
+<br>
 
 ## Part F. Record
 
 \*\***[Interaction videos:](videos/)**\*\*
-<br>[Video 1](videos/interaction_1.mov)
-<br>[Video 2](videos/interaction_2.mov)
-<br>[Video 3](videos/interaction_3.mov)
+<br>[Video 1](videos/interaction_1.mp4)
+<br>[Video 2](videos/interaction_2.mp4)
+<br>[Video 3](videos/interaction_3.mp4)
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
 <br> I guess I was inspired by the Ring a little here although it was in my mind initially.
