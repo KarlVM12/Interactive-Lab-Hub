@@ -88,12 +88,19 @@ Storyboards are a tool for visually exploring a users interaction with a device.
 \*\***
 [Storyboards:](storyboards/Storyboards.pdf)
 <br><img height="200" alt="storyboard_1_idle" src="https://github.com/user-attachments/assets/c2d63dda-24bc-4502-83a1-2639562cc7eb" />
+<br>_Idle_: Nobody approached; DoorHalo remained idle (dim warm light) <br>
 <br><img height="200" alt="storyboard_2_approach" src="https://github.com/user-attachments/assets/e5bd1698-db6c-4ea7-808d-47351786cb60" />
+<br>_Approach_: Visitor approached; halo lights up softly white <br>
 <br><img height="200" alt="storyboard_3_knock" src="https://github.com/user-attachments/assets/60d05245-8ca2-4f34-8a71-242bb7dd1ba4" />
+<br>_Knock_: Visitor knocks; halo reacts with same pattern as a trio of amber pulses <br>
 <br><img height="400" alt="storyboard_4_do_not_disturb" src="https://github.com/user-attachments/assets/09ddd8d6-3bd3-4959-921e-349fbd203d9d" />
+<br>_Do Not Disturb_: Karl is busy on a task  and does not want to be disturbed. When no one is there and even when a vistor approaches, the halo breathes a deep red. The visitor leaves seeing the 'do not disturb' lighting <br>
 <br><img height="400" alt="storyboard_5_meeting" src="https://github.com/user-attachments/assets/327f0605-e890-422e-b215-bf534e40c030" />
+<br>_Meeting_: Karl is in a short meeting. The halo is sweeping blue. A visitor comes by and recognizes the sweeping blue to be a meeting. They wait outside until the meeting is done <br>
 <br><img height="400" alt="storyboard_6_welcome" src="https://github.com/user-attachments/assets/6c1800ac-c3ca-40fb-a0f0-bcb84736f15d" />
+<br>_Welcome/Enter_: Karl is available and not busy. The halo around the knob is a soft green. A visitor recognizess the green and enters the room <br>
 <br><img height="400" alt="storyboard_7_quiet" src="https://github.com/user-attachments/assets/e9830f9b-e817-4f52-8ddc-f6cc427ab1ff" />
+<br>_Quiet Hours_: Karl is trying to relax so the halo is set to a dim light purple. A cat zips by. The knob acknowledges the noise and enforces the quiet time indication by flashing a deep purple. (The cat does not care !) <br>
 
 **\*\*
 
