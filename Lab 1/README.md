@@ -116,11 +116,11 @@ Cole Donat: Cool ! Its like Ring!
 Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
 
 \*\***Are there things that seemed better on paper than acted out?**
-Acting it out, its pretty much as I expected for it to be in the storyboards especially since it would pretty much just involve approaching the device
+<br>Acting it out, its pretty much as I expected for it to be in the storyboards especially since it would pretty much just involve approaching the device
 \*\*
 
 \*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**
-There are a couple, like other light patterns to react to a user approaching. For example, after the amber pulses for a knock, the color of the halo can change depending on what status the person in the room wants to display. If it turns green after, that means enter, else if its red they know not to.
+<br>There are a couple, like other light patterns to react to a user approaching. For example, after the amber pulses for a knock, the color of the halo can change depending on what status the person in the room wants to display. If it turns green after, that means enter, else if its red they know not to.
 \*\*
 
 
