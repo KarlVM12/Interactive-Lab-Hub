@@ -156,14 +156,14 @@ Think about the setting of the device: is the environment a place where the devi
 
 \*\***[Device Sketches:](sketches/)**\*\*
 <br> [Prototype Sketch 1](sketches/sketch_1.png)
-- [Paper Prototype 1a](paper_prototype/paper_prototype_1a.png)
-- [Paper Prototype 1b](paper_prototype/paper_prototype_1b.png)<br>
+- [Paper Prototype 1a](paper_prototypes/paper_prototype_1a.png)
+- [Paper Prototype 1b](paper_prototypes/paper_prototype_1b.png)<br>
 
 <br> [Prototype Sketch 2](sketches/sketch_2.png)
-- [Paper Prototype 2](paper_prototype/paper_prototype_2.png)<br>
+- [Paper Prototype 2](paper_prototypes/paper_prototype_2.png)<br>
 
 <br> [Prototype Sketch 3](sketches/sketch_3.png)
-- [Paper Prototype 3](paper_prototype/paper_prototype_3.png)<br><br>
+- [Paper Prototype 3](paper_prototypes/paper_prototype_3.png)<br><br>
 
 \*\***What concerns or opportunitities are influencing the way you've designed the device to look?**\*\*
 <br> The main goal of this device is for ease of communicating the availability of someone. This necessitates the devices being around somewhere someone would commonly look if about to approach someone's apartment/room/office. 
