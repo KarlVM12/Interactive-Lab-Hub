@@ -106,16 +106,22 @@ Storyboards are a tool for visually exploring a users interaction with a device.
 
 Present your ideas to the other people in your breakout room (or in small groups). You can just get feedback from one another or you can work together on the other parts of the lab.
 
-\*\***Summarize feedback you got here.**\*\*
+\*\*** Received one initial feedback:
+Cole Donat: Cool ! Its like Ring!
+**\*\*
 
 
 ## Part B. Act out the Interaction
 
 Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
 
-\*\***Are there things that seemed better on paper than acted out?**\*\*
+\*\***Are there things that seemed better on paper than acted out?**
+Acting it out, its pretty much as I expected for it to be in the storyboards especially since it would pretty much just involve approaching the device
+\*\*
 
-\*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
+\*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**
+There are a couple, like other light patterns to react to a user approaching. For example, after the amber pulses for a knock, the color of the halo can change depending on what status the person in the room wants to display. If it turns green after, that means enter, else if its red they know not to.
+\*\*
 
 
 ## Part C. Prototype the device
@@ -128,7 +134,9 @@ We invented this tool for this lab!
 
 If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
 
-\*\***Give us feedback on Tinkerbelle.**\*\*
+\*\***Give us feedback on Tinkerbelle.**
+I really like the tool ! A great addition could be a timer that on timeout would switch to a designated color. This would make testing it out and working on certain light pattern ever easier so that in some cases you wouldn't have to depend on another user to manually change the color.
+\*\*
 
 
 ## Part D. Wizard the device
