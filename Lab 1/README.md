@@ -174,9 +174,19 @@ Think about the setting of the device: is the environment a place where the devi
 ## Part F. Record
 
 \*\***[Interaction videos:](videos/)**\*\*
-<br>[Video 1](videos/interaction_1.mp4)
-<br>[Video 2](videos/interaction_2.mp4)
-<br>[Video 3](videos/interaction_3.mp4)
+<br>**_Sketch 1:_**
+<br>- [Interaction 1 Knock](videos/sketch_1_interaction_knock.mp4)
+<br>- [Interaction 1 Do Not Disturb](videos/sketch_1_interaction_donotdisturb.mp4)
+<br>- [Interaction 1 Meeting](videos/sketch_1_interaction_meeting.mp4)
+<br>**_Sketch 2:_**
+<br>- [Interaction 2 Knock](videos/sketch_2_interaction_knock.mp4)
+<br>- [Interaction 2 Do Not Disturb](videos/sketch_2_interaction_donotdisturb.mp4)
+<br>- [Interaction 2 Meeting](videos/sketch_2_interaction_meeting.mp4)
+<br>**_Sketch 3:_**
+<br>- [Interaction 3 Knock](videos/sketch_3_interaction_knock.mp4)
+<br>- [Interaction 3 Do Not Disturb](videos/sketch_3_interaction_donotdisturb.mp4)
+<br>- [Interaction 3 Meeting](videos/sketch_3_interaction_meeting.mp4)
+<br>
 
 \*\***Please indicate who you collaborated with on this Lab.**\*\*
 <br> I guess I was inspired by the Ring a little here although it was in my mind initially.
