@@ -204,7 +204,9 @@ This describes the second week's work for this lab activity.
 
 You will be assigned three partners from other groups. Go to their github pages, view their videos, and provide them with reactions, suggestions & feedback: explain to them what you saw happening in their video. Guess the scene and the goals of the character. Ask them about anything that wasn’t clear. 
 
-\*\***Summarize feedback from your partners here.**\*\*
+\*\***Summarize feedback from your partners here.**
+Overall, all feedback I received gave me good marks on the technical execution, communication/documentaions of the idea/process, and testing the interaction. They seemed to like my storyboards, thought the idea was clear and concise, and that the prototypes seemed solid. In terms of novelty and exploration of the current design space, the feedback was all satisfactory, but all mentioned that I could maybe go a little further with the idea, maybe combining different ideas together to make it a little more novel than just light as an indicator. 
+\*\*
 
 ## Make it your own
 
