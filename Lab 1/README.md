@@ -265,6 +265,7 @@ _Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm
 
 \*\***[Interaction videos:](videos/)**\*\*
 <br>**_[Prototype Sketch](sketches/sketch_1_part2.png):_** <br>
+To do these interactions, I heavily customized tinkerbelle so that my control panel could run certain scenarios and sounds like so: <img width="708" height="649" alt="image" src="https://github.com/user-attachments/assets/c6b641d0-3ccf-41f4-9d98-940ea2ec045c" /><br>
 <b>!! Each interaction was meant to have audio associated with actions like knock, meetings, welcome, etc. as shown by the storyboards, those unfortunately were not caught by the recording device for some reason, but that should have been another modality of interaction with this device, please try to use imagination in this case with what is shown in the storyboards! !! </b>
 <br>- [Interaction Protoype Sketch: Approach -> Knock -> Welcome/Enter](videos/sketch_part2_interaction_knock.mp4)
 <br>- [Interaction Protoype Sketch: Approach -> Do Not Disturb -> Leave](videos/sketch_part2_interaction_donotdisturb.mp4)
