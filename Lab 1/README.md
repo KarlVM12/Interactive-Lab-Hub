@@ -252,7 +252,7 @@ _Do Not Disturb_: Person approaches; Door is already lit up and pusling a bright
 _Meeting:_ Karl is in a meeting; the knob is sweeping blue left to right. It emits a low hum and notes when the meeting will be over _Meeting 3:10pm_ <br>
 
 <img width="401" height="212" alt="image" src="https://github.com/user-attachments/assets/b45a8f16-d8e9-4580-bff1-326305508515" /><br>
-_Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm. As they put their hand towards the door, it brings up a prompt to schedule a meeting with Karl for the next 30 min interval _Schedule Meeting 3:30pm?_. Karl can choose to tap to confirm, of which the knob will go back to displaying when the current meeting will end. It will also now say the next meeting _Meeting till 3:10pm | Next Meeting: 3:30pm_ (This last text isn't pictured, thought of it afterwards)<br>
+_Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm. As they put their hand towards the door, it brings up a prompt to schedule a meeting with Karl for the next 30 min interval with a soft _ding ding_ sound _Schedule Meeting 3:30pm?_. Karl can choose to tap to confirm, of which the knob will go back to displaying when the current meeting will end. It will also now say the next meeting _Meeting till 3:10pm | Next Meeting: 3:30pm_ (This last text isn't pictured, thought of it afterwards)<br>
 
 <br>**Prototype & Costumes**
 
