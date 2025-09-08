@@ -264,8 +264,8 @@ _Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm
 <br>**Recorded Interacions**
 
 \*\***[Interaction videos:](videos/)**\*\*
-<br>**_[Prototype Sketch](sketches/sketch_1_part2.png):_**
-
+<br>**_[Prototype Sketch](sketches/sketch_1_part2.png):_** <br>
+<b>!! Each interaction was meant to have audio associated with actions like knock, meetings, welcome, etc. as shown by the storyboards, those unfortunately were not caught by the recording device for some reason, but that should have been another modality of interaction with this device, try to use imagination in this case! !! </b>
 <br>- [Interaction Protoype Sketch: Approach -> Knock -> Welcome/Enter](videos/sketch_part2_interaction_knock.mp4)
 <br>- [Interaction Protoype Sketch: Approach -> Do Not Disturb -> Leave](videos/sketch_part2_interaction_donotdisturb.mp4)
 <br>- [Interaction Protoype Sketch: Meeting (Scheduling)](videos/sketch_part2_interaction_meeting.mp4)
