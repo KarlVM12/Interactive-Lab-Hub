@@ -265,8 +265,10 @@ _Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm
 
 \*\***[Interaction videos:](videos/)**\*\*
 <br>**_[Prototype Sketch](sketches/sketch_1_part2.png):_**
-<br>- [Interaction Protoype Sketch: Knock -> Welcome/Enter](videos/sketch_1_interaction_knock_part2.mp4)
-<br>- [Interaction Protoype Sketch: Knock -> Do Not Disturb -> Leave](videos/sketch_1_interaction_donotdisturb_part2.mp4)
-<br>- [Interaction Protoype Sketch: Meeting (Scheduling)](videos/sketch_1_interaction_meeting_part2.mp4)
+
+<br>- [Interaction Protoype Sketch: Approach -> Knock -> Welcome/Enter](videos/sketch_part2_interaction_knock.mp4)
+<br>- [Interaction Protoype Sketch: Approach -> Do Not Disturb -> Leave](videos/sketch_part2_interaction_donotdisturb.mp4)
+<br>- [Interaction Protoype Sketch: Meeting (Scheduling)](videos/sketch_part2_interaction_meeting.mp4)
+<br>- [Interaction Protoype Sketch: Quiet Hours](videos/sketch_part2_interaction_quiet.mp4)
 
 
