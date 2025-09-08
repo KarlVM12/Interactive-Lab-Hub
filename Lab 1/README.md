@@ -219,7 +219,7 @@ Do last week’s assignment again, but this time:
 
 <br>**Plan**
 
-<br>**_Device:_** _DoorHalo++_: 
+<br>**_Device:_** _DoorHalo++_: a doorknob which reacts to a person's presense with light, sounds, and messages that informs them whether they are welcome to enter, remain quiet, or do not disturb 
 <br>**_Setting:_** Apartment Hallway or Room door to office 
 <br>**_Players:_** Person inside apartment/office (e.g. Karl), roomate/visitor/coworker attempting to enter, other individuals or pets who might be near the door
 <br>**_Activity:_** _DoorHalo_ uses patterns of responses via light, message, and sound to indicate whether one can enter or exit room/apartment
@@ -231,7 +231,7 @@ Do last week’s assignment again, but this time:
 
 <br>**Storyboards**
 
-<br>[Storyboards:](storyboards/Storyboards_part2.pdf)
+<br>[Storyboards](storyboards/Storyboards_part2.pdf)
 
 <!-- <br><img height="200" alt="" src="" /> -->
 <!-- <br>_Action_: Action that is occurring <br> -->
