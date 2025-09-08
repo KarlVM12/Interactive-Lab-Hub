@@ -217,8 +217,7 @@ Do last week’s assignment again, but this time:
 
 \*\***Document everything here. (Particularly, we would like to see the storyboard and video, although photos of the prototype are also great.)**\*\*
 
-<br>
-**Plan**
+<br>**Plan**
 
 <br>**_Device:_** _DoorHalo++_: 
 <br>**_Setting:_** Apartment Hallway or Room door to office 
@@ -230,8 +229,7 @@ Do last week’s assignment again, but this time:
   - Device: communicate via light patterns, sound, and messages
 
 
-<br>
-**Storyboards**
+<br>**Storyboards**
 
 <br>[Storyboards:](storyboards/Storyboards_part2.pdf)
 
@@ -239,16 +237,14 @@ Do last week’s assignment again, but this time:
 <!-- <br>_Action_: Action that is occurring <br> -->
 
 
-<br>
-**Prototype & Costumes**
+<br>**Prototype & Costumes**
 
 \*\***[Device Sketches:](sketches/)**\*\*
 <br> [Prototype Sketch](sketches/sketch_1_part2.png)
 <br> [Paper Prototype](paper_prototypes/paper_prototype_part2.png)
 
 
-<br>
-**Recorded Interacions**
+<br>**Recorded Interacions**
 
 \*\***[Interaction videos:](videos/)**\*\*
 <br>**_[Prototype Sketch](sketches/sketch_1_part2.png):_**
