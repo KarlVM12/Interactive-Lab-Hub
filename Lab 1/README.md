@@ -233,26 +233,26 @@ Do last week’s assignment again, but this time:
 
 <br> [Storyboards](storyboards/Storyboards_part2.pdf)
 
-<img height="200" alt="image" src="https://github.com/user-attachments/assets/d03549d4-c567-424a-8d5c-9477ce1ab164" />
-<br> _Idle:_ Nobody approached, haldo remained idle (dim warm light, no status, no sound) <br>
+<img height="200" alt="image" src="https://github.com/user-attachments/assets/d03549d4-c567-424a-8d5c-9477ce1ab164" /> <br>
+_Idle:_ Nobody approached, haldo remained idle (dim warm light, no status, no sound) <br>
 
-<img width="450" height="261" alt="image" src="https://github.com/user-attachments/assets/0be61058-4d2a-449f-9d98-ddcd4c0e38aa" />
-<br> _Approach:_ Person approached; doorknob lights up, a soft white, with a soft _tick_ sounds, and displays a custom friendly message like _Hello!_ <br>
+<img width="450" height="261" alt="image" src="https://github.com/user-attachments/assets/0be61058-4d2a-449f-9d98-ddcd4c0e38aa" /><br>
+_Approach:_ Person approached; doorknob lights up, a soft white, with a soft _tick_ sounds, and displays a custom friendly message like _Hello!_ <br>
 
-<img width="450" height="264" alt="image" src="https://github.com/user-attachments/assets/a78fc45a-7859-437c-b1fa-c0fa48ef5053" />
-<br> _Knock:_ Person knocks; halo repeats the same knock patterns with three amber pulses, a small _tap_ sound for each knock, and a bell icon on the door <br>
+<img width="450" height="264" alt="image" src="https://github.com/user-attachments/assets/a78fc45a-7859-437c-b1fa-c0fa48ef5053" /><br>
+_Knock:_ Person knocks; halo repeats the same knock patterns with three amber pulses, a small _tap_ sound for each knock, and a bell icon on the door <br>
 
-<img width="437" height="217" alt="image" src="https://github.com/user-attachments/assets/21a98d8a-d393-4d24-90eb-0ad1db18d3ff" />
-<br> _Welcome:_ When a person approaches, door wakes from idle into a bright green, welcoming the user with a welcome message like _Welcome 👋_, and a soft 2 note rising chime _dun dun_ <br>
+<img width="437" height="217" alt="image" src="https://github.com/user-attachments/assets/21a98d8a-d393-4d24-90eb-0ad1db18d3ff" /><br>
+_Welcome:_ When a person approaches, door wakes from idle into a bright green, welcoming the user with a welcome message like _Welcome 👋_, and a soft 2 note rising chime _dun dun_ <br>
 
-<img width="392" height="246" alt="image" src="https://github.com/user-attachments/assets/1134e442-3e32-4ae5-8eec-7e3eada76e89" />
-<br> _Do Not Disturb_: Person approaches; Door is already lit up and pusling a bright red, says a message like _Do Not Disturb_ or _BUSY_, doesn't respond with any sounds. Person leaves. <br>
+<img width="392" height="246" alt="image" src="https://github.com/user-attachments/assets/1134e442-3e32-4ae5-8eec-7e3eada76e89" /><br>
+_Do Not Disturb_: Person approaches; Door is already lit up and pusling a bright red, says a message like _Do Not Disturb_ or _BUSY_, doesn't respond with any sounds. Person leaves. <br>
 
-<img width="393" height="275" alt="image" src="https://github.com/user-attachments/assets/ce047ca2-37ac-4287-8e84-62c92b1f6511" />
-<br> _Meeting:_ Karl is in a meeting; the knob is sweeping blue left to right. It emits a low hum and notes when the meeting will be over _Meeting 3:10pm_ <br>
+<img width="393" height="275" alt="image" src="https://github.com/user-attachments/assets/ce047ca2-37ac-4287-8e84-62c92b1f6511" /><br>
+_Meeting:_ Karl is in a meeting; the knob is sweeping blue left to right. It emits a low hum and notes when the meeting will be over _Meeting 3:10pm_ <br>
 
-<img width="401" height="212" alt="image" src="https://github.com/user-attachments/assets/b45a8f16-d8e9-4580-bff1-326305508515" />
-<br> _Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm. As they put their hand towards the door, it brings up a prompt to schedule a meeting with Karl for the next 30 min interval _Schedule Meeting 3:30pm?_. Karl can choose to tap to confirm, of which the knob will go back to displaying when the current meeting will end. It will also now say the next meeting _Meeting till 3:10pm | Next Meeting: 3:30pm_ (This last text isn't pictured, thought of it afterwards)<br>
+<img width="401" height="212" alt="image" src="https://github.com/user-attachments/assets/b45a8f16-d8e9-4580-bff1-326305508515" /><br>
+_Scheduling Meeting:_ Person sees doorknob says Karl is in a meeting till 3:10pm. As they put their hand towards the door, it brings up a prompt to schedule a meeting with Karl for the next 30 min interval _Schedule Meeting 3:30pm?_. Karl can choose to tap to confirm, of which the knob will go back to displaying when the current meeting will end. It will also now say the next meeting _Meeting till 3:10pm | Next Meeting: 3:30pm_ (This last text isn't pictured, thought of it afterwards)<br>
 
 <br>**Prototype & Costumes**
 
