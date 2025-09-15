@@ -1,6 +1,6 @@
 # Interactive Prototyping: The Clock of Pi
 **NAMES OF COLLABORATORS HERE**
-Karl Muller
+<br> Karl Muller
 
 Does it feel like time is moving strangely during this semester?
 
