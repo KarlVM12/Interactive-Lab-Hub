@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
-cs_pin = digitalio.DigitalInOut(board.D5) 
+cs_pin = digitalio.DigitalInOut(board.D5)
 dc_pin = digitalio.DigitalInOut(board.D25)
 reset_pin = None
 
@@ -54,6 +54,8 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
+time_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 64)
+date_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -62,10 +64,29 @@ backlight.value = True
 
 while True:
     # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=400)
+    draw.rectangle((0, 0, width, height), outline=0, fill=0) # fill=400
+    
+    # Lab 2 Part D:
+    now = time.localtime()
+    colon = ":" if (now.tm_sec % 2) == 0 else " " # fun blinking colon
+    time_str = time.strftime(f"%H{colon}%M{colon}%S", now) # currently 24h time, if I use %I gives 12h
+    date_str = time.strftime("%a %b %d, %Y", now)
 
-    #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
+    # attempt to center and position nicely
+    t_bbox = draw.textbbox((0, 0), time_str, font=time_font)
+    d_bbox = draw.textbbox((0, 0), date_str, font=date_font)
+    t_w, t_h = t_bbox[2] - t_bbox[0], t_bbox[3] - t_bbox[1]
+    d_w, d_h = d_bbox[2] - d_bbox[0], d_bbox[3] - d_bbox[1]
 
-    # Display image.
+    t_x = (width  - t_w) // 2
+    t_y = (height - t_h) // 2 - 6
+    d_x = (width  - d_w) // 2
+    d_y = t_y + t_h - 4
+
+    # sends text into image buffer so it can be displayed
+    draw.text((t_x, t_y), time_str, font=time_font, fill="#FFFFFF")
+    draw.text((d_x, d_y), date_str, font=date_font, fill="#A0A0A0")
+
+    # Push the buffer to the display
     disp.image(image, rotation)
     time.sleep(1)
