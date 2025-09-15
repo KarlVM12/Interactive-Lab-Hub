@@ -9,21 +9,21 @@ It is worth spending a little time thinking about how you mark time, and what wo
 
 ## Prep
 Lab Prep is extra long this week. Make sure to start this early for lab on Thursday. ✅
-
-1. ### Set up your Lab 2 Github ✅
+<br>
+### 1. Set up your Lab 2 Github ✅
 Before the start of lab Thursday, ensure you have the latest lab content by updating your forked repository. <br>
 **📖 [Follow the step-by-step guide for safely updating your fork](pull_updates/README.md)** <br>
 This guide covers how to pull updates without overwriting your completed work, handle merge conflicts, and recover if something goes wrong. <br>
-
-2. ### Get Kit and Inventory Parts ✅
+<br>
+### 2. Get Kit and Inventory Parts ✅
 Prior to the lab session on Thursday, taken inventory of the kit parts that you have, and note anything that is missing: <br>
 ***Update your [parts list inventory](partslist.md)*** <br>
-
-3. ### Prepare your Pi for lab this week ✅
+<br>
+### 3. Prepare your Pi for lab this week ✅
 [Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Thursday.
 
 ## Overview
-For this assignment, you are going to 
+For this assignment, you are going to <br>
 A) [Connect to your Pi](#part-a)  ✅ <br>
 B) [Try out cli_clock.py](#part-b) ✅ <br>
 C) [Set up your RGB display](#part-c) ✅ <br>
@@ -68,7 +68,7 @@ You can look in `image.py` for an example of how to display an image on the scre
 ## Part D. ✅
 ### Set up the Display Clock Demo ✅
 Work on `screen_clock.py`, try to show the time by filling in the while loop (at the bottom of the script where we noted "TODO" for you). You can use the code in `cli_clock.py` and `stats.py` to figure this out. <br>
-\*\*\***Testing working basic analog clock**\*\*\*
+\*\*\***Testing working basic analog clock**\*\*\* <br>
 [screen_clock.py](screen_clock.py)
 
 ## Part E. Now moved to Lab2 Part 2.
