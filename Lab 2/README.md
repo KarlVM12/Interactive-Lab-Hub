@@ -77,7 +77,8 @@ Work on `screen_clock.py`, try to show the time by filling in the while loop (at
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
-
+\*\*\***Initial Sketch Idea: Flower Time!**\*\*\*<br>
+<img width="515" height="573" alt="image" src="https://github.com/user-attachments/assets/528dd747-d1d0-4644-9062-a7a8fee2a240" />
 
 # Prep for Part 2
 
