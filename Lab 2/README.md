@@ -1,21 +1,18 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
+**NAMES OF COLLABORATORS HERE:**
 <br> Karl Muller
 
-Does it feel like time is moving strangely during this semester?
+## Lab Description
+Does it feel like time is moving strangely during this semester? <br>
+For our first Pi project, we will pay homage to the [timekeeping devices of old](https://en.wikipedia.org/wiki/History_of_timekeeping_devices) by making simple clocks. <br>
+It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design. <br>
 
-For our first Pi project, we will pay homage to the [timekeeping devices of old](https://en.wikipedia.org/wiki/History_of_timekeeping_devices) by making simple clocks.
-
-It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design.
-
-**Please indicate anyone you collaborated with on this Lab here.**
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
 
 ## Prep
 
-Lab Prep is extra long this week. Make sure to start this early for lab on Thursday.
+Lab Prep is extra long this week. Make sure to start this early for lab on Thursday. ✅
 
-1. ### Set up your Lab 2 Github
+1. ### Set up your Lab 2 Github ✅
 
 Before the start of lab Thursday, ensure you have the latest lab content by updating your forked repository. 
 
@@ -24,12 +21,12 @@ Before the start of lab Thursday, ensure you have the latest lab content by upda
 This guide covers how to pull updates without overwriting your completed work, handle merge conflicts, and recover if something goes wrong.
 
 
-2. ### Get Kit and Inventory Parts
+2. ### Get Kit and Inventory Parts ✅
 Prior to the lab session on Thursday, taken inventory of the kit parts that you have, and note anything that is missing:
 
 ***Update your [parts list inventory](partslist.md)***
 
-3. ### Prepare your Pi for lab this week
+3. ### Prepare your Pi for lab this week ✅
 [Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Thursday.
 
 
@@ -38,13 +35,13 @@ Prior to the lab session on Thursday, taken inventory of the kit parts that you 
 ## Overview
 For this assignment, you are going to 
 
-A) [Connect to your Pi](#part-a)  
+A) [Connect to your Pi](#part-a)  ✅
 
-B) [Try out cli_clock.py](#part-b) 
+B) [Try out cli_clock.py](#part-b) ✅
 
-C) [Set up your RGB display](#part-c)
+C) [Set up your RGB display](#part-c) ✅
 
-D) [Try out clock_display_demo](#part-d) 
+D) [Try out clock_display_demo](#part-d) ✅
 
 E) [Modify the code to make the display your own](#part-e)
 
@@ -57,7 +54,7 @@ This readme.md page in your own repository should be edited to include the work 
 
 Labs are due on Mondays. Make sure this page is linked to on your main class hub page.
 
-## Part A. 
+## Part A. ✅
 ### Connect to your Pi
 Just like you did in the lab prep, ssh on to your pi. Once you get there, create a Python environment (named venv) by typing the following commands.
 
@@ -81,8 +78,8 @@ The support for password authentication of GitHub was removed on August 13, 2021
 Following the steps listed [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) from GitHub to set up a token. Depends on your preference, you can set up and select the scopes, or permissions, you would like to grant the token. This token will act as your GitHub password later when you use the terminal on your Pi to sync files with your lab-hub repo.
 
 
-## Part B. 
-### Try out the Command Line Clock
+## Part B. ✅
+### Try out the Command Line Clock ✅
 Clone your own lab-hub repo for this assignment to your Pi and change the directory to Lab 2 folder (remember to replace the following command line with your own GitHub ID):
 
 ```
@@ -113,8 +110,8 @@ The terminal should show the time, you can press `ctrl-c` to exit the script.
 If you are unfamiliar with the Python code in `cli_clock.py`, have a look at [this Python refresher](https://hackernoon.com/intermediate-python-refresher-tutorial-project-ideas-and-tips-i28s320p). If you are still concerned, please reach out to the teaching staff!
 
 
-## Part C. 
-### Set up your RGB Display
+## Part C. ✅
+### Set up your RGB Display ✅
 We have asked you to equip the [Adafruit MiniPiTFT](https://www.adafruit.com/product/4393) on your Pi in the Lab 2 prep already. Here, we will introduce you to the MiniPiTFT and Python scripts on the Pi with more details.
 
 <img src="https://cdn-learn.adafruit.com/assets/assets/000/082/842/large1024/adafruit_products_4393_iso_ORIG_2019_10.jpg" height="200" />
@@ -136,7 +133,7 @@ Line up the screen and press it on the headers. The hole in the screen should ma
 <img src="https://cdn-learn.adafruit.com/assets/assets/000/082/861/original/adafruit_products_image.png" height="200">
 </p>
 
-### Testing your Screen
+### Testing your Screen ✅
 
 The display uses a communication protocol called [SPI](https://www.circuitbasics.com/basics-of-the-spi-communication-protocol/) to speak with the raspberry pi. We won't go in depth in this course over how SPI works. The port on the bottom of the display connects to the SDA and SCL pins used for the I2C communication protocol which we will cover later. GPIO (General Purpose Input/Output) pins 23 and 24 are connected to the two buttons on the left. GPIO 22 controls the display backlight.
 
@@ -152,17 +149,17 @@ You can type the name of a color then press either of the buttons on the MiniPiT
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ cat screen_test.py
 ```
 
-#### Displaying Info with Texts
+#### Displaying Info with Texts ✅
 You can look in `screen_boot_script.py` for how to display text on the screen!
 
-#### Displaying an image
+#### Displaying an image ✅
 
 You can look in `image.py` for an example of how to display an image on the screen. Can you make it switch to another image when you push one of the buttons?
 
 
 
-## Part D. 
-### Set up the Display Clock Demo
+## Part D. ✅
+### Set up the Display Clock Demo ✅
 Work on `screen_clock.py`, try to show the time by filling in the while loop (at the bottom of the script where we noted "TODO" for you). You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 
 ### How to Edit Scripts on Pi
