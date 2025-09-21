@@ -54,8 +54,8 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
-time_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 64)
-date_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
+time_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 55)
+date_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -79,9 +79,9 @@ while True:
     d_w, d_h = d_bbox[2] - d_bbox[0], d_bbox[3] - d_bbox[1]
 
     t_x = (width  - t_w) // 2
-    t_y = (height - t_h) // 2 - 6
+    t_y = ((height - t_h) // 2) - 10
     d_x = (width  - d_w) // 2
-    d_y = t_y + t_h - 4
+    d_y = t_y + t_h + 12
 
     # sends text into image buffer so it can be displayed
     draw.text((t_x, t_y), time_str, font=time_font, fill="#FFFFFF")

@@ -1,6 +1,6 @@
 # Interactive Prototyping: The Clock of Pi
 **NAMES OF COLLABORATORS HERE:**
-<br> Karl Muller
+<br> Karl Muller (ChatGPT assisted with some of the math code to get my clock to display and rotate properly)
 
 ## Lab Description
 Does it feel like time is moving strangely during this semester? <br>
@@ -71,61 +71,26 @@ Work on `screen_clock.py`, try to show the time by filling in the while loop (at
 \*\*\***Testing working basic analog clock**\*\*\* <br>
 [screen_clock.py](screen_clock.py)
 
-## Part E. Now moved to Lab2 Part 2.
-
-## Part F. Now moved to Lab2 Part 2.
-
-## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 \*\*\***Initial Sketch Idea: Flower Time!**\*\*\*<br>
 <img width="515" height="573" alt="image" src="https://github.com/user-attachments/assets/528dd747-d1d0-4644-9062-a7a8fee2a240" />
-
-# Prep for Part 2
-
-1. Pick up remaining parts for kit on Thursday lab class. Check the updated [parts list inventory](partslist.md) and let the TA know if there is any part missing.
-  
-
-2. Look at and give feedback on the Part G. for at least 2 other people in the class (and get 2 people to comment on your Part G!)
 
 # Lab 2 Part 2
 
 ## Assignment that was formerly Lab 2 Part E.
 ### Modify the barebones clock to make it your own
-
-Does time have to be linear?  How do you measure a year? [In daylights? In midnights? In cups of coffee?](https://www.youtube.com/watch?v=wsj15wPpjLY)
-
-Can you make time interactive? You can look in `screen_test.py` for examples for how to use the buttons.
-
-Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www.billverplank.com/IxDSketchBook.pdf)!
-
-**We strongly discourage and will reject the results of literal digital or analog clock display.**
-
-
-\*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\*
-
+#### Sketch & Verplank Diagram
+\*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\* <br>
+Sketch: <br>
+Verplank Diagram: <br>
+All Code available here: [clock_code folder](clock_code) <br>
+- Final version of code: [Custom clock w/ buttons](clock_code/custom_clock_buttons.py) 
 
 ## Assignment that was formerly Part F. 
 ## Make a short video of your modified barebones PiClock
 
-\*\*\***Take a video of your PiClock.**\*\*\*
-
-After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
-
-```
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git add .
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git commit -m 'your commit message here'
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ git push
-```
-
-After that, Git will ask you to login to your GitHub account to push the updates online, you will be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you set up in Part A as the password instead of your account one! Go on your GitHub repo with your laptop, you should be able to see the updated files from your Pi!
-
-
-[Update your Lab Hub](pull_updates/README.md) to get the latest content and requirements for Part 2.
-
-Modify the code from last week's lab to make a new visual interface for your new clock. You may [extend the Pi](Extending%20the%20Pi.md) by adding sensors or buttons, but this is not required.
-
-As always, make sure you document contributions and ideas from others explicitly in your writeup.
-
-You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. What each person did should be explicitly documented. Make sure the page for the group turn in is linked to your Interactive Lab Hub page. 
+\*\*\***Take a video of your PiClock.**\*\*\* <br>
+Photos: <br>
+Videos: <br>
 
 
