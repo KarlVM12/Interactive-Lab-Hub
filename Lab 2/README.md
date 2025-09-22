@@ -28,9 +28,9 @@ A) [Connect to your Pi](#part-a)  ✅ <br>
 B) [Try out cli_clock.py](#part-b) ✅ <br>
 C) [Set up your RGB display](#part-c) ✅ <br>
 D) [Try out clock_display_demo](#part-d) ✅ <br>
-E) [Modify the code to make the display your own](#part-e) <br>
-F) [Make a short video of your modified barebones PiClock](#part-f) <br>
-G) [Sketch and brainstorm further interactions and features you would like for your clock for Part 2.](#part-g) <br>
+E) [Modify the code to make the display your own](#part-e) ✅ <br>
+F) [Make a short video of your modified barebones PiClock](#part-f) ✅ <br>
+G) [Sketch and brainstorm further interactions and features you would like for your clock for Part 2.](#part-g) ✅ <br>
 
 ## The Report
 This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the \*\*\***stars**\*\*\*. Write the answers to the questions under the starred sentences. Include any material that explains what you did in this lab hub folder, and link it in the readme. <br>
@@ -76,10 +76,10 @@ Code: [screen_clock.py](screen_clock.py) <br>
 \*\*\***Initial Sketch Idea: Flower Time!**\*\*\*<br>
 <img width="515" height="573" alt="image" src="https://github.com/user-attachments/assets/528dd747-d1d0-4644-9062-a7a8fee2a240" />
 
-# Lab 2 Part 2
+# Lab 2 Part 2 
 
 ## Assignment that was formerly Lab 2 Part E.
-### Modify the barebones clock to make it your own
+### Modify the barebones clock to make it your own 
 #### Sketch & Verplank Diagram
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\* <br>
 Sketch: <br><img width="447" height="351" alt="image" src="https://github.com/user-attachments/assets/452735d3-8d33-44a9-875d-78d714e7080f" /> <br>
@@ -89,7 +89,7 @@ Verplank Diagram: <img width="1230" height="886" alt="image" src="https://github
 - Final version of code: [Custom clock w/ buttons](clock_code/custom_clock_buttons.py) 
 
 ## Assignment that was formerly Part F. 
-## Make a short video of your modified barebones PiClock
+## Make a short video of your modified barebones PiClock 
 
 \*\*\***Take a video of your PiClock.**\*\*\* <br>
 ### Photos:
