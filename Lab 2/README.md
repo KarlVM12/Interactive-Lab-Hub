@@ -99,9 +99,9 @@ Verplank Diagram: <img width="1230" height="886" alt="image" src="https://github
 
 
 ### Videos:
-<b>[Basic Flower Time Functionality (6:41pm -> 6:42pm)](Videos/basic_functionality.mov)</b> <br>
-<b>[Bees Adds Petal (6:44pm -> 6:45pm)](Videos/bee_adds_petal.mov)</b> <br>
-<b>[Bee Adds New Leaf (6:59pm -> 7:00pm)](Videos/new_leaf.mov)</b> <br>
-<b>[User Interaction causes flower to grow faster and gain petals/leaves (+5 minutes a button press) or causes flower to lose petals/leaves (-5 minutes a button press)](Videos/add_remove_petals.mov)</b> <br>
+<b>[Basic Flower Time Functionality (6:41pm -> 6:42pm)](videos/basic_functionality.mp4)</b> <br>
+<b>[Bees Adds Petal (6:44pm -> 6:45pm)](videos/bee_adds_petal.mp4)</b> <br>
+<b>[Bee Adds New Leaf (6:59pm -> 7:00pm)](videos/new_leaf.mp4)</b> <br>
+<b>[User Interaction causes flower to grow faster and gain petals/leaves (+5 minutes a button press) or causes flower to lose petals/leaves (-5 minutes a button press)](videos/add_remove_petals.mp4)</b> <br>
 
 
