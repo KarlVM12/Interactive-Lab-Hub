@@ -69,7 +69,8 @@ You can look in `image.py` for an example of how to display an image on the scre
 ### Set up the Display Clock Demo ✅
 Work on `screen_clock.py`, try to show the time by filling in the while loop (at the bottom of the script where we noted "TODO" for you). You can use the code in `cli_clock.py` and `stats.py` to figure this out. <br>
 \*\*\***Testing working basic analog clock**\*\*\* <br>
-[screen_clock.py](screen_clock.py)
+Code: [screen_clock.py](screen_clock.py) <br>
+<img width="611" height="412" alt="image" src="https://github.com/user-attachments/assets/c7b2af33-1039-45d8-8e96-873ae8c13fdf" /> <br>
 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 \*\*\***Initial Sketch Idea: Flower Time!**\*\*\*<br>
@@ -81,16 +82,23 @@ Work on `screen_clock.py`, try to show the time by filling in the while loop (at
 ### Modify the barebones clock to make it your own
 #### Sketch & Verplank Diagram
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\* <br>
-Sketch: <img width="447" height="351" alt="image" src="https://github.com/user-attachments/assets/452735d3-8d33-44a9-875d-78d714e7080f" /> <br>
+Sketch: <br><img width="447" height="351" alt="image" src="https://github.com/user-attachments/assets/452735d3-8d33-44a9-875d-78d714e7080f" /> <br>
 Verplank Diagram: <img width="1230" height="886" alt="image" src="https://github.com/user-attachments/assets/618ba9a9-14ea-475e-a6a3-8bb0cd22c182" /> <br>
-All Code available here: [clock_code folder](clock_code) <br>
+<b>The purpose of this 'Flower Time' version of a clock is it growing over time to represent the passing of time by gaining leaves, petals, and the bee constantly flying around. Time passes as the flower grows. With the interaction added, we can add petals to the flower to accelerate its growth (completing the day faster) or we can make the flower lose its petals and leaves (turning time back).</b>
+<br><br>All Code available here: [clock_code folder](clock_code) <br>
 - Final version of code: [Custom clock w/ buttons](clock_code/custom_clock_buttons.py) 
 
 ## Assignment that was formerly Part F. 
 ## Make a short video of your modified barebones PiClock
 
 \*\*\***Take a video of your PiClock.**\*\*\* <br>
-Photos: <br>
-Videos: <br>
+### Photos:
+<figcaption><b>Initial working code of Flower Time (contrast of screen made pictures hard):</b></figcaption><br><img width="532" height="468" alt="image" src="https://github.com/user-attachments/assets/29c14477-6999-459c-a950-edf6e61446c5" />  <br>
+
+<br><figcaption><b>Final design of Flower Time showing 6:42pm (6 leaves have grown, 8.5 petals grown, small bee flying around!): </b></figcaption> <br> <img width="587" height="600" alt="image" src="https://github.com/user-attachments/assets/409499b0-054c-4c09-8e7d-603ffabf9969" /> <br> 
+
+
+### Videos:
+
 
 
