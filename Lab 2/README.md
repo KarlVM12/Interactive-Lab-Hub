@@ -81,8 +81,8 @@ Work on `screen_clock.py`, try to show the time by filling in the while loop (at
 ### Modify the barebones clock to make it your own
 #### Sketch & Verplank Diagram
 \*\*\***A copy of your code should be in your Lab 2 Github repo.**\*\*\* <br>
-Sketch: <br>
-Verplank Diagram: <br>
+Sketch: <img width="447" height="351" alt="image" src="https://github.com/user-attachments/assets/452735d3-8d33-44a9-875d-78d714e7080f" /> <br>
+Verplank Diagram: <img width="1230" height="886" alt="image" src="https://github.com/user-attachments/assets/618ba9a9-14ea-475e-a6a3-8bb0cd22c182" /> <br>
 All Code available here: [clock_code folder](clock_code) <br>
 - Final version of code: [Custom clock w/ buttons](clock_code/custom_clock_buttons.py) 
 
