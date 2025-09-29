@@ -1,21 +1,18 @@
 # Chatterboxes
 **Karl Muller (km2262)**
-[![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
-
-In this lab, we want you to design interaction with a speech-enabled device--something that listens and talks to you. This device can do anything *but* control lights (since we already did that in Lab 1).  First, we want you first to storyboard what you imagine the conversational interaction to be like. Then, you will use wizarding techniques to elicit examples of what people might say, ask, or respond.  We then want you to use the examples collected from at least two other people to inform the redesign of the device.
-
-We will focus on **audio** as the main modality for interaction to start; these general techniques can be extended to **video**, **haptics** or other interactive mechanisms in the second part of the Lab.
 
 ## Prep for Part 1: Get the Latest Content and Pick up Additional Parts ✅
 
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
-Script here: [Google TTS Personal Greeting](./src/GoogleTTS_personal_greeting.sh)
+<br>Script here: [Google TTS Personal Greeting](./src/GoogleTTS_personal_greeting.sh)
+
 
 \*\***Write your own shell file that verbally asks for a numerical based input (such as a phone number, zipcode, number of pets, etc) and records the answer the respondent provides.**\*\*
-Script here: [Ask & Store User's Zip Code](./src/ask_number.sh)
+<br>Script here: [Ask & Store User's Zip Code](./src/ask_number.sh)
+
 
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
-Script here: [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
+<br>Script here: [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
 
 
 ### Serving Pages
