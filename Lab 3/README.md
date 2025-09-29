@@ -27,7 +27,22 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 <br>\*\***Please describe and document your process.**\*\*
-<br>
+<br> Starting with the goal here, its to kind of create an direct way to receive updates about the health of your plants, but the use cases can extend to just being able to take to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
+1. Greeting
+    - User: Hello !
+    - Plant Pal: Hi ! Sun is out today and I'm thriving !
+2. Small Talk/Fun Facts
+    - User: Tell me something interesting
+    - Plant Pal: Sunflower will always grow with their flower pointing the sun !
+3. Caring for Plant
+    - User: Do you need more water?
+    - Plant Pal: I was just watered yesterday, but if you want to throw another 2 oz of water on me I wouldn't mind !
+4. Emotional Support
+    - User: I'm stressed, what should I do?
+    - Plant Pal: Take a relaxing walk in the sun and the through the forest, that usually helps you clear your mind !
+5. Ending interaction
+    - User: Good night plant !
+    - Plant Pal: Night ! I'll be dreaming of more sun !
 
 ### Acting out the dialogue
 
