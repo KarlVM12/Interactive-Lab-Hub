@@ -48,7 +48,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 <br>\*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
-<br>
+<br> The dialogue definitely seemed different when I performed and acted it out versus how i guess I thought it would be. I think the difference though lies in a human vs a device performing the diaglogue. I think we are attuned to allowing devices/AI to take on a different tone. So while for me it felt a little unnatural to respond to someone else with, when it comes to a type of ai buddy like this, i think we typically expect them to act more like this I guess 'unnatural' way because that is how we differentiate it as a species to a difference between pure human interaction. The goal with Plant Pal is also personification which lends itself to a sort of exaggeration as well, which is why the dialogue i planned out felt over the top when I said it human to human, but if you were a human 'talking' to a plant, I assume one would like to thing of a plant as being this sort of always upbeat force, making the tone and flow of dialogue fit better under those circumstances. <br>
 
 
 ### Wizarding with the Pi (OPTIONAL)
