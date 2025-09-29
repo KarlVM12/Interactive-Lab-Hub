@@ -14,8 +14,8 @@ Envs:
 import os, sys, json, time, subprocess, requests, io, wave, tempfile
 import speech_recognition as sr
 
-OLLAMA_URL = "http://192.168.1.10:11434"
-OLLAMA_MODEL = "phi3:mini"
+OLLAMA_URL = "http://192.168.1.10:11434" # i host my model on my laptop, so i talk to it locally via my laptops current ip, otherwise would use localhost for the rpi5 ollama
+OLLAMA_MODEL = "phi3:mini" # since i am hosting from my laptop, could essentially use smarter models as well like llama3.2:3b or qwen3:4b instead of phi3:mini
 ESPEAK_VOICE = "en-us"
 STT_BACKEND = "vosk"
 TTS_BACKEND = "piper"

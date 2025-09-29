@@ -13,7 +13,8 @@
 
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
 <br>Script here: [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
-
+<br> This is a back and forth between phi3 mini and the user. Ollama starts off with a spoken unique greeting and then the user can talk back, have it filtered through STT with vosk, then sent through to phi3 to form a response, phi3 streams back over its response which is spoken back to the user using piper TTS. I opted to have the model be hosted on my laptop to have much faster response times when communicating with phi3. But given this method, i could also then use a multitude of smarter smaller models as well like llama3.2:3b or qwen3:1.7b/4b.
+<br> Users responded way better when ha ving the model hosted on my laptop over just being on the raspberry as it was much faster. Some did express some concern about the answers Phi3 would give. Oftentimes it would contradict it self in the next sentence or just not really be too sure what it was talking about, but for SLMs this tends to be standard. Using a smarter smaller model like llama3.2:3b produced much more positive feedback in terms of knowledge and ability to hold conversation. The microphone capture was clunky at first which led to user responses being cut off and making the model more confused. When i relaxed the constraints on the mic capture, user acceptance to their prompt being answer in a satisfactory way was more positive as well. Even though Siri has existed and is much more advanced than this, people i used this with felt that this was something new or even 'creepy', although this could have been perpetuated by the fact that the TTS is also a little uncanny.
 
 ### Serving Pages
 
