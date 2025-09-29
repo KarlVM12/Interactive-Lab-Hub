@@ -25,7 +25,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 <br> <img width="1221" height="856" alt="verplank_plant_pal" src="https://github.com/user-attachments/assets/f4fbfd39-c17f-4089-a718-d2395e41ca7a" /> <p>**Verplankl Diagram: Plant pal**</p>
 
 
-Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
+<br>Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 <br>\*\***Please describe and document your process.**\*\*
 <br> Starting with the goal here, its to kind of create an direct way to receive updates about the health of your plants, but the use cases can extend to just being able to take to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
 1. Greeting
