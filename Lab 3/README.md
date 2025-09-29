@@ -16,39 +16,25 @@
 <br> This is a back and forth between phi3 mini and the user. Ollama starts off with a spoken unique greeting and then the user can talk back, have it filtered through STT with vosk, then sent through to phi3 to form a response, phi3 streams back over its response which is spoken back to the user using piper TTS. I opted to have the model be hosted on my laptop to have much faster response times when communicating with phi3. But given this method, i could also then use a multitude of smarter smaller models as well like llama3.2:3b or qwen3:1.7b/4b.
 <br> Users responded way better when ha ving the model hosted on my laptop over just being on the raspberry as it was much faster. Some did express some concern about the answers Phi3 would give. Oftentimes it would contradict it self in the next sentence or just not really be too sure what it was talking about, but for SLMs this tends to be standard. Using a smarter smaller model like llama3.2:3b produced much more positive feedback in terms of knowledge and ability to hold conversation. The microphone capture was clunky at first which led to user responses being cut off and making the model more confused. When i relaxed the constraints on the mic capture, user acceptance to their prompt being answer in a satisfactory way was more positive as well. Even though Siri has existed and is much more advanced than this, people i used this with felt that this was something new or even 'creepy', although this could have been perpetuated by the fact that the TTS is also a little uncanny.
 
-### Serving Pages
-
-In Lab 1, we served a webpage with flask. In this lab, you may find it useful to serve a webpage for the controller on a remote device. Here is a simple example of a webserver.
-
-```
-pi@ixe00:~/Interactive-Lab-Hub/Lab 3 $ python server.py
- * Serving Flask app "server" (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 162-573-883
-```
-From a remote browser on the same network, check to make sure your webserver is working by going to `http://<YourPiIPAddress>:5000`. You should be able to see "Hello World" on the webpage.
-
 ### Storyboard
 
 Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stuck? Make a device that talks for dogs. If that is too stupid, find an application that is better than that.) 
-
 \*\***Post your storyboard and diagram here.**\*\*
+<br>
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
-
 \*\***Please describe and document your process.**\*\*
+<br>
 
 ### Acting out the dialogue
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
+
+### Wizarding with the Pi (OPTIONAL)
+In the [demo directory](./demo), you will find an example Wizard of Oz project. In that project, you can see how audio and sensor data is streamed from the Pi to a wizard controller that runs in the browser.  You may use this demo code as a template. By running the `app.py` script, you can see how audio and sensor data (Adafruit MPU-6050 6-DoF Accel and Gyro Sensor) is streamed from the Pi to a wizard controller that runs in the browser `http://<YouPiIPAddress>:5000`. You can control what the system says from the controller as well!
+\*\***[OPTIONAL]Describe if the dialogue seemed different than what you imagined, or when acted out, when it was wizarded, and how.**\*\*
 
 # Lab 3 Part 2
 
