@@ -42,7 +42,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
     - Plant Pal: Take a relaxing walk in the sun and the through the forest, that usually helps you clear your mind !
 5. Ending interaction
     - User: Good night plant !
-    - Plant Pal: Night ! I'll be dreaming of more sun !
+    - Plant Pal: Night ! Can't wait for the morning !
 
 ### Acting out the dialogue
 
@@ -108,6 +108,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
