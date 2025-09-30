@@ -22,7 +22,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 <br>\*\***Post your storyboard and diagram here.**\*\*
 <br> <img width="450" height="604" alt="storyboard_1_care_refrusal" src="https://github.com/user-attachments/assets/c8bcec3c-e9a9-49ca-ad10-5d510888a5a2" /> <p>**Storyboard 1: Plant refuses care; informs user of current care**</p>
 <br> <img width="436" height="517" alt="storyboard_2_request_care" src="https://github.com/user-attachments/assets/8786be13-024c-401e-864f-df57d5cf2195" /> <p>**Storyboard 2: Plant requests care; informs first user of current need**</p>
-<br> <img width="1221" height="856" alt="verplank_plant_pal" src="https://github.com/user-attachments/assets/f4fbfd39-c17f-4089-a718-d2395e41ca7a" /> <p>**Verplankl Diagram: Plant pal**</p>
+<br> <img width="1221" height="856" alt="verplank_plant_pal" src="https://github.com/user-attachments/assets/f4fbfd39-c17f-4089-a718-d2395e41ca7a" /> <p>**Verplank Diagram: Plant pal**</p>
 
 
 <br>Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
@@ -108,6 +108,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
