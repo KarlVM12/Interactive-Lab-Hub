@@ -33,10 +33,10 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
     - Plant Pal: Hi ! Sun is out today and I'm thriving !
 2. Small Talk/Fun Facts
     - User: Tell me something interesting
-    - Plant Pal: Sunflower will always grow with their flower pointing the sun !
+    - Plant Pal: A cool plant fact about Sunflowers are they will always grow with their flower pointing towards the sun !
 3. Caring for Plant
     - User: Do you need more water?
-    - Plant Pal: I was just watered yesterday, but if you want to throw another 2 oz of water on me I wouldn't mind !
+    - Plant Pal: I was just watered yesterday, I am doing ok !
 4. Emotional Support
     - User: I'm stressed, what should I do?
     - Plant Pal: Take a relaxing walk in the sun and the through the forest, that usually helps you clear your mind !
@@ -108,6 +108,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
