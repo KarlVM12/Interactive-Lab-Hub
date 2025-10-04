@@ -118,7 +118,7 @@ Code flow:
 - piper TTS speaks response
 - conversation loops can then continue until either nothing is said in the next turn based interval or button is clicked
 
-**\*\*Include videos or screencaptures of both the system and the controller.\*\***
+<br>**\*\*Include videos or screencaptures of both the system and the controller.\*\***<br>
 
 
 ## Test the system
