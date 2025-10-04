@@ -21,6 +21,7 @@ GPIO23 button A, GPIO24 button B).
 
 from __future__ import annotations
 
+import contextlib
 import io
 import json
 import os
@@ -221,18 +222,43 @@ def tts_piper(text: str) -> None:
         raise FileNotFoundError(f"piper config not found at {PIPER_CONFIG}")
 
     tmpwav = tempfile.mktemp(suffix=".wav")
+    padded = None
     try:
         subprocess.run(
             ["piper", "-m", PIPER_MODEL, "-c", PIPER_CONFIG, "--output_file", tmpwav],
             input=(text + "\n").encode("utf-8"),
             check=False,
         )
-        subprocess.run(["aplay", "-q", tmpwav], check=False)
+        padded = prepend_leading_silence(tmpwav, 220)
+        subprocess.run(["aplay", "-q", padded], check=False)
     finally:
         try:
             os.remove(tmpwav)
         except OSError:
             pass
+        if padded and os.path.exists(padded):
+            try:
+                os.remove(padded)
+            except OSError:
+                pass
+
+
+def prepend_leading_silence(path: str, silence_ms: int) -> str:
+    """Create a copy of ``path`` with ``silence_ms`` of silence prepended."""
+    with contextlib.closing(wave.open(path, "rb")) as src:
+        params = src.getparams()
+        audio = src.readframes(params.nframes)
+
+    frame_rate = params.framerate
+    frame_count = int(frame_rate * silence_ms / 1000)
+    silence = b"\x00" * frame_count * params.sampwidth * params.nchannels
+
+    padded_path = tempfile.mktemp(suffix=".wav")
+    with contextlib.closing(wave.open(padded_path, "wb")) as dst:
+        dst.setparams(params)
+        dst.writeframes(silence + audio)
+
+    return padded_path
 
 
 # ---------------------------------------------------------------------------
