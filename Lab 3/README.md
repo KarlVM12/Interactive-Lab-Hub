@@ -98,9 +98,8 @@ The system should:
 * use one or more sensors
 * require participants to speak to it. 
 
-**\*\*Document how the system works\*\***
-
-<br>Using similar script I developed before [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
+**\*\*Document how the system works\*\*** <br>
+Using similar script I developed before [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
 Now I am just editing the prompt and way it responds to follow more closely to dialogue I scripted, but also adding in control for the display color and buttons <br>
 That code is here: [Full Plant Pal Interactive](./src/) <br>
 
