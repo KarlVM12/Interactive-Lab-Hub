@@ -210,7 +210,7 @@ def say(text: str) -> None:
     print(f"\nPlant Pal: {cleaned}\n")
     try:
         if TTS_BACKEND.lower() == "piper":
-            tts_piper(cleaned)
+            tts_piper("... " + cleaned)
         else:
             subprocess.run(["espeak", "-v", ESPEAK_VOICE, cleaned], check=False)
     except FileNotFoundError:
