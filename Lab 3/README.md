@@ -79,6 +79,8 @@ New dialogue script: <br>
     - _screen turns pulses from blue to white to indicate it is thinking_
     - _in a perfect world, pi would be attached to a moisture sensor that could tell the water level_
         - if dry, Plant: "I'm actually feeling pretty thirsty, could i get some more water?"
+            - User: "Let me grab some water", _user waters plant_
+            - Plant: "Thanks, I needed that!"
         - if not dry, Plant: "Nope! I'm doing quite alright!"
             - User: "Awesome!"
             - Plant: "You got it!"
