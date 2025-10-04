@@ -51,19 +51,38 @@ Find a partner, and *without sharing the script with your partner* try out the d
 <br> The dialogue definitely seemed different when I performed and acted it out versus how i guess I thought it would be. I think the difference though lies in a human vs a device performing the diaglogue. I think we are attuned to allowing devices/AI to take on a different tone. So while for me it felt a little unnatural to respond to someone else with, when it comes to a type of ai buddy like this, i think we typically expect them to act more like this I guess 'unnatural' way because that is how we differentiate it as a species to a difference between pure human interaction. The goal with Plant Pal is also personification which lends itself to a sort of exaggeration as well, which is why the dialogue i planned out felt over the top when I said it human to human, but if you were a human 'talking' to a plant, I assume one would like to think of a plant as being this sort of always upbeat force, making the tone and flow of dialogue fit better under those circumstances. <br>
 
 
-### Wizarding with the Pi (OPTIONAL)
-In the [demo directory](./demo), you will find an example Wizard of Oz project. In that project, you can see how audio and sensor data is streamed from the Pi to a wizard controller that runs in the browser.  You may use this demo code as a template. By running the `app.py` script, you can see how audio and sensor data (Adafruit MPU-6050 6-DoF Accel and Gyro Sensor) is streamed from the Pi to a wizard controller that runs in the browser `http://<YouPiIPAddress>:5000`. You can control what the system says from the controller as well!
-\*\*** [OPTIONAL] Describe if the dialogue seemed different than what you imagined, or when acted out, when it was wizarded, and how.**\*\*
-
 # Lab 3 Part 2
 
 For Part 2, you will redesign the interaction with the speech-enabled device using the data collected, as well as feedback from part 1.
 
 ## Prep for Part 2
 
-1. What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings...
-2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact?
-3. Make a new storyboard, diagram and/or script based on these reflections.
+1. **\*\*What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings..\*\*** <br>
+A couple things that could use improvement that I discovered during the initial acting out of the dialogue:
+    - Speech Recognition & timing: The mic often cuts off early or misses part of the user's input, which made the model's responses seem confused. Also trying to play back an immediate sound instead of waiting for the model to generate a response could help a lot in the anxiety of wondering if you were heard or not. Like just immediately responding with "Okay!" or something along those lines
+    - Model: phi3 gave weird or contradictory answers. A smarter model like llama3.2 performed a lot better
+    - Tone & language: what felt unnatural to say as a human, could still come off as strange to hear from TTS, even if more expected, so improving the personality there is important
+
+2. **\*\*What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact?\*\*** <br>
+I was only relying on voice before, so i could make it more interactive a couple of ways:
+    - Adding a button thats initiates the conversation
+    - Adding an aspect of light to show different states of listening, thinking and responding
+    - Using the diplsay to show an emoji or face to convey different states of what the plant pal is expressing
+
+3. **\*\*Make a new storyboard, diagram and/or script based on these reflections.\*\*** <br>
+New dialogue script: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;**_Asking for water:_**
+    - User: _presses button to wake up plant pal_
+    - _screen turns blue on wake up to indicate it is listening_
+    - Plant: "Hello! What would you like to know?"
+    - User: "Do you need water?" 
+    - _screen turns pulses from blue to white to indicate it is thinking_
+    - _in a perfect world, pi would be attached to a moisture sensor that could tell the water level_
+        - if dry, Plant: "I'm actually feeling pretty thirsty, could i get some more water?"
+        - if not dry, Plant: "Nope! I'm doing quite alright!"
+            - User: "Awesome!"
+            - Plant: "You got it!"
+    - _plant pal would go idle and screen turn a soft yellow to indicate its idle_
 
 ## Prototype your system
 
@@ -75,18 +94,6 @@ The system should:
 *Document how the system works*
 
 *Include videos or screencaptures of both the system and the controller.*
-
-<details>
-  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
-  
-  **Before submitting your README.md:**
-  - This readme.md file has a lot of extra text for guidance.
-  - Remove all instructional text and example prompts from this file.
-  - You may either delete these sections or use the toggle/hide feature in VS Code to collapse them for a cleaner look.
-  - Your final submission should be neat, focused on your own work, and easy to read for grading.
-  
-  This helps ensure your README.md is clear professional and uniquely yours!
-</details>
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
