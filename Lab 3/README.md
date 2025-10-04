@@ -71,7 +71,7 @@ I was only relying on voice before, so i could make it more interactive a couple
 
 3. **\*\*Make a new storyboard, diagram and/or script based on these reflections.\*\*** <br>
 New dialogue script: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;**_Asking for water:_**
+&nbsp;&nbsp;&nbsp;&nbsp;**Asking for water:**
     - User: _presses button to wake up plant pal_
     - _screen turns blue on wake up to indicate it is listening_
     - Plant: "Hello! What would you like to know?"
@@ -85,6 +85,9 @@ New dialogue script: <br>
             - User: "Awesome!"
             - Plant: "You got it!"
     - _plant pal would go idle and screen turn a soft yellow to indicate its idle_
+
+More Interactive Storyboard:
+
 
 ## Prototype your system
 
