@@ -21,7 +21,6 @@ GPIO23 button A, GPIO24 button B).
 
 from __future__ import annotations
 
-import contextlib
 import io
 import json
 import os
@@ -126,6 +125,7 @@ init_display()
 # Display helpers
 # ---------------------------------------------------------------------------
 _animation_stop: threading.Event | None = None
+_animation_thread: threading.Thread | None = None
 
 
 def set_display_color(color: int) -> None:
@@ -150,7 +150,7 @@ def show_error() -> None:
 
 
 def start_thinking_animation() -> None:
-    global _animation_stop
+    global _animation_stop, _animation_thread
 
     stop_event = threading.Event()
     _animation_stop = stop_event
@@ -161,18 +161,20 @@ def start_thinking_animation() -> None:
             set_display_color(THINKING_COLORS[idx % len(THINKING_COLORS)])
             idx += 1
             time.sleep(0.55)
-        # return to listening blue when finished
-        set_display_color(LISTENING_COLOR)
 
     thread = threading.Thread(target=_pulse, daemon=True)
+    _animation_thread = thread
     thread.start()
 
 
 def stop_thinking_animation() -> None:
-    global _animation_stop
+    global _animation_stop, _animation_thread
     if _animation_stop is not None:
         _animation_stop.set()
         _animation_stop = None
+    if _animation_thread is not None:
+        _animation_thread.join(timeout=0.6)
+        _animation_thread = None
 
 
 # ---------------------------------------------------------------------------
@@ -222,43 +224,18 @@ def tts_piper(text: str) -> None:
         raise FileNotFoundError(f"piper config not found at {PIPER_CONFIG}")
 
     tmpwav = tempfile.mktemp(suffix=".wav")
-    padded = None
     try:
         subprocess.run(
             ["piper", "-m", PIPER_MODEL, "-c", PIPER_CONFIG, "--output_file", tmpwav],
             input=(text + "\n").encode("utf-8"),
             check=False,
         )
-        padded = prepend_leading_silence(tmpwav, 220)
-        subprocess.run(["aplay", "-q", padded], check=False)
+        subprocess.run(["aplay", "-q", tmpwav], check=False)
     finally:
         try:
             os.remove(tmpwav)
         except OSError:
             pass
-        if padded and os.path.exists(padded):
-            try:
-                os.remove(padded)
-            except OSError:
-                pass
-
-
-def prepend_leading_silence(path: str, silence_ms: int) -> str:
-    """Create a copy of ``path`` with ``silence_ms`` of silence prepended."""
-    with contextlib.closing(wave.open(path, "rb")) as src:
-        params = src.getparams()
-        audio = src.readframes(params.nframes)
-
-    frame_rate = params.framerate
-    frame_count = int(frame_rate * silence_ms / 1000)
-    silence = b"\x00" * frame_count * params.sampwidth * params.nchannels
-
-    padded_path = tempfile.mktemp(suffix=".wav")
-    with contextlib.closing(wave.open(padded_path, "wb")) as dst:
-        dst.setparams(params)
-        dst.writeframes(silence + audio)
-
-    return padded_path
 
 
 # ---------------------------------------------------------------------------
@@ -395,8 +372,6 @@ def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
                 say("I'll be here soaking up sun. Tap me when you need me again.")
                 show_idle()
                 return
-            show_responding()
-            say("Could you try that again for me?")
             show_listening()
             continue
 
