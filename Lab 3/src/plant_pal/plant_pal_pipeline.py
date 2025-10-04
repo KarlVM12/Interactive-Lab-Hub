@@ -63,11 +63,17 @@ PIPER_MODEL = os.environ.get("PIPER_MODEL", os.path.join(DEFAULT_VOICE_DIR, f"{P
 PIPER_CONFIG = os.environ.get("PIPER_CONFIG", os.path.join(DEFAULT_VOICE_DIR, f"{PIPER_VOICE}.onnx.json"))
 
 LISTENING_COLOR = color565(60, 120, 255)      # calm blue
+RESPONDING_COLOR = color565(170, 240, 180)    # soft green while speaking
 IDLE_COLOR = color565(255, 230, 140)          # warm soft yellow
-THINKING_COLORS = (color565(60, 120, 255), color565(255, 255, 255))
+THINKING_COLORS = (
+    color565(80, 150, 255),
+    color565(110, 185, 255),
+    color565(140, 210, 255),
+)
 ERROR_COLOR = color565(255, 80, 80)
 
 BUTTON_DEBOUNCE = 0.02
+MAX_EMPTY_TURNS = 2
 
 # ---------------------------------------------------------------------------
 # Display and button setup
@@ -134,6 +140,10 @@ def show_listening() -> None:
     set_display_color(LISTENING_COLOR)
 
 
+def show_responding() -> None:
+    set_display_color(RESPONDING_COLOR)
+
+
 def show_error() -> None:
     set_display_color(ERROR_COLOR)
 
@@ -149,7 +159,7 @@ def start_thinking_animation() -> None:
         while not stop_event.is_set():
             set_display_color(THINKING_COLORS[idx % len(THINKING_COLORS)])
             idx += 1
-            time.sleep(0.35)
+            time.sleep(0.55)
         # return to listening blue when finished
         set_display_color(LISTENING_COLOR)
 
@@ -337,50 +347,69 @@ EXIT_WORDS = {"exit", "quit", "goodbye", "bye", "sleep"}
 
 
 def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
-    show_listening()
-    say("Hello! What would you like to know?")
-
-    user_text = stt_vosk(recognizer, mic)
-    if not user_text:
-        say("I did not catch that. Tap me again when you are ready.")
-        show_idle()
-        return
-
-    lowered = user_text.lower()
-    if any(word in lowered for word in EXIT_WORDS):
-        say("Okay, I'll soak up the sun quietly.")
-        show_idle()
-        return
-
     history: List[Tuple[str, str]] = []
-    prompt = build_prompt(history, user_text)
+    empty_turns = 0
 
-    try:
-        start_thinking_animation()
-        reply = ollama_stream(prompt)
-    except Exception as exc:  # pylint: disable=broad-except
-        stop_thinking_animation()
-        print(f"[ERROR] Ollama request failed: {exc}")
-        show_error()
-        say("Something went wrong reaching my roots. Can you try again later?")
-        time.sleep(1.5)
-        show_idle()
-        return
-    finally:
-        stop_thinking_animation()
-
-    history.extend([("user", user_text), ("assistant", reply)])
-
-    if not reply:
-        show_error()
-        say("I do not have an answer right now. Maybe check back soon.")
-        time.sleep(1.0)
-        show_idle()
-        return
-
+    show_responding()
+    say("Hello! What would you like to know?")
     show_listening()
-    say(reply)
-    show_idle()
+
+    while True:
+        if button_b and button_pressed(button_b):
+            show_responding()
+            say("Alright, heading back to my planter.")
+            show_idle()
+            return
+
+        user_text = stt_vosk(recognizer, mic)
+        if not user_text:
+            empty_turns += 1
+            if empty_turns >= MAX_EMPTY_TURNS:
+                show_responding()
+                say("I'll be here soaking up sun. Tap me when you need me again.")
+                show_idle()
+                return
+            show_responding()
+            say("Could you try that again for me?")
+            show_listening()
+            continue
+
+        empty_turns = 0
+        lowered = user_text.lower()
+        if any(word in lowered for word in EXIT_WORDS):
+            show_responding()
+            say("Okay, I'll soak up the sun quietly.")
+            show_idle()
+            return
+
+        prompt = build_prompt(history, user_text)
+
+        try:
+            start_thinking_animation()
+            reply = ollama_stream(prompt)
+        except Exception as exc:  # pylint: disable=broad-except
+            stop_thinking_animation()
+            print(f"[ERROR] Ollama request failed: {exc}")
+            show_error()
+            say("Something went wrong reaching my roots. Can you try again later?")
+            time.sleep(1.5)
+            show_idle()
+            return
+        finally:
+            stop_thinking_animation()
+
+        if not reply:
+            show_error()
+            say("I do not have an answer right now. Maybe check back soon.")
+            time.sleep(1.0)
+            show_idle()
+            return
+
+        history.extend([("user", user_text), ("assistant", reply)])
+
+        show_responding()
+        say(reply)
+        show_listening()
 
 
 def main() -> None:
