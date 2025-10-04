@@ -71,7 +71,7 @@ I was only relying on voice before, so i could make it more interactive a couple
 
 3. **\*\*Make a new storyboard, diagram and/or script based on these reflections.\*\*** <br>
 New dialogue script: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;**Asking for water:**
+&nbsp;&nbsp;&nbsp;&nbsp;**Checking for Water:**
     - User: _presses button to wake up plant pal_
     - _screen turns blue on wake up to indicate it is listening_
     - Plant: "Hello! What would you like to know?"
@@ -86,7 +86,9 @@ New dialogue script: <br>
             - Plant: "You got it!"
     - _plant pal would go idle and screen turn a soft yellow to indicate its idle_
 
-More Interactive Storyboard:
+More Interactive Storyboard (Checking for Water):<br>
+<img width="444" height="824" alt="image" src="https://github.com/user-attachments/assets/3a1fe644-cf5d-479e-b776-2abe6cf56762" />
+<img width="562" height="690" alt="image" src="https://github.com/user-attachments/assets/ca619919-eae9-40aa-8f5c-8eb332b452cc" />
 
 
 ## Prototype your system
@@ -120,6 +122,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
