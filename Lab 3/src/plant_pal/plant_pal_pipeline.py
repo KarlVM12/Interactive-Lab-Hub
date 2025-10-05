@@ -1,26 +1,18 @@
 #!/usr/bin/env python3
 """Plant Pal voice pipeline with display and button integration.
 
-This script runs on a Raspberry Pi with the Adafruit mini PiTFT display.
-It combines the speech pipeline from Lab 3 with the tactile/visual cues
-from Lab 2:
-
+This script runs on the rpi5 with the adafruit mini PiTFT display.
+Code Flow:
 - Button A wakes Plant Pal and starts a single speech interaction.
 - The screen turns BLUE while Plant Pal is listening.
 - During LLM thinking the screen pulses between BLUE and WHITE.
-- After answering, the screen returns to a soft YELLOW idle state.
+- While TTS is answering with the LLMs response, the screen will be GREEN
+- The user and plant pal can keep going back and forth in a conversation
+- After two rounds of listening where nothing is heard from the user, the screen returns to a soft YELLOW idle state where the A button will need to be pressed again to initiate interaction.
 - Button B exits the program at any time while idle.
-
-Environment variables (optional):
-    OLLAMA_URL, OLLAMA_MODEL, SYSTEM_PROMPT
-    TTS_BACKEND, ESPEAK_VOICE, PIPER_VOICE, PIPER_MODEL, PIPER_CONFIG
-
-Hardware wiring matches the Lab 2 samples (GPIO5 CS, GPIO25 DC, GPIO22 backlight,
-GPIO23 button A, GPIO24 button B).
 """
 
 from __future__ import annotations
-
 import io
 import json
 import os
@@ -31,59 +23,35 @@ import threading
 import time
 import wave
 from typing import List, Sequence, Tuple
-
 import requests
 import speech_recognition as sr
-
 import board
 import digitalio
 from adafruit_rgb_display.rgb import color565
 import adafruit_rgb_display.st7789 as st7789
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://192.168.1.6:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2:3b")
-SYSTEM_PROMPT = os.environ.get(
-    "SYSTEM_PROMPT",
-    (
-        "You are Plant Pal, a cheerful houseplant who loves sharing quick,"
-        " kind replies. Stay under ~30 words unless asked otherwise. Sprinkle"
-        " in gentle plant-care knowledge when it fits."
-    ),
-)
-
+OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://192.168.1.6:11434") # my laptop's ip running ollama with a OLLAMA_HOST=0.0.0.0
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2:3b") # fast but coherent responses from this model
+SYSTEM_PROMPT = os.environ.get("SYSTEM_PROMPT", ("You are Plant Pal, a cheerful houseplant who loves sharing quick, kind replies. Stay under ~30 words unless asked otherwise. Sprinkle in gentle plant-care knowledge when it fits."))
 ESPEAK_VOICE = os.environ.get("ESPEAK_VOICE", "en-us")
 TTS_BACKEND = os.environ.get("TTS_BACKEND", "piper")
-
 PIPER_VOICE = os.environ.get("PIPER_VOICE", "en_US-lessac-medium")
-DEFAULT_VOICE_DIR = os.path.join(os.path.expanduser("~"), ".local", "share", "piper", "voices")
+DEFAULT_VOICE_DIR = os.path.join(os.path.expanduser("~"), ".local", "share", "piper", "voices") # had to do this weird path binding to get piper to find voices
 PIPER_MODEL = os.environ.get("PIPER_MODEL", os.path.join(DEFAULT_VOICE_DIR, f"{PIPER_VOICE}.onnx"))
 PIPER_CONFIG = os.environ.get("PIPER_CONFIG", os.path.join(DEFAULT_VOICE_DIR, f"{PIPER_VOICE}.onnx.json"))
-
-LISTENING_COLOR = color565(60, 120, 255)      # calm blue
-RESPONDING_COLOR = color565(170, 240, 180)    # soft green while speaking
-IDLE_COLOR = color565(255, 230, 140)          # warm soft yellow
-THINKING_COLORS = (
-    color565(80, 150, 255),
-    color565(110, 185, 255),
-    color565(140, 210, 255),
-)
+LISTENING_COLOR = color565(60, 120, 255)  # calm blue
+RESPONDING_COLOR = color565(170, 240, 180)  # soft green while speaking
+IDLE_COLOR = color565(255, 230, 140)  # warm soft yellow
+THINKING_COLORS = (color565(80, 150, 255), color565(110, 185, 255), color565(140, 210, 255)) # blinking between blue and white
 ERROR_COLOR = color565(255, 80, 80)
-
 BUTTON_DEBOUNCE = 0.02
-MAX_EMPTY_TURNS = 2
-
-# ---------------------------------------------------------------------------
-# Display and button setup
-# ---------------------------------------------------------------------------
+MAX_EMPTY_TURNS = 2  # after two timeouts not listening, script will go to idle
 display = None
 backlight = None
 button_a = None
 button_b = None
 
-
+# adapting display code from lab 2
 def init_display() -> None:
     global display, backlight, button_a, button_b
 
@@ -121,9 +89,7 @@ def init_display() -> None:
 
 init_display()
 
-# ---------------------------------------------------------------------------
-# Display helpers
-# ---------------------------------------------------------------------------
+# for thinking colors
 _animation_stop: threading.Event | None = None
 _animation_thread: threading.Thread | None = None
 
@@ -177,9 +143,7 @@ def stop_thinking_animation() -> None:
         _animation_thread = None
 
 
-# ---------------------------------------------------------------------------
-# Button helpers
-# ---------------------------------------------------------------------------
+# adapting button code from lab 2
 def button_pressed(btn: digitalio.DigitalInOut) -> bool:
     return btn.value is False
 
@@ -200,9 +164,7 @@ def wait_for_button() -> str:
         time.sleep(0.05)
 
 
-# ---------------------------------------------------------------------------
-# TTS helpers
-# ---------------------------------------------------------------------------
+# tts from examples, tried to add blank space to start of TTS with '...' so the first word isn't always lost
 def say(text: str) -> None:
     if not text:
         return
@@ -237,14 +199,9 @@ def tts_piper(text: str) -> None:
         except OSError:
             pass
 
-
-# ---------------------------------------------------------------------------
-# Ollama helpers
-# ---------------------------------------------------------------------------
+# since i was using ollama api from the pi to ollama running on my laptop, had to maintain a consistent session so the LLM wouldn't think its a new convo each time
 SESSION = requests.Session()
 SESSION.headers.update({"Content-Type": "application/json"})
-
-
 def check_ollama() -> bool:
     try:
         resp = SESSION.get(f"{OLLAMA_URL}/api/tags", timeout=(5, 15))
@@ -254,12 +211,12 @@ def check_ollama() -> bool:
         if OLLAMA_MODEL not in models:
             print(f"[INFO] {OLLAMA_MODEL} not listed; ensure it's pulled on the host.")
         return True
-    except Exception as exc:  # pylint: disable=broad-except
+    except Exception as exc:
         print(f"[ERROR] Unable to reach Ollama at {OLLAMA_URL}: {exc}")
         print("    Start on host with: OLLAMA_HOST=0.0.0.0 ollama serve")
         return False
 
-
+# had to format the history context
 def build_prompt(history: Sequence[Tuple[str, str]], user_text: str) -> str:
     parts: List[str] = []
     for role, content in history:
@@ -269,14 +226,10 @@ def build_prompt(history: Sequence[Tuple[str, str]], user_text: str) -> str:
     parts.append("Plant Pal:")
     return "\n".join(parts)
 
-
+# streaming isn't really necessary since we have to wait for the TTS to process it all in one shot anyway, but idk still made me feel it was faster !
+# for proper streaming, does require joining the sent over chunks of data, which again probably just shouldn't have streamed it
 def ollama_stream(prompt: str) -> str:
-    payload = {
-        "model": OLLAMA_MODEL,
-        "prompt": prompt,
-        "stream": True,
-        "system": SYSTEM_PROMPT,
-    }
+    payload = { "model": OLLAMA_MODEL, "prompt": prompt, "stream": True, "system": SYSTEM_PROMPT }
     full: List[str] = []
     with SESSION.post(
         f"{OLLAMA_URL}/api/generate",
@@ -303,9 +256,7 @@ def ollama_stream(prompt: str) -> str:
     return "".join(full)
 
 
-# ---------------------------------------------------------------------------
-# Speech recognition
-# ---------------------------------------------------------------------------
+# made a 10 second timeout with Vosk, but let the phrasing be unlimited, this seemed to regonize my sentences a lot better and make the convo feel more natural with less abrupt stops
 def stt_vosk(recognizer: sr.Recognizer, mic: sr.Microphone) -> str | None:
     try:
         import vosk
@@ -342,13 +293,8 @@ def stt_vosk(recognizer: sr.Recognizer, mic: sr.Microphone) -> str | None:
     print("…no speech recognized.")
     return None
 
-
-# ---------------------------------------------------------------------------
-# Main flow
-# ---------------------------------------------------------------------------
+# added exit words the user could, never tested this though, it didnt' work as intended
 EXIT_WORDS = {"exit", "quit", "goodbye", "bye", "sleep"}
-
-
 def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
     history: List[Tuple[str, str]] = []
     empty_turns = 0
@@ -363,7 +309,8 @@ def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
             say("Alright, heading back to my planter.")
             show_idle()
             return
-
+        
+        # this seemed to work consistently, when the listening for user response timeouted twice, it would go back to idle, the B button and exit words not so much
         user_text = stt_vosk(recognizer, mic)
         if not user_text:
             empty_turns += 1
@@ -384,11 +331,10 @@ def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
             return
 
         prompt = build_prompt(history, user_text)
-
         try:
             start_thinking_animation()
             reply = ollama_stream(prompt)
-        except Exception as exc:  # pylint: disable=broad-except
+        except Exception as exc: 
             stop_thinking_animation()
             print(f"[ERROR] Ollama request failed: {exc}")
             show_error()
@@ -407,27 +353,26 @@ def run_session(recognizer: sr.Recognizer, mic: sr.Microphone) -> None:
             return
 
         history.extend([("user", user_text), ("assistant", reply)])
-
         show_responding()
         say(reply)
         show_listening()
 
-
+# main code flow, same as described at top of file
 def main() -> None:
     print(
         f"Starting Plant Pal pipeline (ollama={OLLAMA_MODEL}, url={OLLAMA_URL}, tts={TTS_BACKEND})"
     )
     if not check_ollama():
         sys.exit(1)
-
+    
+    # helped vosk stt seem more natural and capture words better, at least my words
     recognizer = sr.Recognizer()
     recognizer.pause_threshold = 1.5
     recognizer.non_speaking_duration = 0.5
     recognizer.dynamic_energy_threshold = True
 
     mic = sr.Microphone(device_index=0)
-
-    print("Calibrating microphone…")
+    print("mike check!")
     with mic as source:
         recognizer.adjust_for_ambient_noise(source, duration=1.0)
     print("Ready. Press button A to wake Plant Pal, button B to exit.")
