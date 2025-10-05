@@ -27,7 +27,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 <br>Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 <br>\*\***Please describe and document your process.**\*\*
-<br> Starting with the goal here, its to kind of create an direct way to receive updates about the health of your plants, but the use cases can extend to just being able to take to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
+<br> Starting with the goal here, it was to create a direct way to receive updates about the health of your plants, but the use cases can extend to also just being able to talk to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
 1. Greeting
     - User: Hello !
     - Plant Pal: Hi ! Sun is out today and I'm thriving !
@@ -170,6 +170,7 @@ With this system, I could log data like:
 Having the above data would be able to be used to make the system even better by being able to analyze usage to improve and finetune a model towards more natural convo with effective plant care
 
 Other modalities I could capture here that would improve this device would be soil moisture, visual detection to interact not only when it is pressed but when someone is nearby, current light level, and sentiment analysis of user
+
 
 
 
