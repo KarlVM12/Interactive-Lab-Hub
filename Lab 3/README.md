@@ -99,9 +99,9 @@ The system should:
 * require participants to speak to it. 
 
 **\*\*Document how the system works\*\*** <br>
-Using similar script I developed before [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
-Now I am just editing the prompt and way it responds to follow more closely to dialogue I scripted, but also adding in control for the display color and buttons <br>
-That code is here: [Full Plant Pal Interactive Code](./src/plant_pal/plant_pal_pipeline.py) <br>
+Using similar script I developed before [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py) <br>
+Now here I just edited the prompt and way it responds to follow more closely to desired dialogue using a proper system prompt, but also adding in control for the display color and buttons <br>
+That code is here: [Full Plant Pal Interactive Code](./src/plant_pal/plant_pal_pipeline.py), No controller, the conversation is all managed via the script <br>
 
 To dive into it:
 - Vosk for STT
@@ -142,21 +142,34 @@ Try to get at least two people to interact with your system. (Ideally, you would
 Answer the following:
 
 ### What worked well about the system and what didn't?
-\*\**your answer here*\*\*
+Worked well:
+- Local model hosting was fast and allowed for flexible testing
+- Talking to the model felt pretty natural and amusing
+- The piper voice was close to reality and gave it slightly more realism, but kept enough of the roboticness to where you could know this is a bot caring for your plant
+
+Not much didn't work well, only really technical difficulties in terms of the maybe the mic and vosk mishearing words or not recognizing it correctly. The initial word cutoff during responses through the speaker with TTS also made the system feel less reliable but again think this was a technical issue with either the speaker or TTS. And then the model response time left a little awkward five second pause, even though i tried to optimize as much as possible.
 
 ### What worked well about the controller and what didn't?
-
-\*\**your answer here*\*\*
+This system didn't really need a controller as I was able to programmatically use the interactions with the devices and the conversation flow using ollama to control everything for me. All i had to do was run the script from the terminal. I was able to see debug statements, api calls between my pi and laptop's ollama served models, and how vosk and piper were functioning and that served well in giving me clear vision into usage during the device, nothing didn't work well in that aspect.
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
-
-\*\**your answer here*\*\*
-
+My initial prototype was more manual, and that is what allowed me to make the autonomous version of the system I created. But reflecting on when WoZ interactions when I was only using the speaker, I could tell implementing the vision and tactile cues with the adafruit display would allow me to pull the device into the realm of being autonomous since with visual cues and the ability for a user to click buttons, that can open up the avenue for complete user control, which is what I ended up implemented at the end here.
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
+With this system, I could log data like:
+- timestamps
+- user audio
+- STT transcript
+- LLM input and output
+- Avg response times
+- TTS output
+- Conversation transcript
+- User sentiment
+- Effectiveness of system in maintaining/improving longevity of plant
 
-\*\**your answer here*\*\*
+Having the above data would be able to be used to make the system even better by being able to analyze usage to improve and finetune a model towards more natural convo with effective plant care
 
+Other modalities I could capture here that would improve this device would be soil moisture, visual detection to interact not only when it is pressed but when someone is nearby, current light level, and sentiment analysis of user
 
 
 
