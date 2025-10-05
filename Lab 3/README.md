@@ -101,7 +101,7 @@ The system should:
 **\*\*Document how the system works\*\*** <br>
 Using similar script I developed before [Simple Ollama Back & Forth](./src/ollama_simple_interaction/ollama_voice_pipeline.py)
 Now I am just editing the prompt and way it responds to follow more closely to dialogue I scripted, but also adding in control for the display color and buttons <br>
-That code is here: [Full Plant Pal Interactive](./src/) <br>
+That code is here: [Full Plant Pal Interactive Code](./src/plant_pal/plant_pal_pipeline.py) <br>
 
 To dive into it:
 - Vosk for STT
@@ -119,7 +119,22 @@ Code flow:
 - conversation loops can then continue until either nothing is said in the next turn based interval or button is clicked
 
 <br>**\*\*Include videos or screencaptures of both the system and the controller.\*\***<br>
+**RPi5 All Connected:** <br><br>
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/598905ab-f7a2-4a70-80be-bd1dace4192c" />
+<br>
 
+**Prototype:** <br><br>
+<img height="473" alt="image" src="https://github.com/user-attachments/assets/55eabce7-0087-4560-bd33-a9614bcf111c" />
+<img height="476" alt="image" src="https://github.com/user-attachments/assets/5019ac15-2a9c-438b-8c69-f127eece5697" />
+<img height="495" alt="image" src="https://github.com/user-attachments/assets/38cb2dc2-d5b3-4a59-8768-4097eb406988" />
+<br>
+
+**Interactions:** <br>
+**None of the responses form the pi were hardcoded or scripted in these interactions, they were all generated on the fly by an LLM**
+- [Checking for water Interaction](https://drive.google.com/file/d/1N_7BlbTM8UH97EXVP33fqPzC1CgJ1zMy/view?usp=sharing)
+- [Asking for Plant Facts Interaction](https://drive.google.com/file/d/1htDHn7ilhFQcgDJVCE3baOIcenz2Z_-l/view?usp=sharing)
+- [Blind User Interaction](https://drive.google.com/file/d/1cACliic_31QPq7drWKXwSLrQ1KjQROMf/view?usp=sharing)
+    - Told a friend to just interact with the plant pal however they saw fit, gave them no other guidance    
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
@@ -141,6 +156,8 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
+
 
 
 
