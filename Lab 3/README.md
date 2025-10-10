@@ -18,7 +18,6 @@
 
 ### Storyboard
 
-Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stuck? Make a device that talks for dogs. If that is too stupid, find an application that is better than that.) 
 <br>\*\***Post your storyboard and diagram here.**\*\*
 <br> <img width="450" height="604" alt="storyboard_1_care_refrusal" src="https://github.com/user-attachments/assets/c8bcec3c-e9a9-49ca-ad10-5d510888a5a2" /> <p>**Storyboard 1: Plant refuses care; informs user of current care**</p>
 <br> <img width="436" height="517" alt="storyboard_2_request_care" src="https://github.com/user-attachments/assets/8786be13-024c-401e-864f-df57d5cf2195" /> <p>**Storyboard 2: Plant requests care; informs first user of current need**</p>
@@ -27,7 +26,7 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 <br>Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 <br>\*\***Please describe and document your process.**\*\*
-<br> Starting with the goal here, its to kind of create an direct way to receive updates about the health of your plants, but the use cases can extend to just being able to take to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
+<br> Starting with the goal here, it was to create a direct way to receive updates about the health of your plants, but the use cases can extend to also just being able to talk to and have conversations with your plant. This way you can feel more involved in taking care of your plant. The process i used to create some possible dialogue snippets were just writing down brief ideas about possible user intents and use cases on note cards, and saying the first thing i would think the plant pal would say come to my mind: <br>
 1. Greeting
     - User: Hello !
     - Plant Pal: Hi ! Sun is out today and I'm thriving !
@@ -46,7 +45,6 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 ### Acting out the dialogue
 
-Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
 <br>\*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 <br> The dialogue definitely seemed different when I performed and acted it out versus how i guess I thought it would be. I think the difference though lies in a human vs a device performing the diaglogue. I think we are attuned to allowing devices/AI to take on a different tone. So while for me it felt a little unnatural to respond to someone else with, when it comes to a type of ai buddy like this, i think we typically expect them to act more like this I guess 'unnatural' way because that is how we differentiate it as a species to a difference between pure human interaction. The goal with Plant Pal is also personification which lends itself to a sort of exaggeration as well, which is why the dialogue i planned out felt over the top when I said it human to human, but if you were a human 'talking' to a plant, I assume one would like to think of a plant as being this sort of always upbeat force, making the tone and flow of dialogue fit better under those circumstances. <br>
 
@@ -137,9 +135,6 @@ Code flow:
     - Told a friend to just interact with the plant pal however they saw fit, gave them no other guidance    
 
 ## Test the system
-Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
-
-Answer the following:
 
 ### What worked well about the system and what didn't?
 Worked well:
@@ -170,6 +165,8 @@ With this system, I could log data like:
 Having the above data would be able to be used to make the system even better by being able to analyze usage to improve and finetune a model towards more natural convo with effective plant care
 
 Other modalities I could capture here that would improve this device would be soil moisture, visual detection to interact not only when it is pressed but when someone is nearby, current light level, and sentiment analysis of user
+
+
 
 
 
