@@ -82,7 +82,7 @@ F) [Record the interaction](#part-f)
 ### Part A
 ### Capacitive Sensing, a.k.a. Human-Twizzler Interaction 
 
-<img width="700" height="943" alt="image" src="https://github.com/user-attachments/assets/9062b469-856f-4bbc-87b6-da0093f6e7e9" />
+<img height="443" alt="image" src="https://github.com/user-attachments/assets/9062b469-856f-4bbc-87b6-da0093f6e7e9" />
 
 
 ### Part B
