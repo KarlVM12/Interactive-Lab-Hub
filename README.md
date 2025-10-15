@@ -15,7 +15,7 @@ Lab 5. Observant Systems
 
 Lab 6. Little Interactions Everywhere
 
-Final Project
+[Final Project](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/FinalProject.md)
 
 Online Repository
 
