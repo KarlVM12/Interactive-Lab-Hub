@@ -107,68 +107,55 @@ Testing video: [Distance Sensor Testing](https://drive.google.com/file/d/1Fa5bzt
 ### Part C
 ### Physical considerations for sensing
 
-
-Usually, sensors need to be positioned in specific locations or orientations to make them useful for their application. Now that you've tried a bunch of the sensors, pick one that you would like to use, and an application where you use the output of that sensor for an interaction. For example, you can use a distance sensor to measure someone's height if you position it overhead and get them to stand under it.
-
-
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
+The sensor I went with was the <strong>Joystick</strong>. Here are five different use case sketches:
+<img width="524" height="437" alt="image" src="https://github.com/user-attachments/assets/ab203121-f73e-45af-b4d6-f79f464aaf67" /><br>
+<img width="380" height="541" alt="image" src="https://github.com/user-attachments/assets/b1346041-d74b-477e-a000-00d2c9bcb453" /><br>
+<img width="386" height="471" alt="image" src="https://github.com/user-attachments/assets/e6eec587-90f8-40b1-97e5-06f51d0717bb" /><br>
+<img width="389" height="394" alt="image" src="https://github.com/user-attachments/assets/a21bbd38-3679-4b66-95b2-3203e72d32f6" /><br>
+<img width="340" height="418" alt="image" src="https://github.com/user-attachments/assets/8ce19308-0003-48ac-9ec9-8090fa45d476" /><br>
+
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
+<br>Some questions raised:
+- How will feedback be provided to the user?
+- Will diagonal input be supported or blocked?
+- Will the click button serve a unique role or just be an 'enter'?
+- How will the size and placement affect ease of use?
+- Is the center push button sensitive enough?
+
+Some of these like the sensitivity of the joystick can't really be determined till a proper prototype is created.
+<br><br>
 
 **\*\*\*Pick one of these designs to prototype.\*\*\***
-
+<br>Chosen design to prototype: **Tamagotchi Pet Arcade**. The interaction will be determined through the joystick as it will be able to choose different actions for the pet to do (like pet, feed, play, rest, etc).
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
 
-
-
-Here is a Pi with a paper faceplate on it to turn it into a display interface:
-
-
-<img src="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2020Fall/images/paper_if.png?raw=true"  width="250"/>
-
-
-This is fine, but the mounting of the display constrains the display location and orientation a lot. Also, it really only works for applications where people can come and stand over the Pi, or where you can mount the Pi to the wall.
-
-Here is another prototype for a paper display:
-
-<img src="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2020Fall/images/b_box.png?raw=true"  width="250"/>
-
-
-Your kit includes these [SparkFun Qwiic OLED screens](https://www.sparkfun.com/products/17153). These use less power than the MiniTFTs you have mounted on the GPIO pins of the Pi, but, more importantly, they can be more flexibly mounted elsewhere on your physical interface. The way you program this display is almost identical to the way you program a  Pi display. Take a look at `oled_test.py` and some more of the [Adafruit examples](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306/tree/master/examples).
-
-<p float="left">
-<img src="https://cdn.sparkfun.com//assets/parts/1/6/1/3/5/17153-SparkFun_Qwiic_OLED_Display__0.91_in__128x32_-01.jpg" height="200" />
-
-</p>
-
-
-It holds a Pi and usb power supply, and provides a front stage on which to put writing, graphics, LEDs, buttons or displays.
-
-This design can be made by scoring a long strip of corrugated cardboard of width X, with the following measurements:
-
-| Y height of box <br> <sub><sup>- thickness of cardboard</sup></sub> | Z  depth of box <br><sub><sup>- thickness of cardboard</sup></sub> | Y height of box  | Z  depth of box | H height of faceplate <br><sub><sup>* * * * * (don't make this too short) * * * * *</sup></sub>|
-| --- | --- | --- | --- | --- | 
-
-Fold the first flap of the strip so that it sits flush against the back of the face plate, and tape, velcro or hot glue it in place. This will make a H x X interface, with a box of Z x X footprint (which you can adapt to the things you want to put in the box) and a height Y in the back. 
-
-Here is an example:
-
-<img src="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2020Fall/images/horoscope.png?raw=true"  width="250"/>
-
-Think about how you want to present the information about what your sensor is sensing! Design a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
- 
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
+<br>Based off the Tamagotchi Pet Caretaker idea, some possible physical sketches for it could be:
+<img height="444" alt="image" src="https://github.com/user-attachments/assets/fafb5b78-1662-458b-afaf-29ad599fbd8d" /><br>
+<img height="402" alt="image" src="https://github.com/user-attachments/assets/de00e422-fdd6-4ded-9e2f-1d47b573b591" /><br>
+<img height="407" alt="image" src="https://github.com/user-attachments/assets/4ca683fe-a311-4384-9c6f-9bd6058f290e" /><br>
+<img height="401" alt="image" src="https://github.com/user-attachments/assets/9d7a58ee-dc30-4141-8154-8421b51025f2" /><br>
+<img height="487" alt="image" src="https://github.com/user-attachments/assets/4b12d8be-fb70-49ef-946d-935059d261b3" /><br>
 
-**\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
-**\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
+**\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to answer those questions?\*\*\***
+<br>Questions that came up during sketching:
+- Should it be hand held or larger or not able to take with you?
+- What angle should the screen be tilted for optimal viewing?
+- Should there be space inside the box for speaker or future sensors?
+- Any other sensors that could complement a certain form factor to expand its capabilities?
 
-**\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
+Physically prototyping the size would help determine if its a mobile device or not. It would also help in determining space for any complement sensors.
+<br>
 
-Build a cardboard prototype of your design.
+**\*\*\*Pick one of these display designs to integrate into your prototype. Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
+<br>Went with the **Arcade Box** style physical design to prototype. This will be a compact cardboard box resembling a mini arcade where the screen will be angled for good viewing with the joystick centered below. Size is meant to be small. Angling the screen will help reduce the contrast. This design is very retro and familiar and would mimic the feeling of classic games. Hope to also have this design be modular given the size of the box to maybe add more sensors into.
 
+<br>
 
 **\*\*\*Document your rough prototype.\*\*\***
 
