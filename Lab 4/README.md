@@ -158,7 +158,14 @@ Physically prototyping the size would help determine if its a mobile device or n
 <br>
 
 **\*\*\*Document your rough prototype.\*\*\***
+<br>Rough prototype: <br>
+<img height="614" alt="image" src="https://github.com/user-attachments/assets/0336f515-f223-4a80-843a-daae6f9b76a6" /><br>
+<img height="639" alt="image" src="https://github.com/user-attachments/assets/2c7f992b-a27e-4554-8ade-7c7a4a9509b8" /><br>
+<img height="606" alt="image" src="https://github.com/user-attachments/assets/7e2a3d93-4dd3-435b-9b1a-2cd4e0c236b1" /><br>
 
+<br>Just went for a very rough prototype here, but ideally, if fully implemented, would make the casing a lot deeper and much more sturdy. That would leave a good amount of room for the pi in back as well as anything under the base where the joystick is. 
+
+<br><br><br>
 
 # LAB PART 2
 
