@@ -1,77 +1,138 @@
 import time
 import board
 import busio
+from PIL import Image, ImageDraw, ImageFont
 
+# Adafruit OLED
+import adafruit_ssd1306
+
+# SparkFun Qwiic modules
 import qwiic_joystick
 import qwiic_button
 import qwiic_proximity
-import adafruit_ssd1306
-from PIL import Image, ImageDraw, ImageFont
 
-# === Initialize I2C ===
+# MiniPiTFT display
+import digitalio
+import adafruit_rgb_display.st7789 as st7789
+
+# ==== I2C + SPI ====
 i2c = busio.I2C(board.SCL, board.SDA)
+spi = busio.SPI(board.SCK, board.MOSI)
 
-# === OLED ===
+# ==== OLED (Happiness Bar) ====
 oled = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
 oled.fill(0)
 oled.show()
-font = ImageFont.load_default()
+oled_font = ImageFont.load_default()
 
-# === Devices ===
+# ==== MiniPiTFT Display ====
+cs_pin = digitalio.DigitalInOut(board.D5)
+dc_pin = digitalio.DigitalInOut(board.D25)
+reset_pin = digitalio.DigitalInOut(board.D24)
+disp = st7789.ST7789(
+    spi,
+    cs=cs_pin,
+    dc=dc_pin,
+    rst=reset_pin,
+    x_offset=50,
+    y_offset=40,
+    rotation=90,
+)
+
+# ==== Devices ====
 joystick = qwiic_joystick.QwiicJoystick()
 button = qwiic_button.QwiicButton()
 prox = qwiic_proximity.QwiicProximity()
 
-# === State ===
-happiness = 5
-pet_awake = True
-selected = 0
-menu_options = ['Feed', 'Play', 'Clean']
-last_joy_position = 512  # Neutral
-
-# === Setup ===
 joystick.begin()
 button.begin()
 prox.begin()
 
-def draw_oled_status():
-    oled.fill(0)
+# ==== State ====
+happiness = 5
+pet_awake = True
+selected = 0
+menu_options = ['Feed', 'Play', 'Clean']
+last_input_time = time.time()
+
+
+
+# ==== Image Assets ====
+def clear_display():
+    """Fill the MiniPiTFT display with black."""
+    blank = Image.new("RGB", (135, 240), (0, 0, 0))
+    disp.image(blank)
+
+def show_face(name, selected_option=None):
+    """Safely display a pet face image with optional text on MiniPiTFT."""
+    img = faces[name].convert("RGB")
+
+    if img.size != (240, 135):
+        img = img.resize((240, 135), Image.BICUBIC)
+
+    base = Image.new("RGB", (240, 135), (0, 0, 0))
+    base.paste(img, (0, 0))
+
+    if selected_option is not None:
+        draw = ImageDraw.Draw(base)
+        font = ImageFont.load_default()
+        text = f"> {selected_option} <"
+        
+        text_bbox = font.getbbox(text)
+        text_width = text_bbox[2] - text_bbox[0]
+        text_height = text_bbox[3] - text_bbox[1]
+
+        text_x = (240 - text_width) // 2
+        text_y = 135 - text_height - 5
+
+        draw.rectangle([0, text_y - 2, 240, 135], fill=(0, 0, 0))
+        draw.text((text_x, text_y), text, font=font, fill=(255, 255, 255))
+
+    disp.image(base)
+
+faces = {
+    'happy': Image.open("assets/happy.png"),
+    'meh': Image.open("assets/meh.png"),
+    'sad': Image.open("assets/sad.png"),
+    'sleeping': Image.open("assets/sleeping.png"),
+}
+
+# ==== OLED Happiness Bar ====
+def draw_happiness_bar():
     image = Image.new("1", (oled.width, oled.height))
     draw = ImageDraw.Draw(image)
 
-    # Happiness + Wake Status
-    draw.text((0, 0), f"Happiness: {happiness}/10", font=font, fill=255)
-    draw.text((90, 0), "Awake" if pet_awake else "Zzz", font=font, fill=255)
-
-    # Menu bar
-    menu_display = " | ".join(
-        [f"[{m}]" if i == selected else m for i, m in enumerate(menu_options)]
-    )
-    draw.text((0, 16), menu_display, font=font, fill=255)
+    # Draw bar based on happiness level
+    bar_width = int((happiness / 10) * oled.width)
+    draw.rectangle((0, 0, bar_width, oled.height), outline=255, fill=255)
 
     oled.image(image)
     oled.show()
 
-# === Main Loop ===
+# ==== Main Loop ====
 while True:
     try:
-        # === Distance sensor: Wake/sleep logic ===
-        prox_value = prox.get_proximity()
-        pet_awake = prox_value > 5  # Empirical threshold; tune if needed
+        prev_debug_msg = ""
 
-        # === Joystick logic ===
+        # === Proximity check ===
+        distance = prox.get_proximity()
+        if distance <= 7:
+            pet_awake = False
+        else:
+            pet_awake = True
+
+        # === Joystick ===
         joy_x = joystick.horizontal
-
-        if joy_x < 100 and last_joy_position >= 100:
+        if joy_x < 100:
             selected = (selected - 1) % len(menu_options)
-            time.sleep(0.2)
-        elif joy_x > 900 and last_joy_position <= 900:
+            last_input_time = time.time()
+            time.sleep(0.3)
+        elif joy_x > 900:
             selected = (selected + 1) % len(menu_options)
-            time.sleep(0.2)
+            last_input_time = time.time()
+            time.sleep(0.3)
 
-        last_joy_position = joy_x
-
-        # === Button logic ===
+        # === Button press ===
         if button.is_button_pressed():
             if menu_options[selected] == 'Feed':
                 happiness = min(10, happiness + 1)
@@ -79,14 +140,26 @@ while True:
                 happiness = min(10, happiness + 2)
             elif menu_options[selected] == 'Clean':
                 happiness = max(0, happiness - 1)
-            time.sleep(0.4)  # debounce
+            time.sleep(0.5)
 
-        # === Update OLED ===
-        draw_oled_status()
+        # === Display face on MiniPiTFT ===
+        if not pet_awake:
+            show_face('sleeping', menu_options[selected])
+        elif happiness >= 8:
+            show_face('happy', menu_options[selected])
+        elif happiness >= 4:
+            show_face('meh', menu_options[selected])
+        else:
+            show_face('sad', menu_options[selected])
 
-        # === Debug Output ===
-        print(f"Prox: {prox_value} | Pet: {'Awake' if pet_awake else 'Sleep'}")
-        print(f"Menu: {menu_options[selected]} | Happiness: {happiness}/10")
+        # === OLED bar update ===
+        draw_happiness_bar()
+
+        # === Debugging ===
+        debug_msg = f"Distance: {distance}mm | Selected: {menu_options[selected]} | Happiness: {happiness}/10"
+        if debug_msg != prev_debug_msg:
+            print(debug_msg)
+            prev_debug_msg = debug_msg
 
         time.sleep(0.1)
 
