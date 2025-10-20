@@ -180,18 +180,21 @@ Physically prototyping the size would help determine if its a mobile device or n
 - The proximity/distance sensor acts as a wake/sleep detector. When no interaction is made for a period of time or there is no user close enough to the rpi5, the pet will fall asleep
 - The adafruit miniPiTFT screen will show images of the pet in one of four states based on interactions: happy, sad, meh, and sleeping
 
-<br> The code for the prototype is here [Tamagotchi Arcade](src/tamagotchi_arcade.py)
-<br>**Photo:**<br>
+<br>**Interaction Diagram**<br>
+<img width="487" height="692" alt="image" src="https://github.com/user-attachments/assets/fd689268-0fe2-4350-bf22-12b189b148d8" />
+
+<br>**Prototype Code**<br>
+<br>[Tamagotchi Arcade](src/tamagotchi_arcade.py)
+
+<br> **Photo:** <br>
 <img width="640" height="774" alt="image" src="https://github.com/user-attachments/assets/6fc9581f-61d0-4447-9107-ecc81c49fd07" />
 
-<br>**Video:**<br>
+<br> **Video:** <br>
 [Working MultiInput/MultiOutput Prototype](https://drive.google.com/file/d/1a_xYDgA0aO78Nfg3xh-LTc4AcnSAuO95/view?usp=sharing)
 
-**Document your system with:**
-- Photos and/or video of the working prototype in action
-- A simple interaction diagram or sketch showing how inputs and outputs are connected and interact
-- Written reflection: What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?
+<br>**Reflection**<br>
 
+Learned how to coordinate multiple sensor together so they don't conflict on input and output. Also Realized that I2C and SPI (adafruit and oled screen) could work together if the pins don't conflict. It was fun to watch the tamagotchi respond to all my input from all the sensor and to see results from those interactions on multiple screens, really made me feel like I was creating a mutlimodal device. It was surprisingly easy to using the OLED screen along side the adafruit miniPiTFT, I though there would be more conflict, but I also prefer the lower contrast or just easier to record via video what is being display on the OLED. I did have a challenging time getting the image to display the way I wanted on the adafruit miniPiTFT this time around though, and it was also a pain trying to avoid screen flicker and ensure each frame displayed cleanly.
 
 
 ### Part F
