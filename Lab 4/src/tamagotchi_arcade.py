@@ -2,30 +2,21 @@ import time
 import board
 import busio
 from PIL import Image, ImageDraw, ImageFont
-
-# Adafruit OLED
 import adafruit_ssd1306
-
-# SparkFun Qwiic modules
 import qwiic_joystick
 import qwiic_button
 import qwiic_proximity
-
-# MiniPiTFT display
 import digitalio
 import adafruit_rgb_display.st7789 as st7789
 
-# ==== I2C + SPI ====
 i2c = busio.I2C(board.SCL, board.SDA)
 spi = busio.SPI(board.SCK, board.MOSI)
 
-# ==== OLED (Happiness Bar) ====
 oled = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
 oled.fill(0)
 oled.show()
 oled_font = ImageFont.load_default()
 
-# ==== MiniPiTFT Display ====
 cs_pin = digitalio.DigitalInOut(board.D5)
 dc_pin = digitalio.DigitalInOut(board.D25)
 reset_pin = digitalio.DigitalInOut(board.D24)
@@ -39,7 +30,6 @@ disp = st7789.ST7789(
     rotation=90,
 )
 
-# ==== Devices ====
 joystick = qwiic_joystick.QwiicJoystick()
 button = qwiic_button.QwiicButton()
 prox = qwiic_proximity.QwiicProximity()
@@ -48,7 +38,6 @@ joystick.begin()
 button.begin()
 prox.begin()
 
-# ==== State ====
 happiness = 5
 pet_awake = True
 selected = 0
@@ -97,7 +86,6 @@ faces = {
     'sleeping': Image.open("assets/sleeping.png"),
 }
 
-# ==== OLED Happiness Bar ====
 def draw_happiness_bar():
     image = Image.new("1", (oled.width, oled.height))
     draw = ImageDraw.Draw(image)
@@ -109,19 +97,18 @@ def draw_happiness_bar():
     oled.image(image)
     oled.show()
 
-# ==== Main Loop ====
 while True:
     try:
         prev_debug_msg = ""
 
-        # === Proximity check ===
+        # even with nothing in front of it, seems to default to giving a value of 3, 4, or 5, so made threshold 7
         distance = prox.get_proximity()
         if distance <= 7:
             pet_awake = False
         else:
             pet_awake = True
 
-        # === Joystick ===
+        # only worried about up and down input
         joy_x = joystick.horizontal
         if joy_x < 100:
             selected = (selected - 1) % len(menu_options)
@@ -132,7 +119,6 @@ while True:
             last_input_time = time.time()
             time.sleep(0.3)
 
-        # === Button press ===
         if button.is_button_pressed():
             if menu_options[selected] == 'Feed':
                 happiness = min(10, happiness + 1)
@@ -142,7 +128,6 @@ while True:
                 happiness = max(0, happiness - 1)
             time.sleep(0.5)
 
-        # === Display face on MiniPiTFT ===
         if not pet_awake:
             show_face('sleeping', menu_options[selected])
         elif happiness >= 8:
@@ -152,10 +137,8 @@ while True:
         else:
             show_face('sad', menu_options[selected])
 
-        # === OLED bar update ===
         draw_happiness_bar()
 
-        # === Debugging ===
         debug_msg = f"Distance: {distance}mm | Selected: {menu_options[selected]} | Happiness: {happiness}/10"
         if debug_msg != prev_debug_msg:
             print(debug_msg)
