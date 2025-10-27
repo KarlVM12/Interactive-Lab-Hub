@@ -1,7 +1,7 @@
 # Observant Systems
 
-**NAMES OF COLLABORATORS HERE**
-
+**NAMES OF COLLABORATORS HERE:** <br>
+**Karl Muller**
 
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
 Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
@@ -133,7 +133,7 @@ In an earlier version of this class students experimented with foundational comp
 ### Construct a simple interaction.
 
 * Pick one of the models you have tried, and experiment with prototyping an interaction.
-* This can be as simple as the boat detector showen in a previous lecture from Nikolas Matelaro.
+* This can be as simple as the boat detector shown in lecture.
 * Try out different interaction outputs and inputs.
 
 

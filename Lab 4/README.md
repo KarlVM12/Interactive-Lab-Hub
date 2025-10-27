@@ -180,26 +180,59 @@ Physically prototyping the size would help determine if its a mobile device or n
 - The proximity/distance sensor acts as a wake/sleep detector. When no interaction is made for a period of time or there is no user close enough to the rpi5, the pet will fall asleep
 - The adafruit miniPiTFT screen will show images of the pet in one of four states based on interactions: happy, sad, meh, and sleeping
 
-<br> The code for the prototype is here [Tamagotchi Arcade](src/tamagotchi_arcade.py)
-<br>**Photo:**<br>
+<br>**Interaction Diagram**<br>
+<img width="487" height="692" alt="image" src="https://github.com/user-attachments/assets/fd689268-0fe2-4350-bf22-12b189b148d8" />
+
+<br>**Prototype Code**<br>
+<br>[Tamagotchi Arcade](src/tamagotchi_arcade.py)
+
+<br> **Photo:** <br>
 <img width="640" height="774" alt="image" src="https://github.com/user-attachments/assets/6fc9581f-61d0-4447-9107-ecc81c49fd07" />
 
-<br>**Video:**<br>
+<br> **Video:** <br>
 [Working MultiInput/MultiOutput Prototype](https://drive.google.com/file/d/1a_xYDgA0aO78Nfg3xh-LTc4AcnSAuO95/view?usp=sharing)
 
-**Document your system with:**
-- Photos and/or video of the working prototype in action
-- A simple interaction diagram or sketch showing how inputs and outputs are connected and interact
-- Written reflection: What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?
+<br>**Reflection**<br>
 
+Learned how to coordinate multiple sensor together so they don't conflict on input and output. Also Realized that I2C and SPI (adafruit and oled screen) could work together if the pins don't conflict. It was fun to watch the tamagotchi respond to all my input from all the sensor and to see results from those interactions on multiple screens, really made me feel like I was creating a mutlimodal device. It was surprisingly easy to using the OLED screen along side the adafruit miniPiTFT, I though there would be more conflict, but I also prefer the lower contrast or just easier to record via video what is being display on the OLED. I did have a challenging time getting the image to display the way I wanted on the adafruit miniPiTFT this time around though, and it was also a pain trying to avoid screen flicker and ensure each frame displayed cleanly.
 
 
 ### Part F
 
 ### Record
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
+**Photos:**<br>
+<img height="479" alt="image" src="https://github.com/user-attachments/assets/6375d196-9b7e-4afa-8c14-90a7a1e440d1" />
+<img height="464" alt="image" src="https://github.com/user-attachments/assets/db278aa3-000c-4229-b463-b4e1da4de933" />
+<img height="435" alt="image" src="https://github.com/user-attachments/assets/2fa0708d-07d9-4712-ae64-92b239375e3e" />
+<img height="479" alt="image" src="https://github.com/user-attachments/assets/342d2fba-58d7-498a-817b-17803a936815" />
+<img height="401" alt="image" src="https://github.com/user-attachments/assets/79a1f624-27bb-42af-93ff-7e0033f43398" />
+<img height="455" alt="image" src="https://github.com/user-attachments/assets/a948fdfe-1617-477b-90d5-6912f47ae9a2" />
+
+
+
+<br>**Final Iteraction Video with Full Prototype:** <br>
+The contrast on the screen makes it very very hard to record and have the screen really be meaningful, but I tried my best. Again this is the tamagotchi arcade. The pet only wakes up when the user is actually close, otherwise it goes to sleeping. Using the joystick and the button to select, can change pet's mood and happiness level. Selecting 'Play' gives 2 happiness, 'Feed' gives 1, and doing 'Clean' too much makes it unhappy. It changes faces according to that level. <br>
+[Final Prototype Full Interaction Video](https://drive.google.com/file/d/1kHrVFfGOraO2RmluJErlXxWuFi0Sjnsz/view?usp=sharing)
+
+<br>**Summary & Reflection**<br>
+The final prototype is a Tamagotchi like arcade device, built using the adafruit miniPiTFT screen, joystick, qwiic button, proximity sensor, and an OLED display. Similar to Part E:
+- The miniPiTFT acts as the main display showing the Tamagotchi’s emotion using different images (happy, meh, sad, sleeping), updated based on internal “happiness” logic
+- The joystick allows you to navigate between three menu options: Feed, Play, and Clean
+- The button lets you select the chosen action, which increases or decreases the Tamagotchi’s happiness accordingly
+- A proximity sensor monitors whether someone is nearby, and if not, the pet enters a sleeping state
+- The OLED screen serves as a happiness bar, a bar that visually fills based on the Tamagotchi’s current happiness (0–10 scale)
+- When interacted with, the system responds smoothly: joystick inputs update the selected action, button presses perform the action, and the face and happiness bar update in real time
+
+Learned a lot in the lab in ways we can interact with devices, just to list few :
+- Multimodal device feedback with iteractions through images, text, light, & input showing that a small device can still be pretty expressive
+- Stateful interaction handling different states like proximity sensor & sleep, happiness levels, and user inputs made the device feel alive in a way and that i was actually caring for a tamagotchi
+
+If moving forward on the device, some next steps and improvments could be:
+- Add audio feedback like with beeps or speech via TTS using piper and vosk
+- Introduce dynamic states like hunger or sleepiness decay over time
+- Save state across sessions using file storage
+- Add more interaction modes like a long press for advanced options or gesture input
+- Make the outside casing look a lot better and more arcady, I really only ever had a similar shape at best
+- Let the Tamagotchi react to more real world interactions like sound or light, not just proximity
 
