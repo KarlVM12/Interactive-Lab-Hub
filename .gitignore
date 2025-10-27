@@ -9,3 +9,4 @@ Lab 3/ollama/ollama_venv
 Lab 3/ollama/ollama_demo_external_host.py
 Lab 3/ollama/ollama_voice_pipeline.py
 Lab 3/src/ollama_simple_interaction/ollama_venv
+.venv/
