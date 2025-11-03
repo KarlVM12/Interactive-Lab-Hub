@@ -29,16 +29,15 @@ D) [Reflect](#part-d)
 ### Part A
 ### Play with different sense-making algorithms.
 
-#### Pytorch for object recognition
+#### \*\*Pytorch for object recognition\*\*
 Ran and tested `infer.py`
 
-#### MediaPipe
+#### \*\*MediaPipe\*\*
 Ran and tested `hand_pose.py` with pecentage control and quiet coyote
 <br>Testing Vid: [Hand Pose Test](https://drive.google.com/file/d/10it2BaKFEcAhRogGAz5EzPjarISGGZV3/view?usp=sharing)
-
 <br>Could use this for a variety of reason, most importantly recognizing gestures, especially ASL. An interaction with this could involve translating hand positions to the correct letter and displaying that on the mini screen. Could also use it to detect when a fist is made, sort of as a 'violence' detector.
 
-#### Teachable Machines
+#### \*\*Teachable Machines\*\*
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
 
 
