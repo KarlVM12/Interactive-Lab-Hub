@@ -52,8 +52,8 @@ TEAM_TOPIC = os.getenv("IDD_MORSE_TOPIC", "IDD/lab6/morse/team42")
 SYMBOL_TOPIC = f"{TEAM_TOPIC}/symbol"
 STATUS_TOPIC = f"{TEAM_TOPIC}/status"
 
-LETTER_TIMEOUT = float(os.getenv("MORSE_LETTER_TIMEOUT", "2.0"))
-WORD_TIMEOUT = float(os.getenv("MORSE_WORD_TIMEOUT", "4.5"))
+LETTER_TIMEOUT = float(os.getenv("MORSE_LETTER_TIMEOUT", "3.5"))
+WORD_TIMEOUT = float(os.getenv("MORSE_WORD_TIMEOUT", "6.0"))
 STALE_TIMEOUT = float(os.getenv("MORSE_STALE_TIMEOUT", "20.0"))
 MAX_MESSAGE_LEN = int(os.getenv("MORSE_MAX_MESSAGE", "160"))
 HISTORY_WINDOW = 18

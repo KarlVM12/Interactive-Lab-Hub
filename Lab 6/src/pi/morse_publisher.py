@@ -31,10 +31,10 @@ TEAM_TOPIC = os.getenv("IDD_MORSE_TOPIC", "IDD/lab6/morse/team42")
 SYMBOL_TOPIC = f"{TEAM_TOPIC}/symbol"
 STATUS_TOPIC = f"{TEAM_TOPIC}/status"
 
-SAMPLE_INTERVAL = float(os.getenv("MORSE_SAMPLE_INTERVAL", "0.02"))
-BASELINE_WINDOW = int(os.getenv("MORSE_BASELINE_WINDOW", "60"))
-DARK_RATIO = float(os.getenv("MORSE_DARK_RATIO", "0.55"))
-BRIGHT_RATIO = float(os.getenv("MORSE_BRIGHT_RATIO", "0.80"))
+SAMPLE_INTERVAL = float(os.getenv("MORSE_SAMPLE_INTERVAL", "0.01"))
+BASELINE_WINDOW = int(os.getenv("MORSE_BASELINE_WINDOW", "80"))
+DARK_RATIO = float(os.getenv("MORSE_DARK_RATIO", "0.65"))
+BRIGHT_RATIO = float(os.getenv("MORSE_BRIGHT_RATIO", "0.88"))
 MIN_HOLD = float(os.getenv("MORSE_MIN_HOLD", "0.05"))
 DOT_MAX = float(os.getenv("MORSE_DOT_MAX", "1.5"))
 HEARTBEAT_INTERVAL = float(os.getenv("MORSE_HEARTBEAT_INTERVAL", "10"))
