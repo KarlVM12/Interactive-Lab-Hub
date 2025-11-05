@@ -117,8 +117,8 @@ if __name__ == '__main__':
     print("=" * 60)
     print("  Collaborative Pixel Grid Server")
     print("=" * 60)
-    print(f"  Fullscreen Grid:    http://0.0.0.0:5000")
-    print(f"  Controller:         http://0.0.0.0:5000/controller")
+    print(f"  Fullscreen Grid:    http://0.0.0.0:2357")
+    print(f"  Controller:         http://0.0.0.0:2357/controller")
     print("=" * 60)
     
     # Optional: Enable MQTT bridge
@@ -134,4 +134,4 @@ if __name__ == '__main__':
     print("=" * 60)
     print()
     
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=2357, debug=True)

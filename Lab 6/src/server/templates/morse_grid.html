@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Morse MQTT Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-31x45Y2wAPOQgQnH2fSNZdLFz8REbs9YeoQmwUqa6uwbb2RRIGU3wFJbATgP/7X9" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0f172a;
+            --panel: #1e293b;
+            --accent: #38bdf8;
+            --accent-muted: rgba(56, 189, 248, 0.2);
+            --offline: #64748b;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --danger: #f87171;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15), transparent 45%), var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            padding: 1.6rem 2.2rem 0.8rem;
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: clamp(1.4rem, 2vw, 1.9rem);
+        }
+        header p {
+            margin: 0.4rem 0 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        header code {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 0.2rem 0.45rem;
+            border-radius: 6px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+        main {
+            flex: 1;
+            padding: 1.0rem 2.2rem 2.2rem;
+        }
+        #grid {
+            display: grid;
+            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .tile {
+            position: relative;
+            background: rgba(30, 41, 59, 0.88);
+            border-radius: 16px;
+            padding: 1.2rem;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            box-shadow: 0 20px 35px rgba(15, 23, 42, 0.45);
+            display: grid;
+            gap: 0.8rem;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+        .tile.flash {
+            border-color: var(--accent);
+            box-shadow: 0 24px 60px rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+        .tile.offline {
+            opacity: 0.6;
+            border-color: rgba(148, 163, 184, 0.08);
+        }
+        .tile header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+        .tile .name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+        }
+        .tile .status {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+        .tile.offline .status {
+            color: var(--offline);
+        }
+        .sequence {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--accent-muted);
+            border-radius: 12px;
+            padding: 0.7rem 0.9rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+        }
+        .sequence span {
+            display: block;
+        }
+        .sequence .label {
+            font-size: 0.68rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(15, 23, 42, 0.8);
+        }
+        .message {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .message .label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+        }
+        .message .value {
+            min-height: 2.6rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            word-break: break-word;
+        }
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+        .history {
+            font-size: 1.4rem;
+            letter-spacing: 0.24em;
+        }
+        .history-label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+        .history .symbol-dot {
+            color: var(--accent);
+        }
+        .history .symbol-dash {
+            color: var(--accent);
+        }
+        .history .letter {
+            color: #fbbf24;
+        }
+        .history .space {
+            color: #facc15;
+        }
+        .history .clear {
+            color: var(--danger);
+        }
+        .empty {
+            opacity: 0.4;
+        }
+        footer {
+            text-align: center;
+            padding: 0.8rem 1.2rem 1.4rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+        @media (max-width: 720px) {
+            header, main {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Morse MQTT Grid</h1>
+    <p>Listening on <code>{{ symbol_topic }}</code>. A letter is resolved after {{ "%.1f"|format(letter_timeout) }} s idle; a word gap is inserted after {{ "%.1f"|format(word_timeout) }} s.</p>
+</header>
+<main>
+    <div id="grid"></div>
+</main>
+<template id="tile-template">
+    <article class="tile">
+        <header>
+            <span class="name">Device</span>
+            <span class="status">online</span>
+        </header>
+        <div class="sequence">
+            <span class="value">…</span>
+            <span class="label">current</span>
+        </div>
+        <div class="message">
+            <span class="label">message</span>
+            <span class="value">—</span>
+        </div>
+        <div class="history">
+            <span class="history-label">history</span>
+            <span class="value empty">waiting…</span>
+        </div>
+        <div class="meta">
+            <span class="last-update">last update: —</span>
+            <span class="letter-update">last letter: —</span>
+            <span class="totals">symbols: 0</span>
+        </div>
+    </article>
+</template>
+<footer>
+    Tip: use the controller view to clear a tile by emitting <code>clear_device</code> with a device id.
+</footer>
+<script>
+    window.APP_CONFIG = {{ {
+        "symbolTopic": symbol_topic,
+        "statusTopic": status_topic,
+        "letterTimeout": letter_timeout,
+        "wordTimeout": word_timeout
+    } | tojson }};
+</script>
+<script>
+    const grid = document.getElementById("grid");
+    const template = document.getElementById("tile-template");
+    const deviceStore = new Map();
+    const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+
+    function ensureTile(deviceId) {
+        let tile = grid.querySelector(`.tile[data-device-id="${deviceId}"]`);
+        if (!tile) {
+            tile = template.content.firstElementChild.cloneNode(true);
+            tile.dataset.deviceId = deviceId;
+            grid.appendChild(tile);
+        }
+        return tile;
+    }
+
+    function formatSequence(sequence) {
+        if (!sequence) {
+            return "…";
+        }
+        return sequence.replace(/\./g, "·").replace(/-/g, "—");
+    }
+
+    function historyText(history) {
+        if (!history || !history.length) {
+            return { text: "waiting…", classes: ["empty"] };
+        }
+        const symbols = history.map((entry) => {
+            if (entry.type === "symbol") {
+                return { text: entry.symbol === "." ? "·" : "—", classes: ["symbol", entry.symbol === "." ? "symbol-dot" : "symbol-dash"] };
+            }
+            if (entry.type === "letter") {
+                return { text: entry.letter || "?", classes: ["letter"] };
+            }
+            if (entry.type === "space") {
+                return { text: "␣", classes: ["space"] };
+            }
+            if (entry.type === "clear") {
+                return { text: "⟲", classes: ["clear"] };
+            }
+            return { text: "·", classes: ["symbol-dot"] };
+        }).slice(-12);
+        return symbols;
+    }
+
+    function relativeTime(isoString) {
+        if (!isoString) {
+            return "—";
+        }
+        const date = new Date(isoString);
+        if (Number.isNaN(date.valueOf())) {
+            return "—";
+        }
+        const diffSeconds = (date.getTime() - Date.now()) / 1000;
+        const abs = Math.abs(diffSeconds);
+        if (abs < 60) {
+            return rtf.format(Math.round(diffSeconds), "second");
+        }
+        if (abs < 3600) {
+            return rtf.format(Math.round(diffSeconds / 60), "minute");
+        }
+        return rtf.format(Math.round(diffSeconds / 3600), "hour");
+    }
+
+    function updateTile(device, lastEvent) {
+        const tile = ensureTile(device.device_id);
+        deviceStore.set(device.device_id, device);
+
+        tile.querySelector(".name").textContent = device.display_name || device.device_id;
+        tile.querySelector(".status").textContent = device.is_online ? "online" : "offline";
+        tile.classList.toggle("offline", !device.is_online);
+
+        tile.querySelector(".sequence .value").textContent = formatSequence(device.current_sequence);
+
+        const messageEl = tile.querySelector(".message .value");
+        const message = device.decoded_message || "—";
+        messageEl.textContent = message;
+
+        const historyEl = tile.querySelector(".history .value");
+        while (historyEl.firstChild) {
+            historyEl.removeChild(historyEl.firstChild);
+        }
+        const history = historyText(device.history);
+        if (Array.isArray(history)) {
+            history.forEach((entry) => {
+                const span = document.createElement("span");
+                span.textContent = entry.text;
+                span.classList.add(...entry.classes);
+                span.style.marginRight = "0.2rem";
+                historyEl.appendChild(span);
+            });
+        } else {
+            historyEl.textContent = history.text;
+            historyEl.classList.add(...history.classes);
+        }
+
+        tile.querySelector(".last-update").textContent = `last update: ${relativeTime(device.last_update)}`;
+        const letterInfo = device.last_letter_at ? relativeTime(device.last_letter_at) : "—";
+        tile.querySelector(".letter-update").textContent = `last letter: ${letterInfo}`;
+        tile.querySelector(".totals").textContent = `symbols: ${device.total_symbols}`;
+
+        if (lastEvent) {
+            tile.classList.add("flash");
+            setTimeout(() => tile.classList.remove("flash"), 250);
+        }
+    }
+
+    function renderSnapshot(devices) {
+        grid.innerHTML = "";
+        devices.sort((a, b) => {
+            const nameA = (a.display_name || a.device_id).toUpperCase();
+            const nameB = (b.display_name || b.device_id).toUpperCase();
+            return nameA.localeCompare(nameB);
+        });
+        devices.forEach((device) => updateTile(device, false));
+    }
+
+    const socket = io();
+
+    socket.on("connect", () => {
+        console.log("Connected to server");
+        socket.emit("request_snapshot");
+    });
+
+    socket.on("state_snapshot", (payload) => {
+        if (!payload || !payload.devices) {
+            return;
+        }
+        renderSnapshot(payload.devices);
+    });
+
+    socket.on("device_update", (payload) => {
+        if (!payload || !payload.device) {
+            return;
+        }
+        updateTile(payload.device, payload.event);
+    });
+
+    socket.on("disconnect", () => {
+        console.log("Socket disconnected");
+    });
+</script>
+</body>
+</html>
