@@ -36,7 +36,7 @@ BASELINE_WINDOW = int(os.getenv("MORSE_BASELINE_WINDOW", "60"))
 DARK_RATIO = float(os.getenv("MORSE_DARK_RATIO", "0.55"))
 BRIGHT_RATIO = float(os.getenv("MORSE_BRIGHT_RATIO", "0.80"))
 MIN_HOLD = float(os.getenv("MORSE_MIN_HOLD", "0.05"))
-DOT_MAX = float(os.getenv("MORSE_DOT_MAX", "0.45"))
+DOT_MAX = float(os.getenv("MORSE_DOT_MAX", "0.90"))
 HEARTBEAT_INTERVAL = float(os.getenv("MORSE_HEARTBEAT_INTERVAL", "10"))
 
 DEVICE_LABEL = os.getenv("MORSE_DEVICE_LABEL")

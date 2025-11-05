@@ -117,10 +117,30 @@
             text-transform: uppercase;
             color: rgba(15, 23, 42, 0.8);
         }
+        .recent-letter {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            background: rgba(15, 23, 42, 0.55);
+            border-radius: 12px;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+        }
         .message {
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
+        }
+        .recent-letter .label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: var(--muted);
+        }
+        .recent-letter .value {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
         }
         .message .label {
             font-size: 0.78rem;
@@ -203,6 +223,10 @@
         <div class="sequence">
             <span class="value">…</span>
             <span class="label">current</span>
+        </div>
+        <div class="recent-letter">
+            <span class="label">last letter</span>
+            <span class="value">—</span>
         </div>
         <div class="message">
             <span class="label">message</span>
@@ -307,6 +331,15 @@
         const messageEl = tile.querySelector(".message .value");
         const message = device.decoded_message || "—";
         messageEl.textContent = message;
+
+        const recentEl = tile.querySelector(".recent-letter .value");
+        const lastLetter = device.last_letter || "—";
+        recentEl.textContent = lastLetter;
+        if (device.last_pattern) {
+            recentEl.title = device.last_pattern;
+        } else {
+            recentEl.removeAttribute("title");
+        }
 
         const historyEl = tile.querySelector(".history .value");
         while (historyEl.firstChild) {

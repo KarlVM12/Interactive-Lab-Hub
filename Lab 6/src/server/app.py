@@ -3,6 +3,14 @@
 
 from __future__ import annotations
 
+try:
+    import eventlet  # type: ignore
+
+    eventlet.monkey_patch()
+    ASYNC_MODE = "eventlet"
+except ImportError:  # pragma: no cover
+    ASYNC_MODE = "threading"
+
 import json
 import logging
 import os
@@ -16,14 +24,6 @@ from typing import Dict, List, Optional, Tuple
 import paho.mqtt.client as mqtt
 from flask import Flask, jsonify, render_template
 from flask_socketio import SocketIO, emit
-
-try:
-    import eventlet  # type: ignore
-
-    eventlet.monkey_patch()
-    ASYNC_MODE = "eventlet"
-except ImportError:  # pragma: no cover
-    ASYNC_MODE = "threading"
 
 if __package__:
     from .morse import decode_morse, VALID_SYMBOLS
@@ -78,6 +78,8 @@ class DeviceState:
     awaiting_word_gap: bool = False
     total_symbols: int = 0
     is_online: bool = True
+    last_letter: Optional[str] = None
+    last_pattern: Optional[str] = None
 
     def __post_init__(self) -> None:
         if not self.display_name:
@@ -122,6 +124,8 @@ class DeviceState:
             self.decoded_message = self.decoded_message[-MAX_MESSAGE_LEN:]
         self.history.append(entry)
         self._trim_history()
+        self.last_letter = letter
+        self.last_pattern = pattern
         self.current_symbols.clear()
         self.awaiting_word_gap = True
         self.last_letter_at = event_time
@@ -149,6 +153,8 @@ class DeviceState:
         self.awaiting_word_gap = False
         self.last_letter_at = None
         self.last_symbol_at = None
+        self.last_letter = None
+        self.last_pattern = None
         self.touch(event_time)
 
     def as_dict(self) -> Dict[str, object]:
@@ -172,6 +178,8 @@ class DeviceState:
             else None,
             "total_symbols": self.total_symbols,
             "is_online": self.is_online,
+            "last_letter": self.last_letter,
+            "last_pattern": self.last_pattern,
         }
 
     def _trim_history(self) -> None:
@@ -248,7 +256,6 @@ class MorseController:
                 "device": snapshot,
             },
             namespace="/",
-            broadcast=True,
         )
         logger.info(
             "Symbol %s (%.2fs) from %s",
@@ -310,7 +317,6 @@ class MorseController:
                         "device": snapshot,
                     },
                     namespace="/",
-                    broadcast=True,
                 )
                 logger.info(
                     "Letter %s (%s) resolved for %s",
@@ -324,7 +330,6 @@ class MorseController:
                     "device_update",
                     {"event": "space", "device": snapshot},
                     namespace="/",
-                    broadcast=True,
                 )
                 logger.info("Word break inserted for %s", snapshot["display_name"])
 
@@ -333,7 +338,6 @@ class MorseController:
                     "device_update",
                     {"event": "status", "device": snapshot},
                     namespace="/",
-                    broadcast=True,
                 )
                 logger.info("%s marked offline", snapshot["display_name"])
 
@@ -400,7 +404,6 @@ def handle_clear_device(data):
             "device_update",
             {"event": "cleared", "device": snapshot},
             namespace="/",
-            broadcast=True,
         )
 
 
