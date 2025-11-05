@@ -112,6 +112,8 @@ class MorsePublisher:
         client.connect(MQTT_BROKER, MQTT_PORT, keepalive=60)
         client.loop_start()
         logger.info("MQTT connected (topic: %s)", SYMBOL_TOPIC)
+        # Ensure heartbeat helper can publish immediately.
+        self.client = client
         self._publish_status("online")
         return client
 
