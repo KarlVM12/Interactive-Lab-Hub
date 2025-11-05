@@ -48,7 +48,7 @@ MQTT_PORT = int(os.getenv("IDD_MQTT_PORT", "1883"))
 MQTT_USERNAME = os.getenv("IDD_MQTT_USER", "idd")
 MQTT_PASSWORD = os.getenv("IDD_MQTT_PASS", "device@theFarm")
 
-TEAM_TOPIC = os.getenv("IDD_MORSE_TOPIC", "IDD/lab6/morse/team42")
+TEAM_TOPIC = os.getenv("IDD_MORSE_TOPIC", "IDD/lab6/morse/coolguys")
 SYMBOL_TOPIC = f"{TEAM_TOPIC}/symbol"
 STATUS_TOPIC = f"{TEAM_TOPIC}/status"
 
