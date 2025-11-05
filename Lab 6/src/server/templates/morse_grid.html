@@ -117,30 +117,42 @@
             text-transform: uppercase;
             color: rgba(15, 23, 42, 0.8);
         }
-        .recent-letter {
-            display: flex;
-            flex-direction: column;
+        .letter-card {
+            position: relative;
+            display: grid;
             gap: 0.35rem;
             background: rgba(15, 23, 42, 0.55);
             border-radius: 12px;
-            padding: 0.6rem 0.8rem;
+            padding: 0.75rem 0.9rem 0.85rem;
             border: 1px solid rgba(148, 163, 184, 0.12);
+        }
+        .letter-card .letter-value {
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-align: center;
+        }
+        .letter-card .pattern {
+            font-size: 1.1rem;
+            letter-spacing: 0.32em;
+            text-align: center;
+            color: var(--accent);
+        }
+        .letter-card .pattern.empty {
+            color: var(--muted);
+            opacity: 0.7;
+        }
+        .letter-card .label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: var(--muted);
+            justify-self: center;
         }
         .message {
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
-        }
-        .recent-letter .label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-            color: var(--muted);
-        }
-        .recent-letter .value {
-            font-size: 1.6rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
         }
         .message .label {
             font-size: 0.78rem;
@@ -224,9 +236,10 @@
             <span class="value">…</span>
             <span class="label">current</span>
         </div>
-        <div class="recent-letter">
+        <div class="letter-card">
+            <span class="letter-value">—</span>
+            <span class="pattern">··</span>
             <span class="label">last letter</span>
-            <span class="value">—</span>
         </div>
         <div class="message">
             <span class="label">message</span>
@@ -332,13 +345,18 @@
         const message = device.decoded_message || "—";
         messageEl.textContent = message;
 
-        const recentEl = tile.querySelector(".recent-letter .value");
+        const letterValueEl = tile.querySelector(".letter-card .letter-value");
+        const patternEl = tile.querySelector(".letter-card .pattern");
         const lastLetter = device.last_letter || "—";
-        recentEl.textContent = lastLetter;
+        letterValueEl.textContent = lastLetter;
         if (device.last_pattern) {
-            recentEl.title = device.last_pattern;
+            patternEl.textContent = formatSequence(device.last_pattern);
+            patternEl.classList.remove("empty");
+            patternEl.title = device.last_pattern;
         } else {
-            recentEl.removeAttribute("title");
+            patternEl.textContent = "…";
+            patternEl.classList.add("empty");
+            patternEl.removeAttribute("title");
         }
 
         const historyEl = tile.querySelector(".history .value");
