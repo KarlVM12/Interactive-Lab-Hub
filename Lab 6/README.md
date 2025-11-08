@@ -52,6 +52,11 @@ This project is interesting because it transforms simple tactile inputs (button 
 - Payload: `{ "symbol": ".", "device_id": "karl" }` or `{ "symbol": "-", "device_id": "om" }`
 
 **Code Snippets:**<br>
+Important Files:
+- [Server](src/server/app.py)
+- [Pi Publiser](src/pi/qwiic_button_publisher.py)
+- [Morse Decoder helper](src/server/morse.py)
+
 Publisher function [src/pi/qwiic_button_publisher.py](src/pi/qwiic_button_publisher.py): <br>
 ```python
 def publish_message(client, morse_symbols):
@@ -181,6 +186,27 @@ def decode_morse(pattern: str) -> str:
         return ""
     return MORSE_CODE.get(cleaned, "?")
 ```
+
+**Photos/Video of Setup**<br>
+Each device publishing is a Pi Setup with qwiic button:<br>
+<img width="1129" height="852" alt="image" src="https://github.com/user-attachments/assets/577d4bf6-16fe-44fb-8d62-87308ce58684" />
+
+Main Server Listening for messages, with two and three publisher: <br>
+<img width="1794" height="997" alt="Pasted Graphic 4" src="https://github.com/user-attachments/assets/77ee2903-19cf-4fb6-a700-a449597278ad" />
+<img width="1800" height="983" alt="Pasted Graphic 5" src="https://github.com/user-attachments/assets/c60c43b5-9fb8-46b4-a764-9fc01ced4a07" />
+
+Publisher console output: <br>
+<img width="897" height="790" alt="Pasted Graphic 6" src="https://github.com/user-attachments/assets/266aff74-d938-4a32-8884-1b47d3f7091e" />
+
+Server listener console output: <br>
+<img width="1225" height="971" alt="Pasted Graphic 7" src="https://github.com/user-attachments/assets/72f03ea9-70ab-4c77-ba5b-967a898332e1" />
+
+
+Three Pis connected to server: <br>
+<img width="1209" height="792" alt="image" src="https://github.com/user-attachments/assets/1d1c676b-1178-49d1-a8b5-60d5c2492d51" />
+
+Video interaction: <br>
+[Testing a message sent to server via morse code](https://drive.google.com/file/d/1acjt-gmCmJrJb8e_gwvGKI7I_mBhHAgy/view?usp=sharing)
 
 **4. User Testing**
 - **Test with 2+ people NOT on your team**
