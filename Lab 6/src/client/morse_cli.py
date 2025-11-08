@@ -63,7 +63,7 @@ class MorsePublisher:
 
     def __init__(self, device_id: Optional[str] = None, label: Optional[str] = None) -> None:
         self.device_id = device_id or default_device_id()
-        self.label = label or os.getenv("MORSE_DEVICE_LABEL", "Laptop")
+        self.label = label or os.getenv("MORSE_DEVICE_LABEL", "PI 1")
         self.client = mqtt.Client(client_id=f"morse-cli-{uuid.uuid4().hex}")
         if MQTT_USERNAME:
             self.client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
