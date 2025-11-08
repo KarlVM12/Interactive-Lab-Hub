@@ -31,24 +31,24 @@
 
 ---
 
-**1. Project Description** <br>
+### **1. Project Description** <br>
 **What does it do? Why interesting? User experience?** <br>
 We built a distributed system using MQTT where multiple Raspberry Pi devices with Qwiic buttons transmit Morse code (dots and dashes) to a shared MQTT broker. A central Flask server with a web dashboard listens to the topic and displays decoded letters, full messages, and transmission history for each Pi in real time.
 
 This project is interesting because it transforms simple tactile inputs (button presses) into distributed, real time communication using networked microcontrollers. The user presses the button for short (dot) or long (dash) durations. After a pause, the system automatically decodes the Morse sequence and displays the letter. Each Pi has its own message stream, making the experience collaborative and transparent.
 
-**2. Architecture Diagram**
+### **2. Architecture Diagram**
 - Hardware, connections, data flow
 - Label input/computation/output
 
-**3. Build Documentation**
+### **3. Build Documentation**
 
 **Devices:**<br>
-	•	2 or 3 (as many can connect as they want) rpi5 with qwiic button  connected to GPIO header
-	•	Laptop running Flask + MQTT Subscriber Dashboard
+- 2 or 3 (as many can connect as they want) rpi5 with qwiic button  connected to GPIO header
+- Laptop running Flask + MQTT Subscriber Dashboard
 
 **MQTT Topic:**<br>
-- IDD/lab6/morse/coolguys/symbol
+- `IDD/lab6/morse/coolguys/symbol`
 - Payload: `{ "symbol": ".", "device_id": "karl" }` or `{ "symbol": "-", "device_id": "om" }`
 
 **Code Snippets:**<br>
@@ -208,18 +208,41 @@ Three Pis connected to server: <br>
 Video interaction: <br>
 [Testing a message sent to server via morse code](https://drive.google.com/file/d/1acjt-gmCmJrJb8e_gwvGKI7I_mBhHAgy/view?usp=sharing)
 
-**4. User Testing**
-- **Test with 2+ people NOT on your team**
-- Photos/video of use
-- What did they think before trying?
-- What surprised them?
-- What would they change?
+<br><br>
+### **4. User Testing**
+Tested with two other users, able to use two pis at the same time. <br>
 
-**5. Reflection**
-- What worked well?
-- Challenges with distributed interaction?
-- How did sensor events work?
-- What would you improve?
+Photo/videos: <br>
+[User Interaction](https://drive.google.com/file/d/1COBvnrb5_AXRhYh_Up_i9It5O5BaiEGn/view?usp=sharing)<br><br>
+<img width="898" height="789" alt="Morse MQTT Grid" src="https://github.com/user-attachments/assets/8f201618-b5a9-4cab-b899-4b9b650428a0" />
+<img width="716" height="705" alt="image" src="https://github.com/user-attachments/assets/93386e66-4e26-498e-ab79-cd40bf70f037" />
+
+What did they think before trying? <br>
+- “No idea how it would work”
+- “Assumed it might lag or not update right away”
+
+What surprised them? <br>
+- “It worked better than expected”
+- “I liked seeing my letter appear pretty quickly”
+- “The dashboard made it feel collaborative”
+
+What would they change? <br>
+- “The button lag made it hard to time correctly sometimes”
+	- Here they were referring to when to know when clicking the button for a dot vs a dash would pass the timing threshold for becoming a dash over a dot 	
+- “Maybe add sound feedback when press is registered”
+
+### **5. Reflection**
+What worked well? <br>
+- The majority of this lab went pretty well. The qwiic button detection was reliable, the MQTT pub/sub worked pretty smoothly, the dashboard listener server gave clear real time feedback, and labeled devices and symbol/letter history allow us to construct a message out of user morse code requests.
+
+Challenges with distributed interaction? <br>
+- A couple challenges we hit were around latency. We originally used the APDS 9960 as a morse reader by when we tapped it (blocking light), it would make a dot or dash publish event. The timing and lighting detection was unreliable in this scenario which made us switch to using the qwiic button, which was much better for making a clear dot/dash. There was a little latency is the MQTT server interaction that made UI updates a little slower than expected. It was also interesting dealing with multi device input and deduplication. By having a count and device label with each device, it made it clear where each message was coming from. 
+
+How did sensor events work? <br>
+- Using the qwiic button, sensor events were fairly straighforward. We had dot and dash events based on the duration of the button press, folowed by letter and word separation based on another timing threshold. If you pressed (dot/dash) with a short pause (~2 seconds) and then entered more symbols, that would signify to the server you are onto the next letter. If you had a pause longer than the letter threshold, the server would take it as a word break. Overall the sensor events worked well, just took a lot of finetuning in regards to timing and when to send over events to the topic. 
+
+What would you improve? <br>
+- Probably would take the user suggestion of add auditory feedback on button presses, tweaking the timing thresholds of the button presses more to make it more natural instead of a user guessing when to next press, and maybe making dot and dash two seperate buttons to make this even more clear.
 
 ---
 
