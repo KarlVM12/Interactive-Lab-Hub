@@ -53,7 +53,7 @@ This project is interesting because it transforms simple tactile inputs (button 
 
 **Code Snippets:**<br>
 Important Files:
-- [Server](src/server/app.py)
+- [Server](src/server/app.py) (AI helped with the styling of the dashboard, thats why it looks cool !) 
 - [Pi Publiser](src/pi/qwiic_button_publisher.py)
 - [Morse Decoder helper](src/server/morse.py)
 
