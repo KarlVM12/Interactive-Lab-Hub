@@ -1,168 +1,186 @@
 # Distributed Interaction
 
-**NAMES OF COLLABORATORS HERE**
-
-For submission, replace this section with your documentation!
-
----
-
-## Prep
-
-1. Pull the new changes
-2. Read: [The Presence Table](https://dl.acm.org/doi/10.1145/1935701.1935800) ([video](https://vimeo.com/15932020))
-
-## Overview
-
-Build interactive systems where **multiple devices communicate over a network** using MQTT messaging. Work in teams of 3+ with Raspberry Pis.
-
-**Parts:**
-- A: Learn MQTT messaging
-- B: Try collaborative pixel grid demo  
-- C: Build your own distributed system
+\*\***NAMES OF COLLABORATORS HERE**\*\*
+<br> **Karl Muller (km2262)**
+<br> **Om Kamath (ok97)**
 
 ---
 
 ## Part A: MQTT Messaging
 
-MQTT = lightweight messaging for IoT. Publish/subscribe model with central broker.
+**Testing Listener**
+<img width="1226" height="94" alt="Pasted Graphic" src="https://github.com/user-attachments/assets/744c965e-ccaa-4dc1-a3df-b303d2b2ef94" />
 
-**Concepts:**
-- **Broker**: `farlab.infosci.cornell.edu:1883`
-- **Topic**: Like `IDD/bedroom/temperature` (use `#` wildcard)
-- **Publish/Subscribe**: Send and receive messages
+**Testing Publisher**
+<img width="1425" height="19" alt="Pasted Graphic 1" src="https://github.com/user-attachments/assets/c5eea771-2870-4fb5-b5a8-cbf98b7a42d6" />
 
-**Install MQTT tools on your Pi:**
-```bash
-sudo apt-get update
-sudo apt-get install -y mosquitto-clients
-```
+<img width="1788" height="708" alt="Pasted Graphic 2" src="https://github.com/user-attachments/assets/bc9068a7-25b0-4844-89f4-e255c4460ddc" />
 
-**Test it:**
 
-**Subscribe to messages (listener):**
-```bash
-mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/#' -u idd -P 'device@theFarm'
-```
-
-**Publish a message (sender):**
-```bash
-mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'Hello!' -u idd -P 'device@theFarm'
-```
-
-> **💡 Tips:**
-> - Replace `yourname` with your actual name in the topic
-> - Use single quotes around the password: `'device@theFarm'`
-
-**🔧 Debug Tool:** View all MQTT messages in real-time at `http://farlab.infosci.cornell.edu:5001`
-
-![MQTT Explorer showing messages](imgs/MQTT-explorer.png)
-
-**💡 Brainstorm 5 ideas for messaging between devices**
+**Idea**
+- Morse Code communicator with multiple pi to one server
 
 ---
 
 ## Part B: Collaborative Pixel Grid
 
-Each Pi = one pixel, controlled by RGB sensor, displayed in real-time grid.
+**📸 Include: Screenshot of grid + photo of your Pi setup** <br>
 
-**Architecture:** `Pi (sensor) → MQTT → Server → Web Browser`
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/c2293121-8532-407a-8040-fa152fa8a92e" />
 
-**Setup:**
-
-1. **Sensor**
-
-#### Light/Proximity/Gesture sensor (APDS-9960)
-We use this sensor [Adafruit APDS-9960](https://www.adafruit.com/product/3595) for this exmaple to detect light (also RGB)
- 
-<img src="https://cdn-shop.adafruit.com/970x728/3595-06.jpg" width=200>
-
-Connect it to your pi with Qwiic connector
-
-
-<img src="imgs/IMG_0270.jpg" height="200" />
-We need to use the screen to display the color detection, so we need to stop the running piscreen.service to make your screen available again
-
-```bash
-# stop the screen service
-sudo systemctl stop piscreen.service
-```
-
-if you want to restart the screen service
-```bash
-# start the screen service
-sudo systemctl start piscreen.service
-```
- 
-2. **Server** (one person on laptop):
-```bash
-cd "Lab 6"  
-source .venv/bin/activate
-pip install -r requirements-server.txt
-python app.py
-```
-
-2. **View in browser:**
-   - Grid: `http://farlab.infosci.cornell.edu:5000`
-   - Controller: `http://farlab.infosci.cornell.edu:5000/controller`
-
-3. **Pi publisher** (everyone on their Pi):
-```bash
-# First time setup - create virtual environment
-cd "Lab 6"
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements-pi.txt
-
-# Run the publisher
-python pixel_grid_publisher.py
-```
-
-Hold colored objects near sensor to change your pixel!
-
-![Pixel grid with two devices](imgs/two-devices-grid.png)
-
-**📸 Include: Screenshot of grid + photo of your Pi setup**
 
 ---
 
-## Part C: Make Your Own
+**1. Project Description** <br>
+**What does it do? Why interesting? User experience?** <br>
+We built a distributed system using MQTT where multiple Raspberry Pi devices with Qwiic buttons transmit Morse code (dots and dashes) to a shared MQTT broker. A central Flask server with a web dashboard listens to the topic and displays decoded letters, full messages, and transmission history for each Pi in real time.
 
-**Requirements:**
-- 3+ people, 3+ Pis
-- Each Pi contributes sensor input via MQTT
-- Meaningful or fun interaction
-
-**Ideas:**
-
-**Sensor Fortune Teller**
-- Each Pi sends 0-255 from different sensor
-- Server generates fortunes from combined values
-
-**Frankenstories**
-- Sensor events → story elements (not text!)
-- Red = danger, gesture up = climbed, distance <10cm = suddenly
-
-**Distributed Instrument**
-- Each Pi = one musical parameter
-- Only works together
-
-**Others:** Games, presence display, mood ring
-
-### Deliverables
-
-Replace this README with your documentation:
-
-**1. Project Description**
-- What does it do? Why interesting? User experience?
+This project is interesting because it transforms simple tactile inputs (button presses) into distributed, real time communication using networked microcontrollers. The user presses the button for short (dot) or long (dash) durations. After a pause, the system automatically decodes the Morse sequence and displays the letter. Each Pi has its own message stream, making the experience collaborative and transparent.
 
 **2. Architecture Diagram**
 - Hardware, connections, data flow
 - Label input/computation/output
 
 **3. Build Documentation**
-- Photos of each Pi + sensors
-- MQTT topics used
-- Code snippets with explanations
+
+**Devices:**<br>
+	•	2 or 3 (as many can connect as they want) rpi5 with qwiic button  connected to GPIO header
+	•	Laptop running Flask + MQTT Subscriber Dashboard
+
+**MQTT Topic:**<br>
+- IDD/lab6/morse/coolguys/symbol
+- Payload: `{ "symbol": ".", "device_id": "karl" }` or `{ "symbol": "-", "device_id": "om" }`
+
+**Code Snippets:**<br>
+Publisher function [src/pi/qwiic_button_publisher.py](src/pi/qwiic_button_publisher.py): <br>
+```python
+def publish_message(client, morse_symbols):
+    """Publish morse symbols to the MQTT broker"""
+    global message_count
+    message_count += 1
+    
+    payload = json.dumps({
+        'symbol': morse_symbols,
+        'device_id': 'om',
+        'timestamp': time.time(),
+        'count': message_count
+    })
+    
+    result = client.publish(MQTT_TOPIC, payload)
+    
+    if result.rc == mqtt.MQTT_ERR_SUCCESS:
+        print(f"Published symbols: {morse_symbols}")
+    else:
+        print(f"Publish failed with code {result.rc}")
+    
+    return result
+```
+<br>Where `morse_symbols` were either a dot or dash of current symbol sent from qwiic button. Dot determine by button holding threshold [src/pi/qwiic_button_publisher.py](src/pi/qwiic_button_publisher.py): <br>
+```python
+...
+    if press_duration < DOT_THRESHOLD:
+        current_morse += '.'
+        print('.', end='', flush=True)
+    else:
+        current_morse += '-'
+        print('-', end='', flush=True)
+...
+```
+<br> Server would listen for the topic, extract the symbol [src/server/app.py](src/server/app.py):
+```python
+    def ingest_symbol(self, payload: Dict[str, object]) -> None:
+        symbol = payload.get("symbol")
+        if symbol not in VALID_SYMBOLS:
+            logger.debug("Ignoring payload without symbol: %s", payload)
+            return
+        ...
+
+```
+<br> Server would then try to string together symbols based on timing intervals, message would then be decoded and displayed [src/server/app.py](src/server/app.py): 
+```python
+    def finalize_letter(self, event_time: datetime):
+        pattern = "".join(item["symbol"] for item in self.current_symbols)
+        if not pattern:
+            return None
+        letter = decode_morse(pattern)
+        entry = {
+            "type": "letter",
+            "letter": letter,
+            "pattern": pattern,
+            "timestamp": event_time.isoformat(),
+        }
+        self.decoded_message += letter
+        ...
+```
+<br> Morse code decoder function [src/server/morse.py](src/server/morse.py):
+```python
+MORSE_CODE: Dict[str, str] = {
+    ".-": "A",
+    "-...": "B",
+    "-.-.": "C",
+    "-..": "D",
+    ".": "E",
+    "..-.": "F",
+    "--.": "G",
+    "....": "H",
+    "..": "I",
+    ".---": "J",
+    "-.-": "K",
+    ".-..": "L",
+    "--": "M",
+    "-.": "N",
+    "---": "O",
+    ".--.": "P",
+    "--.-": "Q",
+    ".-.": "R",
+    "...": "S",
+    "-": "T",
+    "..-": "U",
+    "...-": "V",
+    ".--": "W",
+    "-..-": "X",
+    "-.--": "Y",
+    "--..": "Z",
+    "-----": "0",
+    ".----": "1",
+    "..---": "2",
+    "...--": "3",
+    "....-": "4",
+    ".....": "5",
+    "-....": "6",
+    "--...": "7",
+    "---..": "8",
+    "----.": "9",
+    ".-.-.-": ".",
+    "--..--": ",",
+    "..--..": "?",
+    ".----.": "'",
+    "-.-.--": "!",
+    "-..-.": "/",
+    "-.--.": "(",
+    "-.--.-": ")",
+    ".-...": "&",
+    "---...": ":",
+    "-.-.-.": ";",
+    "-...-": "=",
+    ".-.-.": "+",
+    "-....-": "-",
+    "..--.-": "_",
+    ".-..-.": '"',
+    "...-..-": "$",
+    ".--.-.": "@",
+}
+
+VALID_SYMBOLS = {".", "-"}
+
+
+def decode_morse(pattern: str) -> str:
+    """Return the decoded character for a dot/dash pattern (or '?' if unknown)."""
+    cleaned = (pattern or "").strip()
+    if not cleaned:
+        return ""
+    return MORSE_CODE.get(cleaned, "?")
+```
 
 **4. User Testing**
 - **Test with 2+ people NOT on your team**
@@ -179,65 +197,3 @@ Replace this README with your documentation:
 
 ---
 
-## Code Files
-
-**Server files:**
-- `app.py` - Pixel grid server (Flask + WebSocket + MQTT)
-- `mqtt_viewer.py` - MQTT message viewer for debugging
-- `mqtt_bridge.py` - MQTT → WebSocket bridge
-- `requirements-server.txt` - Server dependencies
-
-**Pi files:**
-- `pixel_grid_publisher.py` - Example (RGB sensor → MQTT)
-- `requirements-pi.txt` - Pi dependencies
-
-**Web interface:**
-- `templates/grid.html` - Pixel grid display
-- `templates/controller.html` - Color picker
-- `templates/mqtt_viewer.html` - Message viewer
-
----
-
-## Debugging Tools
-
-**MQTT Message Viewer:** `http://farlab.infosci.cornell.edu:5001`
-- See all MQTT messages in real-time
-- View topics and payloads
-- Helpful for debugging your own projects
-
-**Command line:**
-```bash
-# See all IDD messages
-mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t "IDD/#" -u idd -P "device@theFarm"
-```
-
----
-
-## Troubleshooting
-
-**MQTT:** Broker `farlab.infosci.cornell.edu:1883`, user `idd`, pass `device@theFarm`
-
-**Sensor:** Check `i2cdetect -y 1`, APDS-9960 at `0x39`
-
-**Grid:** Verify server running, check MQTT in console, test with web controller
-
-**Pi venv:** Make sure to activate: `source .venv/bin/activate`
-
-
----
-
-## Submission Checklist
-
-Before submitting:
-- [ ] Delete prep/instructions above
-- [ ] Add YOUR project documentation
-- [ ] Include photos/videos/diagrams  
-- [ ] Document user testing with non-team members
-- [ ] Add reflection on learnings
-- [ ] List team names at top
-
-**Your README = story of what YOU built!**
-
----
-
-Resources: [MQTT Guide](https://www.hivemq.com/mqtt-essentials/) | [Paho Python](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php) | [Flask-SocketIO](https://flask-socketio.readthedocs.io/)
