@@ -38,8 +38,10 @@ We built a distributed system using MQTT where multiple Raspberry Pi devices wit
 This project is interesting because it transforms simple tactile inputs (button presses) into distributed, real time communication using networked microcontrollers. The user presses the button for short (dot) or long (dash) durations. After a pause, the system automatically decodes the Morse sequence and displays the letter. Each Pi has its own message stream, making the experience collaborative and transparent.
 
 ### **2. Architecture Diagram**
-- Hardware, connections, data flow
-- Label input/computation/output
+<img width="1232" height="761" alt="image" src="https://github.com/user-attachments/assets/81213d2f-9eb3-44f5-8ecc-ae8924a58f99" />
+<b>Input:</b> Qwiic button (press duration determines dot or dash) <br><br>
+<b>On each Pi:</b> Python script `qwiic_button_publisher.py` detects press duration, classifies as dot or dash, publishes morse code sequence on topic `IDD/lab6/morse/coolguys/symbol`<br><br>
+<b>Laptop Server:</b> hosts flask web server and decodes morse code published to topic, displaying the symbols and decoded letter from each device <br><br>
 
 ### **3. Build Documentation**
 
