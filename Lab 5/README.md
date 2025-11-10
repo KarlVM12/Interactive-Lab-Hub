@@ -86,8 +86,7 @@ Teachable Machine: <br>
 <img height="400" alt="image" src="https://github.com/user-attachments/assets/8f86dccb-caba-489f-a0f8-d46cfb9a0878" />
 
 **Videos:** <br>
-[Web UI Video Interaction via Pi VNC](https://drive.google.com/file/d/1X1JUGjV3ZeX2ZRhkQ6zCMiVkgF1lNF8O/view?usp=sharing) <br>
-   - when the timer bar fills up for slouching/leaning, the `Peaceful_Mind.wav` starts playing, audio didn't make it through the clip
+[Web UI Video Interaction via Pi VNC](https://drive.google.com/file/d/1X1JUGjV3ZeX2ZRhkQ6zCMiVkgF1lNF8O/view?usp=sharing) (when the timer bar fills up for slouching/leaning, the `Peaceful_Mind.wav` starts playing, audio didn't make it through the clip )<br>
 [Pi & Web UI via VNC Vid 1](https://drive.google.com/file/d/1jOsHRMrEjeTL4NW4WGULc0TxYCOHXe4g/view?usp=sharing) <br>
 [Pi & Web UI via VNC Vid 2](https://drive.google.com/file/d/1O1LaHAX9Eg_ftTYnLHBJncGm5ccTQogV/view?usp=sharing) <br>
 
