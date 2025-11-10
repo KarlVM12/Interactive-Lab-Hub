@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pi Posture Coach</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="preview">
+        <canvas id="canvas" width="320" height="320"></canvas>
+        <div class="status-card">
+          <div class="status-label" id="status-label">Waiting…</div>
+          <div class="status-confidence" id="status-confidence">0%</div>
+          <div class="status-message" id="status-message">Press Start</div>
+          <div class="progress">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </section>
+      <section class="controls">
+        <button id="start-btn" class="primary">Start</button>
+        <button id="stop-btn" disabled>Stop</button>
+        <div class="tips">
+          <p>Use Chrome/Chromium. When the bar fills, the speaker reminds you to sit taller.</p>
+          <p>Model source: <code>posture_teachable_machine/</code></p>
+        </div>
+      </section>
+      <section class="predictions">
+        <h2>Predictions</h2>
+        <div id="predictions"></div>
+      </section>
+    </main>
+    <audio id="coach-audio" preload="auto" src="../Peaceful_Mind.wav"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
