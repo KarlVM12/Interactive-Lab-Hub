@@ -3,27 +3,6 @@
 **NAMES OF COLLABORATORS HERE:** <br>
 **Karl Muller**
 
-For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
-Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
-
-This lab will help you think through the design of observant systems, particularly corner cases that the algorithms need to be aware of.
-
-### Deliverables for this lab are:
-1. Show pictures, videos of the "sense-making" algorithms you tried.
-1. Show a video of how you embed one of these algorithms into your observant system.
-1. Test, characterize your interactive device. Show faults in the detection and how the system handled it.
-
-## Overview
-Building upon the paper-airplane metaphor (we're understanding the material of machine learning for design), here are the four sections of the lab activity:
-
-A) [Play](#part-a)
-
-B) [Fold](#part-b)
-
-C) [Flight test](#part-c)
-
-D) [Reflect](#part-d)
-
 ---
 
 ### Part A: Play with different sense-making algorithms.
@@ -95,13 +74,21 @@ Teachable Machine: <br>
 * **How does X feel?**
    * Like a quiet posture coach sitting by you
 
-**\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
+**\*\*\*Include a short video demonstrating the answers to these questions.\*\*\*** <br>
 [Characterization Video](https://drive.google.com/file/d/1TIDur2KUJ5iUJ6ZdjQrI8SbpgDArxZHY/view?usp=sharing)
 
 
 ### Part 2.
-**\*\*\*Include a short video demonstrating the finished result.\*\*\***
-[Interaction Video](https://drive.google.com/drive/u/4/folders/1zVM1X12Hu56BVthLUF2W2_eCalIQG7VC)
+**\*\*\*Include a short video demonstrating the finished result.\*\*\*** <br>
+**Photos:** <br>
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/369759ae-5679-4aa4-8c2d-b049e858199e" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/7c6fd128-9681-4ff0-b89e-fa716ad3468b" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/8f86dccb-caba-489f-a0f8-d46cfb9a0878" />
+
+**Videos:** <br>
+[Web UI Video Interaction via Pi VNC](https://drive.google.com/file/d/1X1JUGjV3ZeX2ZRhkQ6zCMiVkgF1lNF8O/view?usp=sharing) (when the timer bar fills up for slouching/leaning, the `Peaceful_Mind.wav` starts playing, audio didn't make it through the clip )<br>
+[Pi & Web UI via VNC Vid 1](https://drive.google.com/file/d/1jOsHRMrEjeTL4NW4WGULc0TxYCOHXe4g/view?usp=sharing) <br>
+[Pi & Web UI via VNC Vid 2](https://drive.google.com/file/d/1O1LaHAX9Eg_ftTYnLHBJncGm5ccTQogV/view?usp=sharing) <br>
 
 I used a teachable machine posture model, which did not export as a tflite, only as a model.json and javascript drop in code. So i made it run on the native chromium browser that comes on the pi. So the final product used the Pi 5, webcam, Mini PiTFT, and speaker. The web app is stored in `posture_tm_web/` and uses the same teachable machine pose model files that were already exported in Part 1 (`posture_teachable_machine/model.json`, `metadata.json`, `weights.bin`) where it can discern between slouching, leaning, and upright.
 
