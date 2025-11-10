@@ -51,7 +51,7 @@ This method is really useful for when you need something over just gesture recog
 **\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\*** <br>
 Interaction would involve making sure your posture is correct. Using Teachable Machines, you would be able to split between sitting upright, leaning slightly, or slouching. It would display a green check, warning, or red x, respecitvely, on the pi miniTFT screen depending on the posture class. After 10 seconds it can even play a sound telling you to correct posture. <br>
 Teachable Machine: <br>
-[Posture Teachable Machine Files](posture_teachable_machines/) <br>
+[Posture Teachable Machine Files](posture_teachable_machine/model.json) <br>
 <img height="400" alt="image" src="https://github.com/user-attachments/assets/152e2264-0089-434a-b336-dfab2d6029a1" />
 <img height="400" alt="image" src="https://github.com/user-attachments/assets/62141135-3f41-46ca-9007-8abd739c1da0" />
 <img height="400" alt="image" src="https://github.com/user-attachments/assets/2648d239-f232-4918-b293-6dc63074eca7" />
