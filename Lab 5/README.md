@@ -107,9 +107,9 @@ Teachable Machine: <br>
 <img height="400" alt="image" src="https://github.com/user-attachments/assets/8f86dccb-caba-489f-a0f8-d46cfb9a0878" />
 
 **Videos:** <br>
-[Web UI Video Interaction](https://drive.google.com/file/d/1X1JUGjV3ZeX2ZRhkQ6zCMiVkgF1lNF8O/view?usp=sharing) <br>
-[Pi & Web UI Vid 1](https://drive.google.com/file/d/1jOsHRMrEjeTL4NW4WGULc0TxYCOHXe4g/view?usp=sharing) <br>
-[Pi & Web UI Vid 2](https://drive.google.com/file/d/1O1LaHAX9Eg_ftTYnLHBJncGm5ccTQogV/view?usp=sharing) <br>
+[Web UI Video Interaction via Pi VNC](https://drive.google.com/file/d/1X1JUGjV3ZeX2ZRhkQ6zCMiVkgF1lNF8O/view?usp=sharing) <br>
+[Pi & Web UI via VNC Vid 1](https://drive.google.com/file/d/1jOsHRMrEjeTL4NW4WGULc0TxYCOHXe4g/view?usp=sharing) <br>
+[Pi & Web UI via VNC Vid 2](https://drive.google.com/file/d/1O1LaHAX9Eg_ftTYnLHBJncGm5ccTQogV/view?usp=sharing) <br>
 
 I used a teachable machine posture model, which did not export as a tflite, only as a model.json and javascript drop in code. So i made it run on the native chromium browser that comes on the pi. So the final product used the Pi 5, webcam, Mini PiTFT, and speaker. The web app is stored in `posture_tm_web/` and uses the same teachable machine pose model files that were already exported in Part 1 (`posture_teachable_machine/model.json`, `metadata.json`, `weights.bin`) where it can discern between slouching, leaning, and upright.
 
