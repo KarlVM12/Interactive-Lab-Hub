@@ -85,7 +85,7 @@ Teachable Machine: <br>
 * **What is a good environment for X?**
    * At a desk with a seated user with consistent lighting
 * **What is a bad environment for X?**
-   * Dim lighting, standing/out of frame/differnt angled users, cluttered background
+   * Dim lighting, standing/out of frame/different angled users, cluttered background
 * **When will X break?**
    * If user walks away or another person enters frame
 * **When it breaks how will X break?**
@@ -96,9 +96,9 @@ Teachable Machine: <br>
    * Like a quiet posture coach sitting by you
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
+[Characterization Video](https://drive.google.com/file/d/1TIDur2KUJ5iUJ6ZdjQrI8SbpgDArxZHY/view?usp=sharing)
+
 
 ### Part 2.
-
-Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
-
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
+[Interaction Video](https://drive.google.com/drive/u/4/folders/1zVM1X12Hu56BVthLUF2W2_eCalIQG7VC)
