@@ -102,3 +102,20 @@ Teachable Machine: <br>
 ### Part 2.
 **\*\*\*Include a short video demonstrating the finished result.\*\*\***
 [Interaction Video](https://drive.google.com/drive/u/4/folders/1zVM1X12Hu56BVthLUF2W2_eCalIQG7VC)
+
+I used a teachable machine posture model, which did not export as a tflite, only as a model.json and javascript drop in code. So i made it run on the native chromium browser that comes on the pi. So the final product used the Pi 5, webcam, Mini PiTFT, and speaker. The web app is stored in `posture_tm_web/` and uses the same teachable machine pose model files that were already exported in Part 1 (`posture_teachable_machine/model.json`, `metadata.json`, `weights.bin`) where it can discern between slouching, leaning, and upright.
+
+In the app.js, `tmPose.Webcam` captures the USB webcam feed directly in the browser, feeding frames through the tmPose model to produce the same embeddings that teachable machine used during training. It makes predictions across a 10 second rolling window where once you start leaning or slouching, it starts a 10 second countdown, but once you go upright it resets it immediately. Once the timer fills after ten seconds of slouching or leaning, the page plays a soft audio prompt (`Peaceful_Mind.wav`) to alert you to sit upright
+The miniTFT display is also giving visual cues, showing a prediction bar from upright to learning to slouching, show green, yellow, and red respectively. The webpage mirrors the current predicted posture on the miniTFT through the chromium launched app.js. It shows the live camera feed with pose skeleton, the current label/confidence, a progress bar for the timer, and per class percentages. Audio runs through the bluetooth speaker.
+
+Running:
+```bash
+python posture_tm_server.py
+```
+serves `posture_tm_web/` at `http://localhost:8000/`  and watches for realtime posture updates to display on the miniTFT. <br>
+In a second terminal, this launches the chromium page for viewing the real time posture capturing and classification than only just looking at the miniTFT display:
+```bash
+chromium-browser --autoplay-policy=no-user-gesture-required --kiosk http://localhost:8000/posture_tm_web/
+```
+Clicking Start on the webpage starts the live feed and the Python server mirrors the state (label, confidence, timer bar) on the miniTFT. When the progress bar fills, both the web UI and TFT react while the speaker plays the audio (peaceful reminder sound).
+
