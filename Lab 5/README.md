@@ -85,7 +85,7 @@ Teachable Machine: <br>
 * **What is a good environment for X?**
    * At a desk with a seated user with consistent lighting
 * **What is a bad environment for X?**
-   * Dim lighting, standing/out of frame/differnt angled users, cluttered background
+   * Dim lighting, standing/out of frame/different angled users, cluttered background
 * **When will X break?**
    * If user walks away or another person enters frame
 * **When it breaks how will X break?**
