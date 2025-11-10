@@ -34,7 +34,11 @@ class DisplayController:
             import adafruit_rgb_display.st7789 as st7789
 
             spi = busio.SPI(clock=board.SCK, MOSI=board.MOSI)
-            cs_pin = digitalio.DigitalInOut(board.CE0)
+            # Pi 5 MiniTFT wiring uses GPIO5 for CS to avoid CE0 contention
+            try:
+                cs_pin = digitalio.DigitalInOut(board.D5)
+            except ValueError:
+                cs_pin = digitalio.DigitalInOut(board.CE0)
             dc_pin = digitalio.DigitalInOut(board.D25)
             rst_pin = digitalio.DigitalInOut(board.D24)
             self.display = st7789.ST7789(
