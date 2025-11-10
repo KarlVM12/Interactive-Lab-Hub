@@ -35,15 +35,17 @@ Ran and tested `infer.py`
 #### \*\*MediaPipe\*\*
 Ran and tested `hand_pose.py` with pecentage control and quiet coyote
 <br>Testing Vid: [Hand Pose Test](https://drive.google.com/file/d/10it2BaKFEcAhRogGAz5EzPjarISGGZV3/view?usp=sharing)
-<br>Could use this for a variety of reason, most importantly recognizing gestures, especially ASL. An interaction with this could involve translating hand positions to the correct letter and displaying that on the mini screen. Could also use it to detect when a fist is made, sort of as a 'violence' detector.
+<br>Could use this for a variety of reason, most importantly recognizing gestures, especially ASL. An interaction with this could involve translating hand positions to the correct letter and displaying that on the mini screen. 
 
 #### \*\*Teachable Machines\*\*
-Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
 
+Made a simple model testing between waving Hi with dominant (right) and non-dominant (left) hand <br>
+[Labels](testing_teachable_machines/labels.txt) <br>
+[Model](testing_teachable_machines/model_unquant.tflite) <br>
 
-Next train your own model. Visit [TeachableMachines](https://teachablemachine.withgoogle.com/train), select Image Project and Standard model. The raspberry pi 4 is capable to run not just the low resource models. Second, use the webcam on your computer to train a model. *Note: It might be advisable to use the pi webcam in a similar setting you want to deploy it to improve performance.*  For each class try to have over 150 samples, and consider adding a background or default class where you have nothing in view so the model is trained to know that this is the background. Then create classes based on what you want the model to classify. Lastly, preview and iterate. Finally export your model as a 'Tensorflow lite' model. You will find an '.tflite' file and a 'labels.txt' file. Upload these to your pi (through one of the many ways such as [scp](https://www.raspberrypi.com/documentation/computers/remote-access.html#using-secure-copy), sftp, [vnc](https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6), or a connected visual studio code remote explorer).
-
-Include screenshots of your use of Teachable Machines, and write how you might use this to create your own classifier. Include what different affordances this method brings, compared to the OpenCV or MediaPipe options.
+<img width="1286" height="685" alt="Screenshot 2025-11-09 at 7 20 56 PM" src="https://github.com/user-attachments/assets/879f03dc-3a84-4489-8111-57aab55b96da" />
+<img width="1336" height="720" alt="Screenshot 2025-11-09 at 7 21 12 PM" src="https://github.com/user-attachments/assets/13c0a0ec-1982-4932-a7e4-dc47f0739c7a" />
+This method is really useful for when you need something over just gesture recognition and could be a little harder/abstract to recognize over simple gestures.
 
 ### Part B
 ### Construct a simple interaction.
