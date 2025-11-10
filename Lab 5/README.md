@@ -26,8 +26,7 @@ D) [Reflect](#part-d)
 
 ---
 
-### Part A
-### Play with different sense-making algorithms.
+### Part A: Play with different sense-making algorithms.
 
 #### \*\*Pytorch for object recognition\*\*
 Ran and tested `infer.py`
@@ -47,18 +46,18 @@ Made a simple model testing between waving Hi with dominant (right) and non-domi
 <img width="1336" height="720" alt="Screenshot 2025-11-09 at 7 21 12 PM" src="https://github.com/user-attachments/assets/13c0a0ec-1982-4932-a7e4-dc47f0739c7a" />
 This method is really useful for when you need something over just gesture recognition and could be a little harder/abstract to recognize over simple gestures.
 
-### Part B
-### Construct a simple interaction.
+### Part B: Construct a simple interaction.
 
-* Pick one of the models you have tried, and experiment with prototyping an interaction.
-* This can be as simple as the boat detector shown in lecture.
-* Try out different interaction outputs and inputs.
+**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\*** <br>
+Interaction would involve making sure your posture is correct. Using Teachable Machines, you would be able to split between sitting upright, leaning slightly, or slouching. It would display a green check, warning, or red x, respecitvely, on the pi miniTFT screen depending on the posture class. After 10 seconds it can even play a sound telling you to correct posture. <br>
+Teachable Machine: <br>
+[Posture Teachable Machine Files](posture_teachable_machines/) <br>
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/152e2264-0089-434a-b336-dfab2d6029a1" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/62141135-3f41-46ca-9007-8abd739c1da0" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/2648d239-f232-4918-b293-6dc63074eca7" />
 
 
-**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
-
-### Part C
-### Test the interaction prototype
+### Part C: Test the interaction prototype
 
 Now flight test your interactive prototype and **note down your observations**:
 For example:
