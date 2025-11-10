@@ -3,18 +3,7 @@
 **NAMES OF COLLABORATORS HERE:** <br>
 **Karl Muller**
 
-For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
-Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
-
-This lab will help you think through the design of observant systems, particularly corner cases that the algorithms need to be aware of.
-
-### Deliverables for this lab are:
-1. Show pictures, videos of the "sense-making" algorithms you tried.
-1. Show a video of how you embed one of these algorithms into your observant system.
-1. Test, characterize your interactive device. Show faults in the detection and how the system handled it.
-
 ## Overview
-Building upon the paper-airplane metaphor (we're understanding the material of machine learning for design), here are the four sections of the lab activity:
 
 A) [Play](#part-a)
 
