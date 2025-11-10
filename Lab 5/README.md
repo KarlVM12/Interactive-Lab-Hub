@@ -78,11 +78,8 @@ Teachable Machine: <br>
 4. Are there optimizations you can try to do on your sense-making algorithm.
    - The best optimization would be to make each classification of poor posture vs good posture user & their environment specific
 
-### Part D
-### Characterize your own Observant system
+### Part D: Characterize your own Observant system
 
-Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
-During the lecture, we mentioned questions to help characterize a material:
 * **What can you use X for?**
    * Encouraging good posture
 * **What is a good environment for X?**
