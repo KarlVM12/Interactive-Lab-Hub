@@ -1,5 +1,9 @@
+adafruit-circuitpython-rgb-display==3.13.3
 mediapipe==0.10.18
+numpy==1.26.4
 opencv-python==4.11.0.86
+Pillow==11.0.0
 pip-chill==1.0.3
 teachable-machine-lite==1.2.0.2
+tflite-runtime==2.14.0
 torchvision==0.24.0
