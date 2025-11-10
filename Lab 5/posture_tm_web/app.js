@@ -119,6 +119,8 @@ function triggerAudio() {
 }
 
 async function predictLoop() {
+  if (!webcam) return;
+  webcam.update();
   const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
   const prediction = await model.predict(posenetOutput);
   const sortedPreds = prediction
