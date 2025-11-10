@@ -59,18 +59,24 @@ Teachable Machine: <br>
 
 ### Part C: Test the interaction prototype
 
-Now flight test your interactive prototype and **note down your observations**:
-For example:
 1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+   - works well in lit up rooms with direct upper body view and correctly identifies upright vs slouched positions when facing the camera
+2. When does it fail?
+   - if the background is noisy, father from camera, out of the frame of the camera, if seated at a different angle
+3. When it fails, why does it fail?
+   - Not critical, user just might face posture issues if not classified properly over time.
+4. Based on the behavior you have seen, what other scenarios could cause problems?
+   - Other scenarios would be obstructions like your arms being crossed or objecs blocking the camera, multiple people in the frame, interference in the background, and shifts in lighting.
 
 **\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
 1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+   - In some ways the user would be, the system provides visible feedback so the user should be able to show inconsistences in real time. But if the misclassification is obvious or disruptive, the user might not recognize the false positives or negatives
+2. How bad would they be impacted by a miss classification?
+   -  The impact would be pretty low, the system might falsely prompt the user to sit up when they are already in good posture, which might be sligthly annoying. It wouldn't cause any harm or block interactions or anything else.
+3. How could change your interactive system to address this?
+   - A couple ways to fix this: Require posture classification to occur only after classifying it an N number of times (like 5 times classifying slouching during 10 second interval), let the user set their baseline for good posture first, and maybe also display system's confidence in classifying your posture
+4. Are there optimizations you can try to do on your sense-making algorithm.
+   - The best optimization would be to make each classification of poor posture vs good posture user & their environment specific
 
 ### Part D
 ### Characterize your own Observant system
