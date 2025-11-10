@@ -3,6 +3,7 @@ const BAD_POSTURE = new Set(["slouching", "leaning"]);
 const ALERT_AFTER_MS = 10_000;
 const ALERT_COOLDOWN_MS = 20_000;
 const SMOOTHING_WINDOW = 5;
+const UPDATE_INTERVAL_MS = 500;
 
 let model;
 let webcam;
@@ -21,6 +22,7 @@ const predictionContainer = document.getElementById("predictions");
 const startBtn = document.getElementById("start-btn");
 const stopBtn = document.getElementById("stop-btn");
 const audioEl = document.getElementById("coach-audio");
+let lastPostSent = 0;
 
 async function loadModel() {
   if (model) {
@@ -66,6 +68,7 @@ function updateUI(sortedPreds, pose) {
   updateLabelHistory(best.label);
   const label = smoothedLabel();
   const confidence = sortedPreds.find((p) => p.label === label)?.probability || 0;
+  let ratio = 0;
 
   const friendly = label ? label.toUpperCase() : "UNKNOWN";
   statusLabel.textContent = friendly;
@@ -77,7 +80,7 @@ function updateUI(sortedPreds, pose) {
       lastBadStart = now;
     }
     const elapsed = now - lastBadStart;
-    const ratio = Math.min(1, elapsed / ALERT_AFTER_MS);
+    ratio = Math.min(1, elapsed / ALERT_AFTER_MS);
     progressFill.style.width = `${ratio * 100}%`;
     statusMessage.textContent = ratio >= 1 ? "Audio reminder playing" : "Sit taller";
 
@@ -108,6 +111,8 @@ function updateUI(sortedPreds, pose) {
     tmPose.drawKeypoints(pose.keypoints, minConfidence, ctx);
     tmPose.drawSkeleton(pose.keypoints, minConfidence, ctx);
   }
+
+  notifyDisplay({ label, confidence, ratio, predictions: sortedPreds });
 }
 
 function triggerAudio() {
@@ -183,3 +188,16 @@ async function stopSystem() {
 
 startBtn.addEventListener("click", startSystem);
 stopBtn.addEventListener("click", stopSystem);
+
+function notifyDisplay(payload) {
+  const now = performance.now();
+  if (now - lastPostSent < UPDATE_INTERVAL_MS) {
+    return;
+  }
+  lastPostSent = now;
+  fetch("/posture-update", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  }).catch(() => {});
+}
