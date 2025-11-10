@@ -3,16 +3,6 @@
 **NAMES OF COLLABORATORS HERE:** <br>
 **Karl Muller**
 
-## Overview
-
-A) [Play](#part-a)
-
-B) [Fold](#part-b)
-
-C) [Flight test](#part-c)
-
-D) [Reflect](#part-d)
-
 ---
 
 ### Part A: Play with different sense-making algorithms.
