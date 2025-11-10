@@ -83,13 +83,20 @@ Teachable Machine: <br>
 
 Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
 During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for?
-* What is a good environment for X?
-* What is a bad environment for X?
-* When will X break?
-* When it breaks how will X break?
-* What are other properties/behaviors of X?
-* How does X feel?
+* **What can you use X for?**
+   * Encouraging good posture
+* **What is a good environment for X?**
+   * At a desk with a seated user with consistent lighting
+* **What is a bad environment for X?**
+   * Dim lighting, standing/out of frame/differnt angled users, cluttered background
+* **When will X break?**
+   * If user walks away or another person enters frame
+* **When it breaks how will X break?**
+   * Will misclassify posture or stop detecting a person  
+* **What are other properties/behaviors of X?**
+   * It could also end up measuring time seating correctly/incorrectly
+* **How does X feel?**
+   * Like a quiet posture coach sitting by you
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 
