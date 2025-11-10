@@ -26,8 +26,7 @@ D) [Reflect](#part-d)
 
 ---
 
-### Part A
-### Play with different sense-making algorithms.
+### Part A: Play with different sense-making algorithms.
 
 #### \*\*Pytorch for object recognition\*\*
 Ran and tested `infer.py`
@@ -47,44 +46,54 @@ Made a simple model testing between waving Hi with dominant (right) and non-domi
 <img width="1336" height="720" alt="Screenshot 2025-11-09 at 7 21 12 PM" src="https://github.com/user-attachments/assets/13c0a0ec-1982-4932-a7e4-dc47f0739c7a" />
 This method is really useful for when you need something over just gesture recognition and could be a little harder/abstract to recognize over simple gestures.
 
-### Part B
-### Construct a simple interaction.
+### Part B: Construct a simple interaction.
 
-* Pick one of the models you have tried, and experiment with prototyping an interaction.
-* This can be as simple as the boat detector shown in lecture.
-* Try out different interaction outputs and inputs.
+**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\*** <br>
+Interaction would involve making sure your posture is correct. Using Teachable Machines, you would be able to split between sitting upright, leaning slightly, or slouching. It would display a green check, warning, or red x, respecitvely, on the pi miniTFT screen depending on the posture class. After 10 seconds it can even play a sound telling you to correct posture. <br>
+Teachable Machine: <br>
+[Posture Teachable Machine Files](posture_teachable_machine/model.json) <br>
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/152e2264-0089-434a-b336-dfab2d6029a1" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/62141135-3f41-46ca-9007-8abd739c1da0" />
+<img height="400" alt="image" src="https://github.com/user-attachments/assets/2648d239-f232-4918-b293-6dc63074eca7" />
 
 
-**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
+### Part C: Test the interaction prototype
 
-### Part C
-### Test the interaction prototype
-
-Now flight test your interactive prototype and **note down your observations**:
-For example:
 1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+   - works well in lit up rooms with direct upper body view and correctly identifies upright vs slouched positions when facing the camera
+2. When does it fail?
+   - if the background is noisy, father from camera, out of the frame of the camera, if seated at a different angle
+3. When it fails, why does it fail?
+   - Not critical, user just might face posture issues if not classified properly over time.
+4. Based on the behavior you have seen, what other scenarios could cause problems?
+   - Other scenarios would be obstructions like your arms being crossed or objecs blocking the camera, multiple people in the frame, interference in the background, and shifts in lighting.
 
 **\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
 1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+   - In some ways the user would be, the system provides visible feedback so the user should be able to show inconsistences in real time. But if the misclassification is obvious or disruptive, the user might not recognize the false positives or negatives
+2. How bad would they be impacted by a miss classification?
+   -  The impact would be pretty low, the system might falsely prompt the user to sit up when they are already in good posture, which might be sligthly annoying. It wouldn't cause any harm or block interactions or anything else.
+3. How could change your interactive system to address this?
+   - A couple ways to fix this: Require posture classification to occur only after classifying it an N number of times (like 5 times classifying slouching during 10 second interval), let the user set their baseline for good posture first, and maybe also display system's confidence in classifying your posture
+4. Are there optimizations you can try to do on your sense-making algorithm.
+   - The best optimization would be to make each classification of poor posture vs good posture user & their environment specific
 
-### Part D
-### Characterize your own Observant system
+### Part D: Characterize your own Observant system
 
-Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
-During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for?
-* What is a good environment for X?
-* What is a bad environment for X?
-* When will X break?
-* When it breaks how will X break?
-* What are other properties/behaviors of X?
-* How does X feel?
+* **What can you use X for?**
+   * Encouraging good posture
+* **What is a good environment for X?**
+   * At a desk with a seated user with consistent lighting
+* **What is a bad environment for X?**
+   * Dim lighting, standing/out of frame/differnt angled users, cluttered background
+* **When will X break?**
+   * If user walks away or another person enters frame
+* **When it breaks how will X break?**
+   * Will misclassify posture or stop detecting a person  
+* **What are other properties/behaviors of X?**
+   * It could also end up measuring time seating correctly/incorrectly
+* **How does X feel?**
+   * Like a quiet posture coach sitting by you
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 
