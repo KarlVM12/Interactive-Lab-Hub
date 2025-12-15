@@ -7,13 +7,20 @@ Group: Karl Muller (km2262), Om Kamath (ok97)
 
 > A subway tracker that syncs with your class schedule to suggest the best time to leave and the train to choose.
 
-### Additional Components:
+| Milestone | Date | Notes |
+| :--- | :--- | :--- |
+| **Fetching MTA data** | 11/17 | Selecting the best API for bringing data. |
+| **Fetching Calender Data** | 11/21 | Converting `.ics` files to something that is readable. Potential use of LLMs here. |
+| **Connect display and wiring everything up** | 11/23 | Creating an Enclosure. Performing user testing. First prototype. |
+| **Functional check-off** | 12/1 | Changes Based on User Feedback. |
+| **Presentation** | 12/8 | Presentation and User Feedback |
+| **Final Documentation** | 12/15 | Full Detailed Write up and Documentation of Project |
+
+#### Original Planned Components and Flow
+##### Additional Components:
 * A dot matrix / LCD Display
 
----
-
-### System Architecture Flow
-
+##### System Architecture Flow
 1.  **Button/Hotkey**
     * *Context:* or scheduled trigger
     * *Flows to:* Planner Fetch
@@ -31,18 +38,14 @@ Group: Karl Muller (km2262), Om Kamath (ok97)
 5.  **TTS Output**
     * *Context:* Speaker: 'Leave in 8 min'
 
----
 
-### Project Milestones
+#### Feedback and Project Evolution
+After the functional check off and user feedback, we rethought some of the original design, component, and flow from above. Originally, we were just using the touch screen, with one limited screen where everything was squished together such that text took up a lot of the screen and it wasn't very clear how much this device could help. Taking that feedback is what allowed us to evolve our design in the multiscreen, summary vs detailed, views where you simply moved around with only having to scroll and click with the added rotary encoder component, with everything presented to you clearly and with legible font, without overall whelming you with information. We were able to produce a much better final product after this point to present by 12/8.
+The documentation in the following sections will show all the details of this enhanced final product.
 
-| Milestone | Date | Notes |
-| :--- | :--- | :--- |
-| **Fetching MTA data** | 11/17 | Selecting the best API for bringing data. |
-| **Fetching Calender Data** | 11/21 | Converting `.ics` files to something that is readable. Potential use of LLMs here. |
-| **Connect display and wiring everything up** | 11/23 | Creating an enclosure for this. Performing user testing. First prototype. |
-| **Functional check-off** | December 1 | Changes based on user feedback. |
+## Product: RailReady
 
-### Functioning project
+### Final Functioning Details
 
 **RailReady** is a Raspberry Pi-powered interactive device that syncs with Google Calendar to help NYC subway commuters catch their trains on time. The device features a rotary encoder navigation interface and a multi-screen dashboard display.
 
@@ -83,7 +86,7 @@ Watch the full demonstration of RailReady in action:
 - **Live Weather Data**: Integration with Open Meteo API for current conditions
 - **Reliability Aware Planning**: Accounts for walking time from your location (current default set to Grand Central Terminal) and provides buffer to ensure on time arrival
 
-### Documentation of design process
+### Design Process & Motivation
 We wanted to create something similar to products by Divoom (https://divoom.com/) and did not want to the interaction to rely on the touch screen since the screen real-estate was really small.
 
 We decided to integrate a rotary encoder to it and make the navigation based on scroll-and-click functionality.
@@ -96,7 +99,7 @@ We then generated a 3D render of it using Gemini Nano Banana Pro.
 
 <br>
 
-### Archive of all code, design patterns, etc.
+### Technical Details (Archive of all code, design patterns, etc.)
 
 #### System Architecture
 
