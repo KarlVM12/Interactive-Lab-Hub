@@ -16,11 +16,11 @@ Group: Karl Muller (km2262), Om Kamath (ok97)
 | **Presentation** | 12/8 | Presentation and User Feedback |
 | **Final Documentation** | 12/15 | Full Detailed Write up and Documentation of Project |
 
-#### Original Planned Components and Flow
-##### Additional Components:
+### Original Planned Components and Flow
+#### Additional Components:
 * A dot matrix / LCD Display
 
-##### System Architecture Flow
+#### System Architecture Flow:
 1.  **Button/Hotkey**
     * *Context:* or scheduled trigger
     * *Flows to:* Planner Fetch
@@ -39,9 +39,12 @@ Group: Karl Muller (km2262), Om Kamath (ok97)
     * *Context:* Speaker: 'Leave in 8 min'
 
 
-#### Feedback and Project Evolution
-After the functional check off and user feedback, we rethought some of the original design, component, and flow from above. Originally, we were just using the touch screen, with one limited screen where everything was squished together such that text took up a lot of the screen and it wasn't very clear how much this device could help. Taking that feedback is what allowed us to evolve our design in the multiscreen, summary vs detailed, views where you simply moved around with only having to scroll and click with the added rotary encoder component, with everything presented to you clearly and with legible font, without overall whelming you with information. We were able to produce a much better final product after this point to present by 12/8.
+#### Feedback and Project Evolution:
+After the functional check off and user feedback, we rethought some of the original design, component, and flow from above. Originally, we were just using the touch screen, with one limited screen where everything was squished together such that text took up a lot of the screen and it wasn't very clear how much this device could help. Taking that feedback is what allowed us to evolve our design in the multiscreen, summary vs detailed, views where you simply moved around with only having to scroll and click with the added rotary encoder component, with everything presented to you clearly and with legible font, without overwhelming you with information. We were able to produce a much better final product after this point to present by 12/8.
 The documentation in the following sections will show all the details of this enhanced final product.
+
+#### Fallback Plan:
+If enhancing the final product utilizing the help of Gemini 3 to streamline route planning had not worked out, the original plan of directly using and parsing the GTFS data from the MTA API was what we would've continued to use.
 
 ## Product: RailReady
 
@@ -56,13 +59,13 @@ Watch the full demonstration of RailReady in action:
 #### Device Screenshots
 
 **Main Screen 1: Clock & Weather Dashboard**
-![Device Main Screen 1](https://drive.google.com/uc?id=1UuNNyA71tRE2RmgLCvyf658pI5z-1wJF)
+![Device Main Screen 1](./device_screen_1.png)
 
 **Main Screen 2: Transit Status**
-![Device Main Screen 2](https://drive.google.com/uc?id=1so57AJWvZgOSxSrSRY4RDFmXjw9Gz6rl)
+![Device Main Screen 2](./device_screen_2.png)
 
 **Main Screen 3: Route Details**
-![Device Main Screen 3](https://drive.google.com/uc?id=1tGrd25HdJJMHks5VM-7USaiNV8NLnGij)
+![Device Main Screen 3](./device_screen_3.png)
 
 #### Key Features
 - **Google Calendar Integration**: Automatically fetches upcoming events with location data
@@ -78,8 +81,7 @@ Watch the full demonstration of RailReady in action:
     - Summary: Large clock display with current date and weather
     - Detail: Upcoming calendar events list with sign in/sign out functionality
   - **Screen 2 - Transit Status**
-    - Summary: Time-to-leave countdown and subway line badge
-    - Detail: Full train details including departure time, walking distance/time, transfers, and arrival time
+    - Summary: Time to leave countdown and subway line badge with transfer if provided
   - **Screen 3 - Route**
     - Summary: Total stop count and destination
     - Detail: Individual stop viewer where you can scroll through each subway stop with line information and transfer indicators
@@ -135,7 +137,7 @@ RailReady consists of a Flask backend server running on a Raspberry Pi, serving 
   - Returns JSON formatted routing responses to server
 
 - `gtfs_loader.py` - GTFS data loader (fallback, not actively used):
-  - Originally were pursing using the MTA direct API which encodes its data in GTFS. This would file would parse and all us to work with that data.
+  - Originally were pursing using the MTA direct API which encodes its data in GTFS. This would parse and allow us to work with that data.
   - Parses static GTFS feed (stops, routes, trips, stop_times)
   - Provides stop sequence lookup by route and station names
   - Included for potential future use but Gemini API provides complete data
@@ -155,7 +157,7 @@ RailReady consists of a Flask backend server running on a Raspberry Pi, serving 
 - `script.js` - Frontend logic managing:
   - Google OAuth token flow for Calendar access
   - Screen navigation state machine
-  - Rotary encoder event polling (long-polling to `/api/encoder-event`)
+  - Rotary encoder event polling (long polling to `/api/encoder-event`)
   - Real time countdown timers for time and when to leave
   - LED update commands based on route data
   - Event selection and route planning workflow
@@ -246,11 +248,11 @@ python server.py
 # Network: http://<raspberry-pi-ip>:5000
 ```
 
-**5. Automating RailReady**
+**5. Automating RailReady** <br>
 In order to make it easier to start up, can add this to the bottom of your `.bashrc.`:
 ```bash
 railready() {
-  cd Documents/Github/FinalProjIDD || return
+  cd CLONED_REPO_ROOT_LOCATION || return
   source venv/bin/activate
   python server.py &
   SERVER_PID=$!
@@ -269,14 +271,14 @@ railready() {
   wait $SERVER_PID
 }
 ```
-That way you can open up a fresh terminal, and just type `railready` and the browser will start up with the server running for you. The extra variables are add to the chromium browser were partially as a result of the touchscreen display we used. In that way, given also a small 5in screen, we only wanted interaction via the rotary encoder. So made chromium go completely fullscreen and disable the touch alongside the virtual keyboard.
+That way you can open up a fresh terminal, and just type `railready` and the browser will start up with the server running for you. The extra variables are added to the chromium browser were partially as a result of the touchscreen display we used. In that way, given also a small 5in screen, we only wanted interaction via the rotary encoder. So we made chromium go completely fullscreen and disable the touch alongside the virtual keyboard.
 
 #### Key Design Patterns
 
-**1. Long-Polling for Hardware Events**
+**1. Long Polling for Hardware Events**
 - Frontend polls `/api/encoder-event` with 30 second timeout
 - Server blocks until rotary encoder emits 'cw', 'ccw', or 'click'
-- Enables responsive hardware interaction without WebSockets
+- Enables responsive hardware interaction without Websockets
 
 **2. State Machine Navigation**
 - Three main screens with summary/detail view states
@@ -319,5 +321,5 @@ To recreate RailReady from scratch:
 
 ### Interaction with RailReady
 
-Video shows someone using RailReady to coordinate transit plans, showing how the device helps determine when and how to get to an event using NYC subway lines.
-[Interaction Video - Planning a trip together](https://drive.google.com/file/d/1XxXs4DTlha7_Q37TPRrgLYWmgc_e8_Lg/view?usp=sharing)
+Video shows someone using RailReady to coordinate transit plans, showing how the device helps determine when and how to get to an event using NYC subway lines. <br>
+[Interaction Video - Planning a trip together](https://drive.google.com/file/d/1XxXs4DTlha7_Q37TPRrgLYWmgc_e8_Lg/view?usp=sharing) (had to darken to see the screen/LEDs better on camera)
