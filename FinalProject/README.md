@@ -320,7 +320,7 @@ To recreate RailReady from scratch:
    - Change LED brightness via `BRIGHTNESS_PERCENT` constant
 
 ### Interaction with RailReady
-Blind user of RailReady, did not inform the user how to use the product or even how to interact except what to interact with (rotary encoder): <br>
+Blind use case of RailReady, did not inform the user how to use the product or even how to interact except what to interact with (rotary encoder): <br>
 [Interaction Video - Blind Interaction](https://drive.google.com/file/d/1T4beY890szpxs2IMZJ3Hvfy6-iY1MYm7/view?usp=sharing) 
 - You can see at first some difficulty using the encoder and navigation, which is natural given they had no experience with a raspberry pi and also ideally would not be as difficult to interact with the final product given it would be a cleaner interaction knob.
 
