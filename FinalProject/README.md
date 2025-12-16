@@ -321,5 +321,5 @@ To recreate RailReady from scratch:
 
 ### Interaction with RailReady
 
-Video shows someone using RailReady to coordinate transit plans, showing how the device helps determine when and how to get to an event using NYC subway lines. <br>
-[Interaction Video - Planning a trip together](https://drive.google.com/file/d/1XxXs4DTlha7_Q37TPRrgLYWmgc_e8_Lg/view?usp=sharing) (had to darken to see the screen/LEDs better on camera)
+Video shows someone using RailReady to coordinate transit plans, showing how the device helps determine when and how to get to an event using NYC subway lines (had to darken to see the screen/LEDs better on camera): <br>
+[Interaction Video - Planning a trip together](https://drive.google.com/file/d/1XxXs4DTlha7_Q37TPRrgLYWmgc_e8_Lg/view?usp=sharing)
