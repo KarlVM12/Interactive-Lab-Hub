@@ -320,6 +320,9 @@ To recreate RailReady from scratch:
    - Change LED brightness via `BRIGHTNESS_PERCENT` constant
 
 ### Interaction with RailReady
+Blind user of RailReady, did not inform the user how to use the product or even how to interact except what to interact with (rotary encoder): <br>
+[Interaction Video - Blind Interaction](https://drive.google.com/file/d/1T4beY890szpxs2IMZJ3Hvfy6-iY1MYm7/view?usp=sharing) (You can was at first some difficulty using the encoder and navigation, which is natural given they had no experience with a raspberry pi.)
 
-Video shows someone using RailReady to coordinate transit plans, showing how the device helps determine when and how to get to an event using NYC subway lines (had to darken to see the screen/LEDs better on camera): <br>
+After the user got used to the device and felt confident to use it with me, asked them question to coordinate transit plans. Showed how the device helps determine when and how to get to an event using NYC subway lines (had to darken to see the screen/LEDs better on camera): <br>
 [Interaction Video - Planning a trip together](https://drive.google.com/file/d/1XxXs4DTlha7_Q37TPRrgLYWmgc_e8_Lg/view?usp=sharing)
+
