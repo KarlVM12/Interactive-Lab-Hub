@@ -59,13 +59,13 @@ Watch the full demonstration of RailReady in action:
 #### Device Screenshots
 
 **Main Screen 1: Clock & Weather Dashboard**
-![Device Main Screen 1](./device_screen_1.png)
+<img src="./device_screen_1.png" width="50%" alt="Device Main Screen 1" />
 
 **Main Screen 2: Transit Status**
-![Device Main Screen 2](./device_screen_2.png)
+<img src="./device_screen_2.png" width="50%" alt="Device Main Screen 2" />
 
 **Main Screen 3: Route Details**
-![Device Main Screen 3](./device_screen_3.png)
+<img src="./device_screen_3.png" width="50%" alt="Device Main Screen 3" />
 
 #### Key Features
 - **Google Calendar Integration**: Automatically fetches upcoming events with location data
