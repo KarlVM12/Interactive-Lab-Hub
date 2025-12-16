@@ -249,7 +249,7 @@ python server.py
 ```
 
 **5. Automating RailReady** <br>
-In order to make it easier to start up, can add this to the bottom of your `.bashrc.`:
+In order to make it easier to start up, can add this to the bottom of your `.bashrc`:
 ```bash
 railready() {
   cd CLONED_REPO_ROOT_LOCATION || return
